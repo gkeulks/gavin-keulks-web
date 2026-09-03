@@ -2,14 +2,21 @@
 import { sections } from '../data/nav';
 
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isHome = path === '/';
 ---
 
-<header class="site-header">
+<header class:list={['site-header', { home: isHome }]}>
 	<div class="wrap inner">
-		<a class="wordmark" href="/">
-			<span class="name">Gavin Keulks</span>
-			<span class="role">Professor of Literature &amp; Film, Western Oregon University</span>
-		</a>
+		{
+			!isHome && (
+				<a class="wordmark" href="/">
+					<span class="name">Gavin Keulks</span>
+					<span class="role">
+						Professor of Literature &amp; Film, Western Oregon University
+					</span>
+				</a>
+			)
+		}
 		<button
 			class="nav-toggle"
 			id="nav-toggle"
@@ -68,6 +75,16 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 		align-items: baseline;
 		gap: 0.75rem 1.5rem;
 		padding-block: 1.6rem 0;
+	}
+
+	/* Home: no wordmark — the hero carries the name. Just the nav row. */
+	.site-header.home .inner {
+		grid-template-columns: 1fr;
+		padding-block: 1rem 0;
+	}
+
+	.site-header.home .primary-nav {
+		margin-top: 0;
 	}
 
 	.wordmark {
@@ -168,6 +185,10 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 		.nav-toggle {
 			display: flex;
+		}
+
+		.site-header.home .nav-toggle {
+			justify-self: start;
 		}
 
 		.primary-nav {

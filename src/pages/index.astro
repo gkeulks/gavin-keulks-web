@@ -5,36 +5,39 @@ import { sections } from '../data/nav';
 
 <Layout title="Gavin Keulks" bareTitle description="Gavin Keulks — Professor of Literature and Film at Western Oregon University.">
 	<div class="wrap">
-		<section class="intro measure-wide">
-			<h1>Gavin Keulks</h1>
-			<p class="lede">
-				Professor of literature and film, specialising in twentieth-century
-				English and Irish fiction of the postwar period. Editor of{' '}
-				<em>The Cambridge Companion to Martin Amis</em> and administrator of
-				the Martin Amis Web since 2006. Current work turns toward Irish
-				traumatic spaces &mdash; and toward a first novel.
+		<div class="home measure-wide">
+			<section class="intro">
+				<h1>Gavin Keulks</h1>
+				<p class="lede">
+					Professor of literature and film at Western Oregon University,
+					specialising in twentieth-century English and Irish fiction of the
+					postwar period. Editor of{' '}
+					<em>The Cambridge Companion to Martin Amis</em> and administrator of
+					the Martin Amis Web since 2006. Current work turns toward Irish
+					traumatic spaces &mdash; and toward a first novel.
+				</p>
+			</section>
+
+			<nav class="index" aria-label="Sections">
+				<ul>
+					{
+						sections.map((s) => (
+							<li>
+								<a href={`/${s.slug}/`}>
+									<span class="index-title">{s.title}</span>
+									<span class="index-blurb">{s.blurb}</span>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<p class="scaffold-note">
+				This site is under construction. The current site remains at{' '}
+				<a href="https://wp.wou.education/keulksg/">wp.wou.education/keulksg</a>.
 			</p>
-		</section>
-
-		<nav class="index" aria-label="Sections">
-			<ul>
-				{
-					sections.map((s) => (
-						<li>
-							<a href={`/${s.slug}/`}>
-								<span class="index-title">{s.title}</span>
-								<span class="index-blurb">{s.blurb}</span>
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</nav>
-
-		<p class="scaffold-note">
-			This site is under construction. The current site remains at{' '}
-			<a href="https://wp.wou.education/keulksg/">wp.wou.education/keulksg</a>.
-		</p>
+		</div>
 	</div>
 </Layout>
 
