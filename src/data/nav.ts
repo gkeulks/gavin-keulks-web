@@ -15,14 +15,22 @@ export const sections: NavSection[] = [
 		live: false,
 	},
 	{
-		slug: 'scholarship',
-		title: 'Scholarship',
-		blurb: 'Books, chapters, and the Martin Amis Web — work for general and specialist readers.',
+		slug: 'books',
+		title: 'Books',
+		blurb:
+			'Three books — Father and Son, Martin Amis: Postmodernism and Beyond, and The Cambridge Companion to Martin Amis.',
 		live: false,
 	},
 	{
-		slug: 'spatial-trauma',
-		title: 'Spatial Trauma',
+		slug: 'scholarship',
+		title: 'Scholarship',
+		blurb:
+			'Essays, book chapters, and the Martin Amis Web — work for general and specialist readers.',
+		live: false,
+	},
+	{
+		slug: 'fieldwork',
+		title: 'Fieldwork',
 		blurb:
 			'Site-based photographs (my own), for a book I’m writing on the reclamation of traumatic spaces in Ireland.',
 		live: false,
@@ -36,7 +44,8 @@ export const sections: NavSection[] = [
 	{
 		slug: 'consulting',
 		title: 'Consulting',
-		blurb: 'External program review and assessment for honors programs and English departments.',
+		blurb:
+			'External program review and assessment for honors programs and English departments.',
 		live: false,
 	},
 	{

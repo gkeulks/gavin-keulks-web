@@ -1,62 +1,63 @@
-@import '@fontsource-variable/newsreader/opsz.css';
-@import '@fontsource-variable/newsreader/opsz-italic.css';
+@import '@fontsource/spectral/400.css';
+@import '@fontsource/spectral/400-italic.css';
+@import '@fontsource/spectral/600.css';
+@import '@fontsource/spectral/600-italic.css';
 @import '@fontsource-variable/inter';
 
 /*
- * Design tokens — first pass, September 2026.
- * The site is deliberately quiet: near-monochrome chrome, one restrained
- * accent, generous measure. Colour is meant to come from the photographs.
+ * Design system — "Review + Field" hybrid, September 2026.
+ * Spectral throughout, true monochrome, confident display scale, and the
+ * generous whitespace of the "Field" direction. Colour is meant to come
+ * from the photographs, never the chrome.
  */
 
 :root {
-	--color-paper: #fcfbf8;
-	--color-paper-raised: #ffffff;
-	--color-ink: #18160f;
-	--color-ink-soft: #4b463d;
-	--color-ink-faint: #8a8377;
-	--color-line: #e6e1d6;
-	--color-line-strong: #d3ccbc;
-	--color-accent: #3a5a53;
-	--color-accent-soft: #5c817a;
+	--color-paper: #faf8f4;
+	--color-paper-raised: #fffefb;
+	--color-ink: #1a1a17;
+	--color-ink-soft: #55514a;
+	--color-ink-faint: #8d887e;
+	--color-line: #e5e1d7;
+	--color-line-strong: #cdc7b9;
+	/* monochrome: the "accent" is the ink itself */
+	--color-accent: #1a1a17;
 
-	--font-display: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
-	--font-body: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
+	--font-display: 'Spectral', Georgia, 'Times New Roman', serif;
+	--font-body: 'Spectral', Georgia, 'Times New Roman', serif;
 	--font-sans: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-	/* One shared column: header, nav, content and footer all align to the
-	   same left edge, and .wrap centres on the page as a whole. Wide,
-	   full-bleed layouts (e.g. the photo gallery) will opt in separately. */
-	--content-width: 44rem;
-	--wide-width: 52rem;
-	--page-width: 56rem;
-	--page-width-wide: 78rem;
+	/* Narrow, book-like column. Header, nav, content and footer all align
+	   to one left edge; the block centres on the page. Wide layouts (the
+	   Fieldwork gallery) opt into --page-width-wide separately. */
+	--content-width: 40rem;
+	--wide-width: 44rem;
+	--page-width: 46rem;
+	--page-width-wide: 76rem;
 
-	--space-section: clamp(3.5rem, 8vw, 6rem);
+	--space-section: clamp(4rem, 9vw, 7rem);
 }
 
 :root[data-theme='dark'] {
-	--color-paper: #14130e;
-	--color-paper-raised: #1c1b15;
-	--color-ink: #ece6d9;
-	--color-ink-soft: #c1baa9;
-	--color-ink-faint: #8a8377;
+	--color-paper: #15140f;
+	--color-paper-raised: #1e1c16;
+	--color-ink: #ece7dc;
+	--color-ink-soft: #b7b1a3;
+	--color-ink-faint: #837d70;
 	--color-line: #322f27;
-	--color-line-strong: #423e34;
-	--color-accent: #8fb4ab;
-	--color-accent-soft: #a9c8c0;
+	--color-line-strong: #47433a;
+	--color-accent: #ece7dc;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root:not([data-theme='light']) {
-		--color-paper: #14130e;
-		--color-paper-raised: #1c1b15;
-		--color-ink: #ece6d9;
-		--color-ink-soft: #c1baa9;
-		--color-ink-faint: #8a8377;
+		--color-paper: #15140f;
+		--color-paper-raised: #1e1c16;
+		--color-ink: #ece7dc;
+		--color-ink-soft: #b7b1a3;
+		--color-ink-faint: #837d70;
 		--color-line: #322f27;
-		--color-line-strong: #423e34;
-		--color-accent: #8fb4ab;
-		--color-accent-soft: #a9c8c0;
+		--color-line-strong: #47433a;
+		--color-accent: #ece7dc;
 	}
 }
 
@@ -77,27 +78,32 @@ body {
 	font-family: var(--font-body);
 	font-optical-sizing: auto;
 	font-size: 1.15rem;
-	line-height: 1.62;
+	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4 {
 	font-family: var(--font-display);
-	font-weight: 500;
-	line-height: 1.12;
-	letter-spacing: -0.011em;
+	font-weight: 600;
+	line-height: 1.1;
 	color: var(--color-ink);
 	text-wrap: balance;
 }
 
 h1 {
-	font-size: clamp(2rem, 5vw, 3rem);
-	font-weight: 400;
+	font-size: clamp(2.4rem, 5.5vw, 3.5rem);
+	line-height: 1.04;
+	letter-spacing: -0.021em;
 }
 
 h2 {
-	font-size: clamp(1.5rem, 3vw, 1.9rem);
+	font-size: clamp(1.35rem, 2.6vw, 1.6rem);
+	letter-spacing: -0.008em;
+}
+
+h3 {
+	font-size: 1.15rem;
 }
 
 p {
@@ -106,21 +112,37 @@ p {
 
 a {
 	color: var(--color-accent);
+	text-decoration: underline;
 	text-decoration-thickness: 1px;
 	text-decoration-color: var(--color-line-strong);
-	text-underline-offset: 0.18em;
+	text-underline-offset: 0.16em;
 	transition: text-decoration-color 0.15s ease;
 }
 
 a:hover {
-	color: var(--color-accent-soft);
 	text-decoration-color: currentColor;
+}
+
+em, i {
+	font-style: italic;
 }
 
 img {
 	max-width: 100%;
 	height: auto;
 	display: block;
+}
+
+figure {
+	margin: 0;
+}
+
+figcaption {
+	font-family: var(--font-sans);
+	font-size: 0.78rem;
+	line-height: 1.45;
+	color: var(--color-ink-faint);
+	margin-top: 0.7rem;
 }
 
 hr {
@@ -130,11 +152,25 @@ hr {
 	margin: var(--space-section) 0;
 }
 
+blockquote {
+	margin: 2em 0;
+	padding: 1.1em 0;
+	border-top: 1px solid var(--color-line);
+	border-bottom: 1px solid var(--color-line);
+	font-style: italic;
+	font-size: 1.28em;
+	line-height: 1.4;
+}
+
+blockquote p {
+	margin: 0;
+}
+
 .eyebrow {
 	font-family: var(--font-sans);
 	font-size: 0.72rem;
 	font-weight: 600;
-	letter-spacing: 0.14em;
+	letter-spacing: 0.16em;
 	text-transform: uppercase;
 	color: var(--color-ink-faint);
 }
@@ -142,6 +178,12 @@ hr {
 /* Layout primitives */
 .wrap {
 	max-width: var(--page-width);
+	margin-inline: auto;
+	padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+.wrap-wide {
+	max-width: var(--page-width-wide);
 	margin-inline: auto;
 	padding-inline: clamp(1.25rem, 5vw, 2.5rem);
 }
@@ -164,7 +206,7 @@ hr {
 }
 
 :focus-visible {
-	outline: 2px solid var(--color-accent);
+	outline: 2px solid var(--color-ink);
 	outline-offset: 3px;
 }
 

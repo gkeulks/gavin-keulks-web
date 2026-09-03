@@ -3,30 +3,29 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-	<div class="wrap inner">
-		<div class="col">
-			<p class="label">Contact</p>
-			<p>
-				Department of English<br />
-				Western Oregon University<br />
-				345 Monmouth Avenue N<br />
-				Monmouth, Oregon 97361
-			</p>
-			<p><a href="/contact/">Email &amp; enquiries</a></p>
+	<div class="wrap">
+		<div class="cols">
+			<div class="col">
+				<p class="label">Contact</p>
+				<p>
+					Department of English<br />
+					Western Oregon University<br />
+					345 Monmouth Avenue N<br />
+					Monmouth, Oregon 97361
+				</p>
+				<p><a href="/contact/">Email &amp; enquiries</a></p>
+			</div>
+			<div class="col">
+				<p class="label">Elsewhere</p>
+				<p><a href="https://martinamisweb.com">The Martin Amis Web</a></p>
+				<p><a href="https://www.linkedin.com/in/gavinkeulks/">LinkedIn</a></p>
+				<p><a href="https://linktr.ee/gkeulks">Linktree</a></p>
+			</div>
 		</div>
-		<div class="col">
-			<p class="label">Elsewhere</p>
-			<p><a href="https://martinamisweb.com">The Martin Amis Web</a></p>
-			<p><a href="https://www.linkedin.com/in/gavinkeulks/">LinkedIn</a></p>
-			<p><a href="https://linktr.ee/gkeulks">Linktree</a></p>
-		</div>
-		<div class="col colophon">
-			<p>
-				&copy; {year} Gavin Keulks. Photographs are the author&rsquo;s own;
-				all rights reserved.
-			</p>
-			<p><a href="#main">Back to top</a></p>
-		</div>
+		<p class="colophon">
+			&copy; {year} Gavin Keulks. Photographs are the author&rsquo;s own; all
+			rights reserved. &nbsp;<a href="#main">Back to top</a>
+		</p>
 	</div>
 </footer>
 
@@ -34,39 +33,49 @@ const year = new Date().getFullYear();
 	.site-footer {
 		border-top: 1px solid var(--color-line);
 		margin-top: var(--space-section);
-		padding-block: 3rem 3.5rem;
+		padding-block: 2.75rem 3.25rem;
 		font-family: var(--font-sans);
-		font-size: 0.86rem;
+		font-size: 0.82rem;
+		line-height: 1.55;
 		color: var(--color-ink-soft);
 	}
 
-	.inner {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 2rem;
+	.cols {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem 3.5rem;
 	}
 
 	.col p {
-		margin: 0 0 0.5rem;
-		line-height: 1.55;
+		margin: 0 0 0.4rem;
 	}
 
 	.label {
-		font-size: 0.72rem;
+		font-size: 0.68rem;
 		font-weight: 600;
-		letter-spacing: 0.14em;
+		letter-spacing: 0.16em;
 		text-transform: uppercase;
 		color: var(--color-ink-faint);
-		margin-bottom: 0.75rem !important;
+		margin-bottom: 0.7rem !important;
+	}
+
+	.col a {
+		color: var(--color-ink-soft);
 	}
 
 	.colophon {
+		margin: 2.25rem 0 0;
 		color: var(--color-ink-faint);
 	}
 
-	@media (max-width: 46rem) {
-		.inner {
-			grid-template-columns: 1fr;
+	.colophon a {
+		color: var(--color-ink-faint);
+		white-space: nowrap;
+	}
+
+	@media (max-width: 34rem) {
+		.cols {
+			flex-direction: column;
 			gap: 1.75rem;
 		}
 	}

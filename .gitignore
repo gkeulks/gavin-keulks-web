@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# staging area for candidate photos to review (not published)
+_incoming/

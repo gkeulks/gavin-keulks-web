@@ -20,23 +20,24 @@ const { title, blurb } = Astro.props;
 
 <style>
 	.section-placeholder {
-		padding-block: clamp(3rem, 10vw, 6rem);
+		padding-block: clamp(3.5rem, 9vw, 6.5rem) clamp(4rem, 12vw, 9rem);
 	}
 
 	.section-placeholder h1 {
-		margin: 0.75rem 0 1.25rem;
+		margin: 0.9rem 0 1.4rem;
 	}
 
 	.blurb {
-		font-size: 1.3rem;
+		font-size: clamp(1.1rem, 1rem + 1vw, 1.28rem);
+		line-height: 1.46;
 		color: var(--color-ink-soft);
-		line-height: 1.5;
+		margin: 0;
 	}
 
 	.note {
-		margin-top: 2rem;
+		margin-top: 2.5rem;
 		font-family: var(--font-sans);
-		font-size: 0.9rem;
+		font-size: 0.85rem;
 		color: var(--color-ink-faint);
 	}
 </style>

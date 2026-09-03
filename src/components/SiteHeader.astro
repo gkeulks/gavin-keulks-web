@@ -9,12 +9,12 @@ const isHome = path === '/';
 	<div class="wrap inner">
 		{
 			!isHome && (
-				<a class="wordmark" href="/">
-					<span class="name">Gavin Keulks</span>
-					<span class="role">
+				<>
+					<a class="wordmark" href="/">Gavin Keulks</a>
+					<p class="role">
 						Professor of Literature &amp; Film, Western Oregon University
-					</span>
-				</a>
+					</p>
+				</>
 			)
 		}
 		<button
@@ -27,7 +27,7 @@ const isHome = path === '/';
 			<span>Menu</span>
 		</button>
 		<nav class="primary-nav" id="primary-nav" aria-label="Primary">
-			<a href="/" class={path === '/' ? 'active' : ''}>Home</a>
+			{isHome && <a href="/" class="active">Home</a>}
 			{
 				sections.map((link) => (
 					<a
@@ -38,12 +38,6 @@ const isHome = path === '/';
 					</a>
 				))
 			}
-			<a
-				href="/contact/"
-				class={path === '/contact' ? 'active' : ''}
-			>
-				Contact
-			</a>
 		</nav>
 	</div>
 </header>
@@ -65,68 +59,70 @@ const isHome = path === '/';
 
 <style>
 	.site-header {
-		border-bottom: 1px solid var(--color-line);
 		background: var(--color-paper);
+		border-bottom: 1px solid var(--color-line);
 	}
 
 	.inner {
 		display: grid;
-		grid-template-columns: 1fr auto;
+		grid-template-columns: auto 1fr;
 		align-items: baseline;
-		gap: 0.75rem 1.5rem;
-		padding-block: 1.6rem 0;
+		column-gap: 1.5rem;
+		row-gap: 0.12rem;
+		padding-block: 1.75rem 1.3rem;
 	}
 
-	/* Home: no wordmark — the hero carries the name. Just the nav row. */
 	.site-header.home .inner {
-		grid-template-columns: 1fr;
-		padding-block: 1rem 0;
-	}
-
-	.site-header.home .primary-nav {
-		margin-top: 0;
+		padding-block: 1.4rem 1.1rem;
 	}
 
 	.wordmark {
-		display: flex;
-		flex-direction: column;
-		gap: 0.15rem;
-		text-decoration: none;
-		color: var(--color-ink);
-	}
-
-	.wordmark .name {
+		grid-column: 1;
+		grid-row: 1;
 		font-family: var(--font-display);
-		font-size: 1.5rem;
-		font-weight: 500;
-		letter-spacing: -0.01em;
+		font-size: 1.3rem;
+		font-weight: 600;
+		letter-spacing: -0.005em;
+		color: var(--color-ink);
+		text-decoration: none;
 	}
 
-	.wordmark .role {
+	.role {
+		grid-column: 1 / -1;
+		grid-row: 2;
+		margin: 0;
 		font-family: var(--font-sans);
-		font-size: 0.74rem;
-		letter-spacing: 0.02em;
+		font-size: 0.72rem;
+		letter-spacing: 0.015em;
 		color: var(--color-ink-faint);
 	}
 
 	.primary-nav {
-		grid-column: 1 / -1;
+		grid-column: 2;
+		grid-row: 1;
+		justify-self: end;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0 1.4rem;
-		margin-top: 1.1rem;
+		justify-content: flex-end;
+		gap: 0.35rem 0.9rem;
+	}
+
+	.site-header.home .primary-nav {
+		grid-column: 1 / -1;
+		justify-self: start;
+		justify-content: flex-start;
 	}
 
 	.primary-nav a {
 		font-family: var(--font-sans);
-		font-size: 0.82rem;
+		font-size: 0.75rem;
 		font-weight: 500;
-		letter-spacing: 0.01em;
-		color: var(--color-ink-soft);
+		letter-spacing: 0.02em;
+		color: var(--color-ink-faint);
 		text-decoration: none;
-		padding: 0.5rem 0;
-		border-bottom: 2px solid transparent;
 		white-space: nowrap;
+		padding-bottom: 0.15rem;
+		border-bottom: 1px solid transparent;
 	}
 
 	.primary-nav a:hover {
@@ -135,30 +131,39 @@ const isHome = path === '/';
 
 	.primary-nav a.active {
 		color: var(--color-ink);
-		border-bottom-color: var(--color-accent);
+		border-bottom-color: var(--color-ink);
 	}
 
 	.nav-toggle {
 		display: none;
+		grid-column: 2;
+		grid-row: 1;
+		justify-self: end;
+		align-self: center;
 		align-items: center;
-		gap: 0.55rem;
+		gap: 0.5rem;
 		background: transparent;
 		border: 1px solid var(--color-line-strong);
 		color: var(--color-ink);
 		font-family: var(--font-sans);
-		font-size: 0.78rem;
+		font-size: 0.75rem;
 		font-weight: 600;
-		padding: 0.5rem 0.85rem;
+		letter-spacing: 0.02em;
+		padding: 0.45rem 0.8rem;
 		border-radius: 2px;
 		cursor: pointer;
-		align-self: center;
+	}
+
+	.site-header.home .nav-toggle {
+		grid-column: 1;
+		justify-self: start;
 	}
 
 	.nav-toggle-bars,
 	.nav-toggle-bars::before,
 	.nav-toggle-bars::after {
 		display: block;
-		width: 15px;
+		width: 14px;
 		height: 2px;
 		background: var(--color-ink);
 		content: '';
@@ -170,33 +175,28 @@ const isHome = path === '/';
 
 	.nav-toggle-bars::before {
 		position: absolute;
-		top: -5px;
+		top: -4px;
 	}
 
 	.nav-toggle-bars::after {
 		position: absolute;
-		top: 5px;
+		top: 4px;
 	}
 
-	@media (max-width: 46rem) {
-		.inner {
-			padding-bottom: 1rem;
-		}
-
+	@media (max-width: 48rem) {
 		.nav-toggle {
-			display: flex;
+			display: inline-flex;
 		}
 
-		.site-header.home .nav-toggle {
-			justify-self: start;
-		}
-
-		.primary-nav {
+		.primary-nav,
+		.site-header.home .primary-nav {
+			grid-column: 1 / -1;
+			grid-row: 3;
 			display: none;
 			flex-direction: column;
+			justify-content: flex-start;
 			gap: 0;
-			margin-top: 0.75rem;
-			width: 100%;
+			margin-top: 0.5rem;
 		}
 
 		.primary-nav.open {
@@ -204,13 +204,14 @@ const isHome = path === '/';
 		}
 
 		.primary-nav a {
-			padding: 0.85rem 0;
+			padding: 0.8rem 0;
+			font-size: 0.85rem;
 			border-bottom: 1px solid var(--color-line);
 			width: 100%;
 		}
 
 		.primary-nav a.active {
-			border-bottom-color: var(--color-accent);
+			border-bottom-color: var(--color-ink);
 		}
 	}
 </style>
