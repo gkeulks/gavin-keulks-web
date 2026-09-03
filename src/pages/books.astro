@@ -19,8 +19,8 @@ const fatherAndSonUrl = 'https://uwpress.wisc.edu/books/2549.htm';
 		<header class="page-head">
 			<h1>Books</h1>
 			<p class="page-intro">
-				Three books, 2003&ndash;2026, on Kingsley and Martin Amis and the
-				postwar English novel.
+				Three books on Kingsley and Martin&nbsp;Amis and the postwar
+				English&nbsp;novel.
 			</p>
 		</header>
 
@@ -34,7 +34,9 @@ const fatherAndSonUrl = 'https://uwpress.wisc.edu/books/2549.htm';
 				/>
 			</a>
 			<div class="book-body">
-				<h2><a href={cambridgeUrl}>The Cambridge Companion to Martin Amis</a></h2>
+				<h2>
+					<a href={cambridgeUrl}>The Cambridge&nbsp;Companion to Martin&nbsp;Amis</a>
+				</h2>
 				<p class="book-meta">Cambridge University Press, 2026</p>
 
 				<p>
@@ -79,6 +81,21 @@ const fatherAndSonUrl = 'https://uwpress.wisc.edu/books/2549.htm';
 						>The event page</a
 					>{' '}has the programme.
 				</p>
+
+				<p class="book-links">
+					Google Books:{' '}
+					<a
+						href="https://www.google.com/books/edition/The_Cambridge_Companion_to_Martin_Amis/0Bnq0QEACAAJ?hl=en"
+						>Preview</a
+					>
+				</p>
+				<p class="book-links">
+					Reviews:{' '}
+					<a
+						href="https://www.irishtimes.com/culture/books/review/2026/08/31/cambridge-companion-to-martin-amis-book-underscores-unresolved-difficulty-of-placement-in-the-literary-canon/"
+						>Irish Times</a
+					> | New Statesman
+				</p>
 			</div>
 		</article>
 
@@ -122,11 +139,7 @@ const fatherAndSonUrl = 'https://uwpress.wisc.edu/books/2549.htm';
 					Google Books:{' '}
 					<a
 						href="https://books.google.com/books/about/Martin_Amis_Postmodernism_and_Beyond.html?id=4Cd_DAAAQBAJ"
-						>preview</a
-					>{' '}&middot;{' '}
-					<a
-						href="https://www.google.com/books/edition/Martin_Amis_Postmodernism_and_Beyond/4Cd_DAAAQBAJ?hl=en&gbpv=0"
-						>edition</a
+						>Preview</a
 					>
 				</p>
 			</div>
@@ -174,7 +187,7 @@ const fatherAndSonUrl = 'https://uwpress.wisc.edu/books/2549.htm';
 					Google Books:{' '}
 					<a
 						href="https://www.google.com/books/edition/Father_and_Son/9Aip8etZ_hwC?hl=en&gbpv=0"
-						>preview</a
+						>Preview</a
 					>
 				</p>
 			</div>
@@ -196,7 +209,8 @@ const fatherAndSonUrl = 'https://uwpress.wisc.edu/books/2549.htm';
 		line-height: 1.5;
 		color: var(--color-ink-soft);
 		margin: 0;
-		max-width: 32rem;
+		max-width: 34rem;
+		text-wrap: balance;
 	}
 
 	.book {
@@ -226,6 +240,7 @@ const fatherAndSonUrl = 'https://uwpress.wisc.edu/books/2549.htm';
 		margin: 0 0 0.35rem;
 		font-size: clamp(1.35rem, 1rem + 1.3vw, 1.7rem);
 		line-height: 1.15;
+		text-wrap: pretty;
 	}
 
 	.book-body h2 a {
@@ -281,10 +296,15 @@ const fatherAndSonUrl = 'https://uwpress.wisc.edu/books/2549.htm';
 		color: var(--color-ink-faint);
 	}
 
-	.book-links {
+	.book-body .book-links {
+		margin: 0 0 0.35rem;
 		font-family: var(--font-sans);
 		font-size: 0.85rem;
 		color: var(--color-ink-faint);
+	}
+
+	.book-body .book-links:last-child {
+		margin-bottom: 0;
 	}
 
 	.book-links a {
