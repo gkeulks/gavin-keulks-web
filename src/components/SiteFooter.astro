@@ -13,13 +13,13 @@ const year = new Date().getFullYear();
 					345 Monmouth Avenue N<br />
 					Monmouth, Oregon 97361
 				</p>
-				<p><a href="/contact/">Email &amp; enquiries</a></p>
 			</div>
 			<div class="col">
 				<p class="label">Elsewhere</p>
-				<p><a href="https://martinamisweb.com">The Martin Amis Web</a></p>
-				<p><a href="https://www.linkedin.com/in/gavinkeulks/">LinkedIn</a></p>
+				<p><a href="/contact/">Email &amp; enquiries</a></p>
 				<p><a href="https://linktr.ee/gkeulks">Linktree</a></p>
+				<p><a href="https://www.linkedin.com/in/gavinkeulks/">LinkedIn</a></p>
+				<p><a href="https://martinamisweb.com">The Martin Amis Web</a></p>
 			</div>
 		</div>
 		<p class="colophon">
@@ -41,13 +41,16 @@ const year = new Date().getFullYear();
 	}
 
 	.cols {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 2rem 3.5rem;
+		display: grid;
+		grid-template-columns: repeat(2, max-content);
+		justify-content: start;
+		column-gap: clamp(3rem, 10vw, 6rem);
+		row-gap: 2.25rem;
 	}
 
 	.col p {
 		margin: 0 0 0.4rem;
+		white-space: nowrap;
 	}
 
 	.label {
@@ -66,6 +69,7 @@ const year = new Date().getFullYear();
 	.colophon {
 		margin: 2.25rem 0 0;
 		color: var(--color-ink-faint);
+		white-space: normal;
 	}
 
 	.colophon a {
@@ -75,8 +79,8 @@ const year = new Date().getFullYear();
 
 	@media (max-width: 34rem) {
 		.cols {
-			flex-direction: column;
-			gap: 1.75rem;
+			grid-template-columns: 1fr;
+			row-gap: 1.75rem;
 		}
 	}
 </style>
