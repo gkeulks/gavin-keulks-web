@@ -11,8 +11,8 @@ export const sections: NavSection[] = [
 	{
 		slug: 'about',
 		title: 'About',
-		blurb: 'Biography, appointments, degrees, and a downloadable CV.',
-		live: false,
+		blurb: 'Biography, appointments, degrees, awards, and a downloadable CV.',
+		live: true,
 	},
 	{
 		slug: 'books',
