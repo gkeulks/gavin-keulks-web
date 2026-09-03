@@ -23,9 +23,13 @@
 	--font-body: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
 	--font-sans: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-	--content-width: 39rem;
+	/* One shared column: header, nav, content and footer all align to the
+	   same left edge, and .wrap centres on the page as a whole. Wide,
+	   full-bleed layouts (e.g. the photo gallery) will opt in separately. */
+	--content-width: 44rem;
 	--wide-width: 52rem;
-	--page-width: 72rem;
+	--page-width: 56rem;
+	--page-width-wide: 78rem;
 
 	--space-section: clamp(3.5rem, 8vw, 6rem);
 }
