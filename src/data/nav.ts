@@ -21,9 +21,10 @@ export const sections: NavSection[] = [
 		live: false,
 	},
 	{
-		slug: 'irish-traumatic-spaces',
-		title: 'Irish Traumatic Spaces',
-		blurb: 'Photographs of place, toward a book on the landscapes of Irish trauma.',
+		slug: 'spatial-trauma',
+		title: 'Spatial Trauma',
+		blurb:
+			'Site-based photographs (my own), for a book I’m writing on the reclamation of traumatic spaces in Ireland.',
 		live: false,
 	},
 	{
@@ -35,7 +36,7 @@ export const sections: NavSection[] = [
 	{
 		slug: 'consulting',
 		title: 'Consulting',
-		blurb: 'Program review, assessment, and external evaluation for honors programs and English departments.',
+		blurb: 'External program review and assessment for honors programs and English departments.',
 		live: false,
 	},
 	{

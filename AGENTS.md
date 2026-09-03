@@ -13,8 +13,9 @@ loop and editorial standards — but has its own repo, domain, and design system
 Replaces the current WordPress page at `wp.wou.education/keulksg/`, preserving its
 material (biography, publications, teaching, consulting) and adding:
 
-- **Irish Traumatic Spaces** — ~50 of Gavin's own photographs of place, toward a
-  future scholarly monograph. His images, his rights; the book is not yet written.
+- **Spatial Trauma** (`/spatial-trauma/`) — ~50 of Gavin's own site-based
+  photographs, for a book he is writing on the reclamation of traumatic spaces in
+  Ireland. His images, his rights; the book is not yet written.
 - **Creative Work** — the novel *Flight* (targeted for publication 2027–28) and
   published poems.
 
