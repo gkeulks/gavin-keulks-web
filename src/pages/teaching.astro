@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Teaching"
+	description="Gavin Keulks — courses in literature and literary theory, English and Irish literature, and film studies."
+>
+	<div class="wrap">
+		<header class="page-head">
+			<h1>Teaching</h1>
+			<p class="page-intro">
+				Courses taught in literature, literary theory, and film.
+			</p>
+		</header>
+
+		<section class="courses">
+			<h2>General Literature and Literary Theory</h2>
+			<ul class="course-list">
+				<li>Introduction to Literary Study</li>
+				<li>Introduction to Literature: Fiction&nbsp;| Drama&nbsp;| Poetry</li>
+				<li>Apocalypse Then: Literature and Culture of the 1990s</li>
+				<li>Twentieth-Century <span class="nb">Asian-American</span> Literature</li>
+				<li>The Literature of Terrorism</li>
+				<li>
+					Topics in Theory: Postcolonialism&nbsp;| Postmodernism&nbsp;| Sociohistoricism
+				</li>
+				<li>Material Culture Studies and Cultural Materialism</li>
+			</ul>
+		</section>
+
+		<section class="courses">
+			<h2>English and Irish Literature</h2>
+			<ul class="course-list">
+				<li>
+					British Literature: Origins to 1600&nbsp;| <span class="nb"
+						>1600&ndash;1832</span
+					>&nbsp;| <span class="nb">1832&ndash;Present</span>
+				</li>
+				<li>Modernism to Postmodernism</li>
+				<li>British Postmodern Fiction</li>
+				<li>Writing the Celtic Tiger: New Irish Literature &amp; Culture</li>
+				<li>Irish Modernism</li>
+				<li>Contemporary Irish Literature</li>
+				<li>Major Authors: James&nbsp;Joyce</li>
+				<li>Major Authors: W.B.&nbsp;Yeats</li>
+				<li>The Irish Nobels: Shaw, Yeats, Beckett, Heaney</li>
+			</ul>
+		</section>
+
+		<section class="courses">
+			<h2>Film Studies</h2>
+			<ul class="course-list">
+				<li>Form and Meaning in Film</li>
+				<li>Film History and Technique</li>
+				<li>Italian Neorealism and Beyond</li>
+				<li>Continuity &amp; Discontinuity from Weine to Tarantino</li>
+			</ul>
+		</section>
+
+		<p class="cv-line">
+			The complete course list is in the{' '}
+			<a href="/documents/gavin-keulks-cv.pdf">curriculum vitae (PDF)</a>.
+		</p>
+	</div>
+</Layout>
+
+<style>
+	.page-head {
+		padding-block: clamp(3.5rem, 9vw, 6.5rem) clamp(1.75rem, 4vw, 3rem);
+	}
+
+	.page-head h1 {
+		margin: 0 0 1rem;
+	}
+
+	.page-intro {
+		font-size: clamp(1.1rem, 1rem + 0.6vw, 1.3rem);
+		line-height: 1.5;
+		color: var(--color-ink-soft);
+		margin: 0;
+		max-width: 42rem;
+		text-wrap: balance;
+	}
+
+	.courses {
+		padding-block: clamp(2.25rem, 5vw, 3.25rem);
+		border-top: 1px solid var(--color-line);
+	}
+
+	.courses h2 {
+		margin: 0 0 1.35rem;
+	}
+
+	.course-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		max-width: 42rem;
+	}
+
+	.nb {
+		white-space: nowrap;
+	}
+
+	.course-list li {
+		padding-block: 0.4rem;
+		font-size: 1.05rem;
+		line-height: 1.45;
+		text-wrap: pretty;
+	}
+
+	.cv-line {
+		margin: 0;
+		padding-block: 1.35rem;
+		border-top: 1px solid var(--color-line);
+		border-bottom: 1px solid var(--color-line);
+		font-family: var(--font-sans);
+		font-size: 0.85rem;
+		letter-spacing: 0.01em;
+		color: var(--color-ink-faint);
+	}
+
+	.cv-line a {
+		color: var(--color-ink-soft);
+	}
+</style>

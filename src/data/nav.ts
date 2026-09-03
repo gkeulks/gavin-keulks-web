@@ -52,7 +52,7 @@ export const sections: NavSection[] = [
 		slug: 'teaching',
 		title: 'Teaching',
 		blurb: 'Courses in twentieth-century English and Irish literature, film, and theory.',
-		live: false,
+		live: true,
 	},
 ];
 
