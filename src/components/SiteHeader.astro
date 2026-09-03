@@ -7,16 +7,7 @@ const isHome = path === '/';
 
 <header class:list={['site-header', { home: isHome }]}>
 	<div class="wrap inner">
-		{
-			!isHome && (
-				<>
-					<a class="wordmark" href="/">Gavin Keulks</a>
-					<p class="role">
-						Professor of Literature &amp; Film, Western Oregon University
-					</p>
-				</>
-			)
-		}
+		{!isHome && <a class="wordmark" href="/">Gavin Keulks</a>}
 		<button
 			class="nav-toggle"
 			id="nav-toggle"
@@ -68,8 +59,8 @@ const isHome = path === '/';
 		grid-template-columns: auto 1fr;
 		align-items: baseline;
 		column-gap: 1.5rem;
-		row-gap: 0.12rem;
-		padding-block: 1.75rem 1.3rem;
+		row-gap: 0.5rem;
+		padding-block: 1.6rem 1.25rem;
 	}
 
 	.site-header.home .inner {
@@ -85,16 +76,6 @@ const isHome = path === '/';
 		letter-spacing: -0.005em;
 		color: var(--color-ink);
 		text-decoration: none;
-	}
-
-	.role {
-		grid-column: 1 / -1;
-		grid-row: 2;
-		margin: 0;
-		font-family: var(--font-sans);
-		font-size: 0.72rem;
-		letter-spacing: 0.015em;
-		color: var(--color-ink-faint);
 	}
 
 	.primary-nav {
@@ -191,7 +172,7 @@ const isHome = path === '/';
 		.primary-nav,
 		.site-header.home .primary-nav {
 			grid-column: 1 / -1;
-			grid-row: 3;
+			grid-row: 2;
 			display: none;
 			flex-direction: column;
 			justify-content: flex-start;

@@ -26,13 +26,15 @@
 	--font-body: 'Spectral', Georgia, 'Times New Roman', serif;
 	--font-sans: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-	/* Narrow, book-like column. Header, nav, content and footer all align
-	   to one left edge; the block centres on the page. Wide layouts (the
-	   Fieldwork gallery) opt into --page-width-wide separately. */
-	--content-width: 40rem;
-	--wide-width: 44rem;
-	--page-width: 46rem;
-	--page-width-wide: 76rem;
+	/* One book-like column. Header, nav, content and footer all align to
+	   one left edge; the block centres on the page. --content-width sits
+	   just inside --page-width (after padding they're near-identical, so
+	   no visible right-margin step). Wide layouts (the Fieldwork gallery)
+	   opt into --page-width-wide separately. */
+	--content-width: 50rem;
+	--wide-width: 51rem;
+	--page-width: 53rem;
+	--page-width-wide: 78rem;
 
 	--space-section: clamp(4rem, 9vw, 7rem);
 }
