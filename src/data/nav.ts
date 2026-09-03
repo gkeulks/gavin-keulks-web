@@ -19,7 +19,7 @@ export const sections: NavSection[] = [
 		title: 'Books',
 		blurb:
 			'Three books — Father and Son, Martin Amis: Postmodernism and Beyond, and The Cambridge Companion to Martin Amis.',
-		live: false,
+		live: true,
 	},
 	{
 		slug: 'scholarship',

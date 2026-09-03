@@ -1,0 +1,304 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import cambridgeCover from '../assets/images/books/cambridge-companion.jpg';
+import postmodernismCover from '../assets/images/books/postmodernism-and-beyond.png';
+import fatherAndSonCover from '../assets/images/books/father-and-son.png';
+
+const cambridgeUrl =
+	'https://www.amazon.com/Cambridge-Companion-Martin-Companions-Literature/dp/1009618040/';
+const postmodernismUrl = 'https://link.springer.com/book/10.1057/9780230598478';
+const fatherAndSonUrl = 'https://uwpress.wisc.edu/books/2549.htm';
+---
+
+<Layout
+	title="Books"
+	description="Gavin Keulks — three books, 2003–2026, on Kingsley and Martin Amis and the postwar English and Irish novel."
+>
+	<div class="wrap">
+		<header class="page-head">
+			<h1>Books</h1>
+			<p class="page-intro">
+				Three books, 2003&ndash;2026, on Kingsley and Martin Amis and the
+				postwar English novel.
+			</p>
+		</header>
+
+		<article class="book">
+			<a class="book-cover" href={cambridgeUrl}>
+				<Image
+					src={cambridgeCover}
+					alt="Cover of The Cambridge Companion to Martin Amis"
+					widths={[176, 208, 352, 416]}
+					sizes="(max-width: 40rem) 11rem, 13rem"
+				/>
+			</a>
+			<div class="book-body">
+				<h2><a href={cambridgeUrl}>The Cambridge Companion to Martin Amis</a></h2>
+				<p class="book-meta">Cambridge University Press, 2026</p>
+
+				<p>
+					International in scope, this collection features the work of fourteen
+					scholars from five different countries, ranging from established
+					experts to new scholars of Amis&rsquo;s work.
+				</p>
+				<p>
+					Available in print and digital from{' '}
+					<a
+						href="https://www.cambridge.org/us/universitypress/subjects/literature/english-literature-after-1945/cambridge-companion-martin-amis?format=PB&isbn=9781009618045"
+						>Cambridge University Press</a
+					>, Amazon (<a
+						href="https://www.amazon.com/Cambridge-Companion-Martin-Companions-Literature/dp/1009618040"
+						>US</a
+					>,{' '}
+					<a
+						href="https://www.amazon.co.uk/Cambridge-Companion-Martin-Companions-Literature/dp/1009618040/"
+						>UK</a
+					>), Waterstones (<a
+						href="https://www.waterstones.com/book/the-cambridge-companion-to-martin-amis/gavin-keulks/9781009618076"
+						>hardback</a
+					>,{' '}
+					<a
+						href="https://www.waterstones.com/book/the-cambridge-companion-to-martin-amis/gavin-keulks/9781009618045"
+						>paperback</a
+					>), and other booksellers. Read the{' '}
+					<a
+						href="https://assets.cambridge.org/97810096/18045/excerpt/9781009618045_excerpt.pdf"
+						>introduction</a
+					>{' '}and{' '}
+					<a
+						href="https://assets.cambridge.org/97810096/18076/frontmatter/9781009618076_frontmatter.pdf"
+						>front matter</a
+					>, including the list of contributors and a chronology.
+				</p>
+				<p>
+					The book was spotlighted at a full-day book launch and podcast event
+					in London on 25 August 2026, with panels featuring nine of my fourteen
+					contributors on editing Amis, Amis&rsquo;s longevity, and the future of
+					Amis studies. <a href="https://martinamisweb.com/after-amis/"
+						>The event page</a
+					>{' '}has the programme.
+				</p>
+			</div>
+		</article>
+
+		<article class="book">
+			<a class="book-cover" href={postmodernismUrl}>
+				<Image
+					src={postmodernismCover}
+					alt="Cover of Martin Amis: Postmodernism and Beyond"
+					widths={[176, 208, 352, 416]}
+					sizes="(max-width: 40rem) 11rem, 13rem"
+				/>
+			</a>
+			<div class="book-body">
+				<h2>
+					<a href={postmodernismUrl}>Martin Amis: Postmodernism and Beyond</a>
+				</h2>
+				<p class="book-meta">Palgrave Macmillan, 2006</p>
+
+				<p>
+					The first book of original essays published on Amis, this edited
+					collection features the work of twelve scholars from six different
+					countries.
+				</p>
+				<blockquote class="review">
+					<p>
+						&ldquo;This collection represents a real advance in Martin Amis
+						studies. Twelve informed and exciting essays by an international range
+						of leading Amis scholars and critics explore his novels and literary
+						journalism from a wide variety of aspects and provide a rich source
+						of fresh insights and perspectives. In a theoretically sophisticated
+						but accessible way, they examine the structure, language and
+						significance of his work and its controversial engagements with
+						postmodernity, class, gender and Holocaust. The collection also
+						contains an invaluable bibliography of Amis&rsquo;s prolific
+						nonfiction. This book is essential reading for all those interested in
+						Amis and contemporary writing.&rdquo;
+					</p>
+					<cite>Nicolas Tredell, editor of <em>The Fiction of Martin Amis</em></cite>
+				</blockquote>
+				<p class="book-links">
+					Google Books:{' '}
+					<a
+						href="https://books.google.com/books/about/Martin_Amis_Postmodernism_and_Beyond.html?id=4Cd_DAAAQBAJ"
+						>preview</a
+					>{' '}&middot;{' '}
+					<a
+						href="https://www.google.com/books/edition/Martin_Amis_Postmodernism_and_Beyond/4Cd_DAAAQBAJ?hl=en&gbpv=0"
+						>edition</a
+					>
+				</p>
+			</div>
+		</article>
+
+		<article class="book">
+			<a class="book-cover" href={fatherAndSonUrl}>
+				<Image
+					src={fatherAndSonCover}
+					alt="Cover of Father and Son: Kingsley Amis, Martin Amis and the British Novel Since 1950"
+					widths={[176, 208, 352, 416]}
+					sizes="(max-width: 40rem) 11rem, 13rem"
+				/>
+			</a>
+			<div class="book-body">
+				<h2><a href={fatherAndSonUrl}>Father and Son</a></h2>
+				<p class="book-subtitle">
+					Kingsley Amis, Martin Amis, and the British Novel Since 1950
+				</p>
+				<p class="book-meta">University of Wisconsin Press, 2003</p>
+
+				<blockquote class="review">
+					<p>
+						&ldquo;<em>Father and Son</em> will be important to specialists in the
+						field as well as to students of the twentieth-century novel
+						generally. It provides the only extended treatment of a unique
+						literary genealogy.&rdquo;
+					</p>
+					<cite>James Diedrick, author of <em>Understanding Martin Amis</em></cite>
+				</blockquote>
+				<blockquote class="review">
+					<p>
+						&ldquo;Keulks&rsquo; book is holding and absorbing, filled with
+						excellently shrewd and steady analysis of selected novels, essays and
+						interviews set in the context of the status and future of the
+						realistic novel, the transition from modernism to postmodernism, and
+						the existential condition of post-World War II life.&rdquo;
+					</p>
+					<cite>
+						Dale Salwak, author of <em>Kingsley Amis: Modern Novelist</em> and
+						<em>Kingsley Amis: In Life and Letters</em>
+					</cite>
+				</blockquote>
+				<p class="book-links">
+					Google Books:{' '}
+					<a
+						href="https://www.google.com/books/edition/Father_and_Son/9Aip8etZ_hwC?hl=en&gbpv=0"
+						>preview</a
+					>
+				</p>
+			</div>
+		</article>
+	</div>
+</Layout>
+
+<style>
+	.page-head {
+		padding-block: clamp(3.5rem, 9vw, 6.5rem) clamp(1.75rem, 4vw, 3rem);
+	}
+
+	.page-head h1 {
+		margin: 0 0 1rem;
+	}
+
+	.page-intro {
+		font-size: clamp(1.15rem, 1rem + 0.8vw, 1.35rem);
+		line-height: 1.5;
+		color: var(--color-ink-soft);
+		margin: 0;
+		max-width: 32rem;
+	}
+
+	.book {
+		display: grid;
+		grid-template-columns: 13rem 1fr;
+		gap: 2.75rem;
+		padding-block: clamp(2.5rem, 6vw, 3.75rem);
+		border-top: 1px solid var(--color-line);
+	}
+
+	.book:last-child {
+		border-bottom: 1px solid var(--color-line);
+	}
+
+	.book-cover {
+		display: block;
+		align-self: start;
+	}
+
+	.book-cover :global(img) {
+		width: 100%;
+		height: auto;
+		border: 1px solid var(--color-line-strong);
+	}
+
+	.book-body h2 {
+		margin: 0 0 0.35rem;
+		font-size: clamp(1.35rem, 1rem + 1.3vw, 1.7rem);
+		line-height: 1.15;
+	}
+
+	.book-body h2 a {
+		color: var(--color-ink);
+		text-decoration: none;
+	}
+
+	.book-body h2 a:hover {
+		text-decoration: underline;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 0.16em;
+	}
+
+	.book-subtitle {
+		margin: 0 0 0.4rem;
+		font-style: italic;
+		color: var(--color-ink-soft);
+		line-height: 1.35;
+	}
+
+	.book-meta {
+		margin: 0 0 1.35rem;
+		font-family: var(--font-sans);
+		font-size: 0.8rem;
+		letter-spacing: 0.02em;
+		color: var(--color-ink-faint);
+	}
+
+	.book-body p {
+		margin: 0 0 1rem;
+	}
+
+	.review {
+		margin: 1.35rem 0;
+		padding: 0 0 0 1.3rem;
+		border: 0;
+		border-left: 2px solid var(--color-line-strong);
+		font-size: 1rem;
+		font-style: normal;
+		line-height: 1.55;
+	}
+
+	.review p {
+		margin: 0 0 0.45rem;
+	}
+
+	.review cite {
+		display: block;
+		font-family: var(--font-sans);
+		font-style: normal;
+		font-size: 0.8rem;
+		line-height: 1.5;
+		color: var(--color-ink-faint);
+	}
+
+	.book-links {
+		font-family: var(--font-sans);
+		font-size: 0.85rem;
+		color: var(--color-ink-faint);
+	}
+
+	.book-links a {
+		color: var(--color-ink-soft);
+	}
+
+	@media (max-width: 40rem) {
+		.book {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.book-cover {
+			max-width: 11rem;
+		}
+	}
+</style>
