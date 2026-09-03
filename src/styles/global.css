@@ -1,0 +1,181 @@
+@import '@fontsource-variable/newsreader/opsz.css';
+@import '@fontsource-variable/newsreader/opsz-italic.css';
+@import '@fontsource-variable/inter';
+
+/*
+ * Design tokens — first pass, September 2026.
+ * The site is deliberately quiet: near-monochrome chrome, one restrained
+ * accent, generous measure. Colour is meant to come from the photographs.
+ */
+
+:root {
+	--color-paper: #fcfbf8;
+	--color-paper-raised: #ffffff;
+	--color-ink: #18160f;
+	--color-ink-soft: #4b463d;
+	--color-ink-faint: #8a8377;
+	--color-line: #e6e1d6;
+	--color-line-strong: #d3ccbc;
+	--color-accent: #3a5a53;
+	--color-accent-soft: #5c817a;
+
+	--font-display: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
+	--font-body: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
+	--font-sans: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+	--content-width: 39rem;
+	--wide-width: 52rem;
+	--page-width: 72rem;
+
+	--space-section: clamp(3.5rem, 8vw, 6rem);
+}
+
+:root[data-theme='dark'] {
+	--color-paper: #14130e;
+	--color-paper-raised: #1c1b15;
+	--color-ink: #ece6d9;
+	--color-ink-soft: #c1baa9;
+	--color-ink-faint: #8a8377;
+	--color-line: #322f27;
+	--color-line-strong: #423e34;
+	--color-accent: #8fb4ab;
+	--color-accent-soft: #a9c8c0;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) {
+		--color-paper: #14130e;
+		--color-paper-raised: #1c1b15;
+		--color-ink: #ece6d9;
+		--color-ink-soft: #c1baa9;
+		--color-ink-faint: #8a8377;
+		--color-line: #322f27;
+		--color-line-strong: #423e34;
+		--color-accent: #8fb4ab;
+		--color-accent-soft: #a9c8c0;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	background: var(--color-paper);
+	color-scheme: light dark;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	background: var(--color-paper);
+	color: var(--color-ink);
+	font-family: var(--font-body);
+	font-optical-sizing: auto;
+	font-size: 1.15rem;
+	line-height: 1.62;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+	font-family: var(--font-display);
+	font-weight: 500;
+	line-height: 1.12;
+	letter-spacing: -0.011em;
+	color: var(--color-ink);
+	text-wrap: balance;
+}
+
+h1 {
+	font-size: clamp(2rem, 5vw, 3rem);
+	font-weight: 400;
+}
+
+h2 {
+	font-size: clamp(1.5rem, 3vw, 1.9rem);
+}
+
+p {
+	text-wrap: pretty;
+}
+
+a {
+	color: var(--color-accent);
+	text-decoration-thickness: 1px;
+	text-decoration-color: var(--color-line-strong);
+	text-underline-offset: 0.18em;
+	transition: text-decoration-color 0.15s ease;
+}
+
+a:hover {
+	color: var(--color-accent-soft);
+	text-decoration-color: currentColor;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+hr {
+	border: 0;
+	height: 1px;
+	background: var(--color-line);
+	margin: var(--space-section) 0;
+}
+
+.eyebrow {
+	font-family: var(--font-sans);
+	font-size: 0.72rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--color-ink-faint);
+}
+
+/* Layout primitives */
+.wrap {
+	max-width: var(--page-width);
+	margin-inline: auto;
+	padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+.measure {
+	max-width: var(--content-width);
+}
+
+.measure-wide {
+	max-width: var(--wide-width);
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+
+:focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 3px;
+}
+
+.skip-link {
+	position: absolute;
+	left: 0.5rem;
+	top: -3rem;
+	background: var(--color-paper-raised);
+	color: var(--color-ink);
+	padding: 0.6rem 1rem;
+	border: 1px solid var(--color-line-strong);
+	z-index: 100;
+	transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+	top: 0.5rem;
+}

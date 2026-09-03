@@ -1,0 +1,42 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+	/** omit the site-name suffix on the home page */
+	bareTitle?: boolean;
+}
+
+const {
+	title,
+	description = 'Gavin Keulks — Professor of Literature and Film at Western Oregon University. Scholarship on twentieth-century English and Irish fiction, film, and creative work.',
+	bareTitle = false,
+} = Astro.props;
+
+const fullTitle = bareTitle ? title : `${title} · Gavin Keulks`;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{fullTitle}</title>
+		<meta name="description" content={description} />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<meta property="og:title" content={fullTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+	</head>
+	<body>
+		<a class="skip-link" href="#main">Skip to content</a>
+		<SiteHeader />
+		<main id="main" data-pagefind-body>
+			<slot />
+		</main>
+		<SiteFooter />
+	</body>
+</html>

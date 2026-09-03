@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionPlaceholder from '../components/SectionPlaceholder.astro';
+import { sections, utilityLinks, type NavSection } from '../data/nav';
+
+export function getStaticPaths() {
+	const all: NavSection[] = [...sections, ...utilityLinks];
+	return all
+		.filter((s) => !s.live)
+		.map((s) => ({
+			params: { slug: s.slug },
+			props: { section: s },
+		}));
+}
+
+interface Props {
+	section: NavSection;
+}
+const { section } = Astro.props;
+---
+
+<Layout title={section.title} description={section.blurb}>
+	<SectionPlaceholder title={section.title} blurb={section.blurb} />
+</Layout>

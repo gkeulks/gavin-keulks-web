@@ -1,0 +1,72 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<div class="wrap inner">
+		<div class="col">
+			<p class="label">Contact</p>
+			<p>
+				Department of English<br />
+				Western Oregon University<br />
+				345 Monmouth Avenue N<br />
+				Monmouth, Oregon 97361
+			</p>
+			<p><a href="/contact/">Email &amp; enquiries</a></p>
+		</div>
+		<div class="col">
+			<p class="label">Elsewhere</p>
+			<p><a href="https://martinamisweb.com">The Martin Amis Web</a></p>
+			<p><a href="https://www.linkedin.com/in/gkeulks/">LinkedIn</a></p>
+		</div>
+		<div class="col colophon">
+			<p>
+				&copy; {year} Gavin Keulks. Photographs are the author&rsquo;s own;
+				all rights reserved.
+			</p>
+			<p><a href="#main">Back to top</a></p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		border-top: 1px solid var(--color-line);
+		margin-top: var(--space-section);
+		padding-block: 3rem 3.5rem;
+		font-family: var(--font-sans);
+		font-size: 0.86rem;
+		color: var(--color-ink-soft);
+	}
+
+	.inner {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+	}
+
+	.col p {
+		margin: 0 0 0.5rem;
+		line-height: 1.55;
+	}
+
+	.label {
+		font-size: 0.72rem;
+		font-weight: 600;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--color-ink-faint);
+		margin-bottom: 0.75rem !important;
+	}
+
+	.colophon {
+		color: var(--color-ink-faint);
+	}
+
+	@media (max-width: 46rem) {
+		.inner {
+			grid-template-columns: 1fr;
+			gap: 1.75rem;
+		}
+	}
+</style>

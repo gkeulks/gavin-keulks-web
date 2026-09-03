@@ -1,0 +1,42 @@
+---
+interface Props {
+	title: string;
+	blurb: string;
+}
+const { title, blurb } = Astro.props;
+---
+
+<div class="wrap">
+	<article class="measure section-placeholder">
+		<p class="eyebrow">In preparation</p>
+		<h1>{title}</h1>
+		<p class="blurb">{blurb}</p>
+		<p class="note">
+			This section is being built. In the meantime, the current site remains at{' '}
+			<a href="https://wp.wou.education/keulksg/">wp.wou.education/keulksg</a>.
+		</p>
+	</article>
+</div>
+
+<style>
+	.section-placeholder {
+		padding-block: clamp(3rem, 10vw, 6rem);
+	}
+
+	.section-placeholder h1 {
+		margin: 0.75rem 0 1.25rem;
+	}
+
+	.blurb {
+		font-size: 1.3rem;
+		color: var(--color-ink-soft);
+		line-height: 1.5;
+	}
+
+	.note {
+		margin-top: 2rem;
+		font-family: var(--font-sans);
+		font-size: 0.9rem;
+		color: var(--color-ink-faint);
+	}
+</style>
