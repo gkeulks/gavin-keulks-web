@@ -26,7 +26,7 @@ export const sections: NavSection[] = [
 		title: 'Scholarship',
 		blurb:
 			'Essays, book chapters, and the Martin Amis Web — work for general and specialist readers.',
-		live: false,
+		live: true,
 	},
 	{
 		slug: 'fieldwork',
