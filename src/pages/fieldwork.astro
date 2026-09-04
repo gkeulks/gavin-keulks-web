@@ -1,0 +1,201 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Fieldwork"
+	description="Gavin Keulks — site-based photographs and conference papers toward a book on the reclamation of traumatic spaces in Ireland."
+>
+	<div class="wrap">
+		<header class="page-head">
+			<h1>Fieldwork</h1>
+			<p class="page-intro">
+				Toward a book on the reclamation of traumatic spaces in Ireland.
+			</p>
+		</header>
+
+		<section class="project">
+			<p>
+				Site-based photographs, my own, of places rather than people: Magdalene
+				laundries and mother and baby homes, the ghost estates left by the collapse
+				of the Celtic&nbsp;Tiger, and the contested walls of Belfast.
+			</p>
+			<p>
+				They are working toward my final scholarly book, on how such spaces in
+				Ireland and Northern&nbsp;Ireland are reclaimed, memorialised, or left to
+				stand. The argument has been taking shape in conference papers since 2014.
+				The book itself is not yet written, and the photographs are still being
+				prepared for publication here.
+			</p>
+		</section>
+
+		<section class="strand">
+			<h2>Magdalene Laundries and Mother and Baby Homes</h2>
+			<ul class="cite-list">
+				<li>
+					<span class="cite-title"
+						>&ldquo;Home (Dis)Rule: Magdalene Laundries, Mother and Baby Homes, and
+						Ghost Estates.&rdquo;</span
+					>{' '}
+					American Conference for Irish Studies. Denver,&nbsp;CO, 2026.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;Ireland&rsquo;s Last Magdalene Laundry.&rdquo;</span
+					>{' '}
+					Northeast Modern Language Association. Boston,&nbsp;MA, 2024.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;Excavating History: Justice for Irish Magdalenes.&rdquo;</span
+					>{' '}
+					Northeast Modern Language Association. Niagara,&nbsp;NY, 2023.
+				</li>
+			</ul>
+		</section>
+
+		<section class="strand">
+			<h2>Ghost Estates and Topographical Scars</h2>
+			<ul class="cite-list">
+				<li>
+					<span class="cite-title"
+						>&ldquo;Irish Spatial Texts and Topographical Scars.&rdquo;</span
+					>{' '}
+					Northeast Modern Language Association. Philadelphia,&nbsp;PA, 2025.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;Thwarted Alchemy: Irish Ghost Estates and Post-Celtic-Tiger
+						Literature.&rdquo;</span
+					>{' '}
+					Humanities and Education Research Association. Chicago,&nbsp;IL, 2018.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;Topographical Scars: Economic Collapse, Mass Emigration, and
+						Irish Tourism.&rdquo;</span
+					>{' '}
+					Popular and American Culture Association. New&nbsp;Orleans,&nbsp;LA, 2015.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;Trauma Memorials and Historical Geography: Ghost Estates as
+						Modern-day Famine Walls.&rdquo;</span
+					>{' '}
+					Transatlantic Connections&nbsp;II. Donegal, Ireland, 2015.
+				</li>
+			</ul>
+		</section>
+
+		<section class="strand">
+			<h2>Belfast, Dublin, and Contested Space</h2>
+			<ul class="cite-list">
+				<li>
+					<span class="cite-title"
+						>&ldquo;Politics and the Humanities in Belfast Street Art.&rdquo;</span
+					>{' '}
+					Humanities and Education Research Association. Chicago,&nbsp;IL, 2020.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;An Art-walk in Belfast: Stepping beyond Politics.&rdquo;</span
+					>{' '}
+					American Conference for Irish Studies. Boston,&nbsp;MA, 2019.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;Slouching towards Belfast to be Born: Apolitical Street-art in
+						Belfast.&rdquo;</span
+					>{' '}
+					Popular and American Culture Association. Washington,&nbsp;DC, 2019.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;Between the Lanes: Politics and the Humanities in Irish
+						Street-art.&rdquo;</span
+					>{' '}
+					Humanities and Education Research Association. San&nbsp;Diego,&nbsp;CA,
+					2017.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;&lsquo;What Rough Beast&rsquo;: Integrated and Conflicted Spaces
+						in Dublin.&rdquo;</span
+					>{' '}
+					American Conference on Irish Studies. Dublin, Ireland, 2014.
+				</li>
+			</ul>
+		</section>
+	</div>
+</Layout>
+
+<style>
+	.page-head {
+		padding-block: clamp(3.5rem, 9vw, 6.5rem) clamp(1.75rem, 4vw, 3rem);
+	}
+
+	.page-head h1 {
+		margin: 0 0 1rem;
+	}
+
+	.page-intro {
+		font-size: clamp(1.1rem, 1rem + 0.6vw, 1.3rem);
+		line-height: 1.5;
+		color: var(--color-ink-soft);
+		margin: 0;
+		max-width: 42rem;
+		text-wrap: balance;
+	}
+
+	.project {
+		padding-block: clamp(2.5rem, 6vw, 3.75rem);
+		border-top: 1px solid var(--color-line);
+		max-width: 42rem;
+	}
+
+	.project p {
+		margin: 0 0 1.15rem;
+	}
+
+	.project p:last-child {
+		margin-bottom: 0;
+	}
+
+	.strand {
+		padding-block: clamp(2.25rem, 5vw, 3.25rem);
+		border-top: 1px solid var(--color-line);
+	}
+
+	.strand:last-child {
+		border-bottom: 1px solid var(--color-line);
+	}
+
+	.strand h2 {
+		margin: 0 0 1.35rem;
+	}
+
+	.cite-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		max-width: 42rem;
+	}
+
+	.cite-list li {
+		padding-block: 0.7rem;
+		padding-left: 1.4rem;
+		text-indent: -1.4rem;
+		font-size: 1rem;
+		line-height: 1.5;
+		color: var(--color-ink-soft);
+		text-wrap: pretty;
+	}
+
+	.cite-list li + li {
+		border-top: 1px solid var(--color-line);
+	}
+
+	.cite-title {
+		color: var(--color-ink);
+	}
+</style>
