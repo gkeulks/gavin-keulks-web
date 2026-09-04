@@ -2,6 +2,8 @@
 	"name": "gavin-keulks-web",
 	"compatibility_date": "2026-09-02",
 	"assets": {
-		"directory": "./dist"
+		"directory": "./dist",
+		// serve dist/404.html for unmatched paths (default is a bare 404)
+		"not_found_handling": "404-page"
 	}
 }

@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { sections, utilityLinks } from '../data/nav';
+
+const all = [...sections, ...utilityLinks];
+---
+
+<Layout
+	title="Page not found"
+	description="That page isn’t here. The sections of gavinkeulks.com are listed below."
+>
+	<div class="wrap">
+		<header class="page-head">
+			<p class="code">404</p>
+			<h1>Page not found</h1>
+			<p class="page-intro">
+				That page isn&rsquo;t here &mdash; it may have moved, or the address may
+				have been mistyped. Everything on the site is listed below.
+			</p>
+		</header>
+
+		<nav class="index" aria-label="Sections">
+			{
+				all.map((s) => (
+					<a class="index-item" href={`/${s.slug}/`}>
+						<span class="index-title">{s.title}</span>
+						<span class="index-blurb">{s.blurb}</span>
+					</a>
+				))
+			}
+		</nav>
+
+		<p class="home-note">
+			Or return to the <a href="/">home&nbsp;page</a>.
+		</p>
+	</div>
+</Layout>
+
+<style>
+	.page-head {
+		padding-block: clamp(3.5rem, 9vw, 6.5rem) clamp(1.75rem, 4vw, 3rem);
+	}
+
+	.code {
+		font-family: var(--font-sans);
+		font-size: 0.75rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--color-ink-faint);
+		margin: 0 0 0.6rem;
+	}
+
+	.page-head h1 {
+		margin: 0 0 1rem;
+	}
+
+	.page-intro {
+		font-size: clamp(1.1rem, 1rem + 0.6vw, 1.3rem);
+		line-height: 1.5;
+		color: var(--color-ink-soft);
+		margin: 0;
+		max-width: 42rem;
+		text-wrap: balance;
+	}
+
+	.index {
+		display: block;
+		border-top: 1px solid var(--color-line);
+	}
+
+	.index-item {
+		display: block;
+		padding: 1.6rem 0;
+		border-bottom: 1px solid var(--color-line);
+		text-decoration: none;
+		color: var(--color-ink);
+	}
+
+	.index-title {
+		display: block;
+		font-family: var(--font-display);
+		font-size: 1.5rem;
+		font-weight: 600;
+		letter-spacing: -0.01em;
+	}
+
+	.index-item:hover .index-title {
+		text-decoration: underline;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 0.16em;
+	}
+
+	.index-blurb {
+		display: block;
+		margin-top: 0.35rem;
+		font-size: 1.02rem;
+		line-height: 1.45;
+		color: var(--color-ink-soft);
+	}
+
+	.home-note {
+		margin-top: 2.75rem;
+		font-family: var(--font-sans);
+		font-size: 0.84rem;
+		color: var(--color-ink-faint);
+	}
+</style>
