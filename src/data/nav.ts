@@ -56,11 +56,8 @@ export const sections: NavSection[] = [
 	},
 ];
 
-export const utilityLinks: NavSection[] = [
-	{
-		slug: 'contact',
-		title: 'Contact',
-		blurb: 'Department address and email.',
-		live: true,
-	},
-];
+/**
+ * Pages that sit outside the main section list. Empty since Contact was folded
+ * into the footer, which now carries both email addresses and the address.
+ */
+export const utilityLinks: NavSection[] = [];
