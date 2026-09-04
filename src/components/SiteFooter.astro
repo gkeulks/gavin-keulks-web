@@ -7,8 +7,12 @@ const year = new Date().getFullYear();
 		<div class="cols">
 			<div class="col">
 				<p class="label">Contact</p>
-				<p><a href="mailto:keulksg@wou.edu">Email (work)</a></p>
-				<p><a href="mailto:gkeulks@gmail.com">Email (personal)</a></p>
+				<p><span class="email" data-email="work">Email (work)</span></p>
+				<p><span class="email" data-email="personal">Email (personal)</span></p>
+				<noscript>
+					<p>keulksg [at] wou.edu</p>
+					<p>gkeulks [at] gmail.com</p>
+				</noscript>
 			</div>
 			<div class="col">
 				<p class="label">Address</p>
@@ -21,8 +25,7 @@ const year = new Date().getFullYear();
 			</div>
 			<div class="col">
 				<p class="label">Elsewhere</p>
-				<p><a href="https://linktr.ee/gkeulks">Linktree</a></p>
-				<p><a href="https://www.linkedin.com/in/gavinkeulks/">LinkedIn</a></p>
+				<p><a href="https://linktr.ee/gkeulks">Linktree</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.linkedin.com/in/gavinkeulks/">LinkedIn</a></p>
 				<p><a href="https://x.com/GavinKeulks">X (Twitter)</a></p>
 				<p><a href="https://martinamisweb.com">The Martin Amis Web</a></p>
 			</div>
@@ -33,6 +36,28 @@ const year = new Date().getFullYear();
 		</p>
 	</div>
 </footer>
+
+<script is:inline>
+	/* Addresses are held in pieces and joined at runtime, so nothing matching
+	   an address pattern appears anywhere in the served markup. Also drives
+	   the Consulting page's enquiry link, which renders before this runs. */
+	(function () {
+		var parts = {
+			work: ['keulksg', 'wou', 'edu'],
+			personal: ['gkeulks', 'gmail', 'com'],
+		};
+		var slots = document.querySelectorAll('.email[data-email]');
+		for (var i = 0; i < slots.length; i++) {
+			var slot = slots[i];
+			var p = parts[slot.getAttribute('data-email')];
+			if (!p) continue;
+			var a = document.createElement('a');
+			a.href = 'mailto:' + p[0] + String.fromCharCode(64) + p[1] + '.' + p[2];
+			a.textContent = slot.textContent;
+			slot.replaceWith(a);
+		}
+	})();
+</script>
 
 <style>
 	.site-footer {
