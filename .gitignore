@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # staging area for candidate photos to review (not published)
 _incoming/
+
+# working scratch file for editorial passes (not published — repo is public)
+_edits.md
