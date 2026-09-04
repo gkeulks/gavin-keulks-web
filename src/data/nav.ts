@@ -34,7 +34,7 @@ export const sections: NavSection[] = [
 		slug: 'fieldwork',
 		title: 'Fieldwork',
 		blurb:
-			'Planning page for my book on the reclamation of traumatic spaces in Ireland.',
+			'Orientation page for my book on the reclamation of traumatic spaces in Ireland.',
 		live: true,
 	},
 	{
