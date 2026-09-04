@@ -1,6 +1,8 @@
 export interface NavSection {
 	slug: string;
 	title: string;
+	/** overrides `title` in the home/404 contents index only, never in the nav */
+	indexTitle?: string;
 	/** short description used on the home index and in section intros */
 	blurb: string;
 	/** true once the section holds real content rather than a placeholder */
@@ -18,27 +20,27 @@ export const sections: NavSection[] = [
 		slug: 'books',
 		title: 'Books',
 		blurb:
-			'Three books — Father and Son, Martin Amis: Postmodernism and Beyond, and The Cambridge Companion to Martin Amis.',
+			'Father and Son / Martin Amis: Postmodernism and Beyond / Cambridge Companion to Martin Amis.',
 		live: true,
 	},
 	{
 		slug: 'scholarship',
 		title: 'Scholarship',
 		blurb:
-			'Essays, book chapters, and the Martin Amis Web — work for general and specialist readers.',
+			'Essays, book chapters, and the Martin Amis Web — work for generalists and specialists alike.',
 		live: true,
 	},
 	{
 		slug: 'fieldwork',
 		title: 'Fieldwork',
 		blurb:
-			'Site-based photographs (my own), for a book I’m writing on the reclamation of traumatic spaces in Ireland.',
+			'Planning page for my book on the reclamation of traumatic spaces in Ireland.',
 		live: true,
 	},
 	{
 		slug: 'creative-work',
 		title: 'Creative Work',
-		blurb: 'Flight, a novel, and published poems.',
+		blurb: 'Flight, a completed novel, and published poems.',
 		live: true,
 	},
 	{
@@ -51,6 +53,7 @@ export const sections: NavSection[] = [
 	{
 		slug: 'teaching',
 		title: 'Teaching',
+		indexTitle: 'Teaching Portfolio',
 		blurb: 'Courses in twentieth-century English and Irish literature, film, and theory.',
 		live: true,
 	},

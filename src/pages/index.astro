@@ -19,9 +19,9 @@ import portrait from '../assets/images/portrait.jpg';
 					specialising in twentieth-century English and Irish fiction of the
 					postwar period. Editor of{' '}
 					<em>The Cambridge Companion to Martin Amis</em> and administrator of
-					the Martin Amis Web since 2006. Current major projects include
-					publishing my first novel and beginning my final scholarly book, on
-					Irish traumatic spaces.
+					the Martin Amis Web. Current major projects include publishing my
+					first novel and writing my final scholarly book, on Irish traumatic
+					spaces.
 				</p>
 			</div>
 			<Image
@@ -37,7 +37,7 @@ import portrait from '../assets/images/portrait.jpg';
 			{
 				sections.map((s) => (
 					<a class="index-item" href={`/${s.slug}/`}>
-						<span class="index-title">{s.title}</span>
+						<span class="index-title">{s.indexTitle ?? s.title}</span>
 						<span class="index-blurb">{s.blurb}</span>
 					</a>
 				))

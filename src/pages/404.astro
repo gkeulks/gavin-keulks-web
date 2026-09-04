@@ -23,7 +23,7 @@ const all = [...sections, ...utilityLinks];
 			{
 				all.map((s) => (
 					<a class="index-item" href={`/${s.slug}/`}>
-						<span class="index-title">{s.title}</span>
+						<span class="index-title">{s.indexTitle ?? s.title}</span>
 						<span class="index-blurb">{s.blurb}</span>
 					</a>
 				))
