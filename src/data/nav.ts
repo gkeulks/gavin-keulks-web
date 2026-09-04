@@ -46,7 +46,7 @@ export const sections: NavSection[] = [
 		title: 'Consulting',
 		blurb:
 			'External program review and assessment for honors programs and English departments.',
-		live: false,
+		live: true,
 	},
 	{
 		slug: 'teaching',
@@ -61,6 +61,6 @@ export const utilityLinks: NavSection[] = [
 		slug: 'contact',
 		title: 'Contact',
 		blurb: 'Department address and email.',
-		live: false,
+		live: true,
 	},
 ];
