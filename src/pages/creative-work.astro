@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Creative Work"
+	description="Gavin Keulks — Flight, a novel, and poems published in The Antigonish Review and The Merton Journal."
+>
+	<div class="wrap">
+		<header class="page-head">
+			<h1>Creative Work</h1>
+			<p class="page-intro">A novel and published poems.</p>
+		</header>
+
+		<section class="work">
+			<h2><em>Flight</em></h2>
+			<p class="work-meta">A novel &middot; 80,000 words &middot; In circulation</p>
+			<p>
+				<em>Flight</em> is complete, and perhaps the most meaningful thing I have
+				written. The manuscript is with readers.
+			</p>
+		</section>
+
+		<section class="work">
+			<h2>Poems</h2>
+			<ul class="cite-list">
+				<li>
+					<span class="cite-title"
+						>&ldquo;Trappists&rdquo; and &ldquo;Houdini.&rdquo;</span
+					>{' '}
+					<em>The Antigonish Review</em> 153 (Summer 2008): 76&ndash;79.
+				</li>
+				<li>
+					<span class="cite-title">&ldquo;Retreating.&rdquo;</span>{' '}
+					<em>The Merton Journal</em> 15.1 (Easter 2008): 23&ndash;24.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;The Shower (for Thomas&nbsp;Merton).&rdquo;</span
+					>{' '}
+					<em>The Merton Journal</em> 10.2 (Advent 2003): 24&ndash;26. Read by the
+					editor at the annual meeting of the Thomas&nbsp;Merton Society of
+					Great&nbsp;Britain and Ireland.
+				</li>
+			</ul>
+		</section>
+	</div>
+</Layout>
+
+<style>
+	.page-head {
+		padding-block: clamp(3.5rem, 9vw, 6.5rem) clamp(1.75rem, 4vw, 3rem);
+	}
+
+	.page-head h1 {
+		margin: 0 0 1rem;
+	}
+
+	.page-intro {
+		font-size: clamp(1.1rem, 1rem + 0.6vw, 1.3rem);
+		line-height: 1.5;
+		color: var(--color-ink-soft);
+		margin: 0;
+		max-width: 42rem;
+		text-wrap: balance;
+	}
+
+	.work {
+		padding-block: clamp(2.25rem, 5vw, 3.25rem);
+		border-top: 1px solid var(--color-line);
+	}
+
+	.work:last-child {
+		border-bottom: 1px solid var(--color-line);
+	}
+
+	.work h2 {
+		margin: 0 0 0.35rem;
+	}
+
+	.work h2 em {
+		font-style: italic;
+	}
+
+	.work-meta {
+		margin: 0 0 1.35rem;
+		font-family: var(--font-sans);
+		font-size: 0.8rem;
+		letter-spacing: 0.02em;
+		color: var(--color-ink-faint);
+	}
+
+	.work p {
+		margin: 0 0 1rem;
+		max-width: 42rem;
+	}
+
+	.work p:last-child {
+		margin-bottom: 0;
+	}
+
+	.cite-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		max-width: 42rem;
+	}
+
+	.cite-list li {
+		padding-block: 0.7rem;
+		padding-left: 1.4rem;
+		text-indent: -1.4rem;
+		font-size: 1rem;
+		line-height: 1.5;
+		color: var(--color-ink-soft);
+		text-wrap: pretty;
+	}
+
+	.cite-list li + li {
+		border-top: 1px solid var(--color-line);
+	}
+
+	.cite-title {
+		color: var(--color-ink);
+	}
+</style>

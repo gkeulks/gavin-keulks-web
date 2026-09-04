@@ -39,7 +39,7 @@ export const sections: NavSection[] = [
 		slug: 'creative-work',
 		title: 'Creative Work',
 		blurb: 'Flight, a novel, and published poems.',
-		live: false,
+		live: true,
 	},
 	{
 		slug: 'consulting',
