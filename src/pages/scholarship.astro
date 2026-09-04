@@ -35,54 +35,55 @@ import Layout from '../layouts/Layout.astro';
 				responsibility but also a subject of my research, spanning numerous
 				conference papers and presentations.
 			</p>
-			<ul class="cite-list">
-				<li>
-					<span class="cite-title"
-						>&ldquo;Authorship in the Age of Digital Archiving.&rdquo;</span
-					>{' '}
-					Technology, Knowledge, and Society International Conference.
-					Toronto,&nbsp;Canada, 2017.
+			<ul class="record-list">
+				<li class="record-row">
+					<span class="record-year">2017</span>
+					<span class="record-item">
+						<span class="cite-title">&ldquo;Authorship in the Age of Digital Archiving.&rdquo;</span>
+						<span class="record-note">Technology, Knowledge, and Society International Conference &middot; Toronto,&nbsp;Canada</span>
+					</span>
 				</li>
-				<li>
-					<span class="cite-title"
-						>&ldquo;Authorship in the Age of Online Archiving.&rdquo;</span
-					>{' '}
-					Popular and American Culture Association. Washington,&nbsp;DC, 2013.
+				<li class="record-row">
+					<span class="record-year">2013</span>
+					<span class="record-item">
+						<span class="cite-title">&ldquo;Authorship in the Age of Online Archiving.&rdquo;</span>
+						<span class="record-note">Popular and American Culture Association &middot; Washington,&nbsp;DC</span>
+					</span>
 				</li>
-				<li>
-					<span class="cite-title"
-						>&ldquo;Shadowy Margins and Sinkholes: Authorship, Online Archives, and
-						IP&nbsp;Law.&rdquo;</span
-					>{' '}
-					Popular and American Culture Association. Boston,&nbsp;MA, 2012.
+				<li class="record-row">
+					<span class="record-year">2012</span>
+					<span class="record-item">
+						<span class="cite-title">&ldquo;Shadowy Margins and Sinkholes: Authorship, Online Archives, and IP&nbsp;Law.&rdquo;</span>
+						<span class="record-note">Popular and American Culture Association &middot; Boston,&nbsp;MA</span>
+					</span>
 				</li>
-				<li>
-					<span class="cite-title"
-						>&ldquo;The Rhetoric of Road-Rage: Authorial Websites and Legal
-						Hit-and-Runs.&rdquo;</span
-					>{' '}
-					Popular and American Culture Association. San&nbsp;Antonio,&nbsp;TX, 2011.
+				<li class="record-row">
+					<span class="record-year">2011</span>
+					<span class="record-item">
+						<span class="cite-title">&ldquo;The Rhetoric of Road-Rage: Authorial Websites and Legal Hit-and-Runs.&rdquo;</span>
+						<span class="record-note">Popular and American Culture Association &middot; San&nbsp;Antonio,&nbsp;TX</span>
+					</span>
 				</li>
-				<li>
-					<span class="cite-title"
-						>&ldquo;Intellectual Properties: Growth Boundaries in Digital
-						Scholarship and Copyright Law.&rdquo;</span
-					>{' '}
-					Southwest/Texas Popular Culture Association. Albuquerque,&nbsp;NM, 2008.
+				<li class="record-row">
+					<span class="record-year">2008</span>
+					<span class="record-item">
+						<span class="cite-title">&ldquo;Intellectual Properties: Growth Boundaries in Digital Scholarship and Copyright Law.&rdquo;</span>
+						<span class="record-note">Southwest/Texas Popular Culture Association &middot; Albuquerque,&nbsp;NM</span>
+					</span>
 				</li>
-				<li>
-					<span class="cite-title"
-						>&ldquo;Digital Humanizing: Administering Author/Scholar
-						Relationships.&rdquo;</span
-					>{' '}
-					Society for Digital Humanities. Saskatoon,&nbsp;Canada, 2007.
+				<li class="record-row">
+					<span class="record-year">2007</span>
+					<span class="record-item">
+						<span class="cite-title">&ldquo;Digital Humanizing: Administering Author/Scholar Relationships.&rdquo;</span>
+						<span class="record-note">Society for Digital Humanities &middot; Saskatoon,&nbsp;Canada</span>
+					</span>
 				</li>
-				<li>
-					<span class="cite-title"
-						>&ldquo;Administering Author Websites: Evolving Challenges in
-						Scholarship, Copyright, and Discussion.&rdquo;</span
-					>{' '}
-					Popular and American Culture Association. Boston,&nbsp;MA, 2007.
+				<li class="record-row">
+					<span class="record-year">2007</span>
+					<span class="record-item">
+						<span class="cite-title">&ldquo;Administering Author Websites: Evolving Challenges in Scholarship, Copyright, and Discussion.&rdquo;</span>
+						<span class="record-note">Popular and American Culture Association &middot; Boston,&nbsp;MA</span>
+					</span>
 				</li>
 			</ul>
 		</section>
@@ -266,8 +267,48 @@ import Layout from '../layouts/Layout.astro';
 		max-width: 42rem;
 	}
 
-	.archive .cite-list {
+	.archive .record-list {
 		margin-top: 1.5rem;
+	}
+
+	.record-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		max-width: 42rem;
+	}
+
+	.record-row {
+		display: grid;
+		grid-template-columns: 5rem 1fr;
+		gap: 0 1.5rem;
+		padding-block: 0.75rem;
+		align-items: baseline;
+	}
+
+	.record-row + .record-row {
+		border-top: 1px solid var(--color-line);
+	}
+
+	.record-year {
+		font-family: var(--font-sans);
+		font-size: 0.8rem;
+		color: var(--color-ink-faint);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.record-item {
+		font-size: 1rem;
+		line-height: 1.45;
+		color: var(--color-ink-soft);
+	}
+
+	.record-note {
+		display: block;
+		margin-top: 0.2rem;
+		font-family: var(--font-sans);
+		font-size: 0.78rem;
+		color: var(--color-ink-faint);
 	}
 
 	.cite-list {
@@ -308,5 +349,12 @@ import Layout from '../layouts/Layout.astro';
 
 	.cv-line a {
 		color: var(--color-ink-soft);
+	}
+
+	@media (max-width: 34rem) {
+		.record-row {
+			grid-template-columns: 1fr;
+			gap: 0.25rem;
+		}
 	}
 </style>

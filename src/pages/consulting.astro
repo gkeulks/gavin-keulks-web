@@ -100,63 +100,83 @@ import Layout from '../layouts/Layout.astro';
 					</span>
 				</li>
 			</ul>
-			<ul class="cite-list">
-				<li>
-					<span class="cite-title"
-						>&ldquo;Meet Me at the Carousel: Harnessing City as Text to Build
-						Lasting Community.&rdquo;</span
-					>{' '}
-					With Steve Garrison and Amanda Threlkeld.{' '}
-					<em>
-						(Re)Reading the World: A Festschrift Celebrating 50&nbsp;Years of Place
-						as Text and the Legacy of Bernice&nbsp;Braid
-					</em>. NCHC Publishing, 2026.
+			<ul class="record-list papers">
+				<li class="record-row">
+					<span class="record-year">2026</span>
+					<span class="record-item">
+						<span class="cite-title">&ldquo;Meet Me at the Carousel: Harnessing City as Text to Build Lasting Community.&rdquo;</span>
+						<span class="record-note">
+							With Steve Garrison and Amanda Threlkeld &middot;{' '}
+							<em>
+								(Re)Reading the World: A Festschrift Celebrating 50&nbsp;Years of Place
+								as Text and the Legacy of Bernice&nbsp;Braid
+							</em>{' '}
+							&middot; NCHC Publishing
+						</span>
+					</span>
 				</li>
-				<li>
-					<span class="cite-title">Developing in Honors, opening session.</span>{' '}
-					National Collegiate Honors Council. Dallas,&nbsp;TX, 2022. Panel.
+				<li class="record-row">
+					<span class="record-year">2022</span>
+					<span class="record-item">
+						<span class="cite-title">Developing in Honors, opening session.</span>
+						<span class="record-note">
+							National Collegiate Honors Council &middot; Dallas,&nbsp;TX &middot; Panel
+						</span>
+					</span>
 				</li>
-				<li>
-					<span class="cite-title"
-						>&ldquo;Honors Programs and the Humanities: the Last, Best
-						Stand?&rdquo;</span
-					>{' '}
-					Scholarship of Teaching and Learning. Savannah,&nbsp;GA, 2022.
+				<li class="record-row">
+					<span class="record-year">2022</span>
+					<span class="record-item">
+						<span class="cite-title">&ldquo;Honors Programs and the Humanities: the Last, Best Stand?&rdquo;</span>
+						<span class="record-note">
+							Scholarship of Teaching and Learning &middot; Savannah,&nbsp;GA
+						</span>
+					</span>
 				</li>
-				<li>
-					<span class="cite-title"
-						>&ldquo;Working Together: Who Are Faculty Advisors and How Do They
-						Connect with Students?&rdquo;</span
-					>{' '}
-					NACADA national conference. Cincinnati,&nbsp;OH, 2021. Panel.
+				<li class="record-row">
+					<span class="record-year">2021</span>
+					<span class="record-item">
+						<span class="cite-title">&ldquo;Working Together: Who Are Faculty Advisors and How Do They Connect with Students?&rdquo;</span>
+						<span class="record-note">
+							NACADA national conference &middot; Cincinnati,&nbsp;OH &middot; Panel
+						</span>
+					</span>
 				</li>
-				<li>
-					<span class="cite-title"
-						>&ldquo;Advising in Honors: High Achievement, High Need, High
-						Reward.&rdquo;</span
-					>{' '}
-					NACADA regional conference. Portland,&nbsp;OR, 2018.
+				<li class="record-row">
+					<span class="record-year">2018</span>
+					<span class="record-item">
+						<span class="cite-title">&ldquo;Advising in Honors: High Achievement, High Need, High Reward.&rdquo;</span>
+						<span class="record-note">
+							NACADA regional conference &middot; Portland,&nbsp;OR
+						</span>
+					</span>
 				</li>
-				<li>
-					<span class="cite-title"
-						>&ldquo;Best Practices (and Practical Bets&hellip;) in Honors
-						Advising.&rdquo;</span
-					>{' '}
-					Oregon Academic Advising Conference. Monmouth,&nbsp;OR, 2016.
+				<li class="record-row">
+					<span class="record-year">2016</span>
+					<span class="record-item">
+						<span class="cite-title">&ldquo;Best Practices (and Practical Bets&hellip;) in Honors Advising.&rdquo;</span>
+						<span class="record-note">
+							Oregon Academic Advising Conference &middot; Monmouth,&nbsp;OR
+						</span>
+					</span>
 				</li>
-				<li>
-					<span class="cite-title"
-						>&ldquo;Advising the Exemplary: The Uniqueness of Honors
-						Advising.&rdquo;</span
-					>{' '}
-					NACADA regional conference. Manhattan,&nbsp;KS, 2016.
+				<li class="record-row">
+					<span class="record-year">2016</span>
+					<span class="record-item">
+						<span class="cite-title">&ldquo;Advising the Exemplary: The Uniqueness of Honors Advising.&rdquo;</span>
+						<span class="record-note">
+							NACADA regional conference &middot; Manhattan,&nbsp;KS
+						</span>
+					</span>
 				</li>
-				<li>
-					<span class="cite-title"
-						>&ldquo;&lsquo;If Gold Shall Rust&hellip;&rsquo;: Demystifying
-						Stereotypes in Honors Advising.&rdquo;</span
-					>{' '}
-					NACADA regional conference. Seattle,&nbsp;WA, 2016.
+				<li class="record-row">
+					<span class="record-year">2016</span>
+					<span class="record-item">
+						<span class="cite-title">&ldquo;&lsquo;If Gold Shall Rust&hellip;&rsquo;: Demystifying Stereotypes in Honors Advising.&rdquo;</span>
+						<span class="record-note">
+							NACADA regional conference &middot; Seattle,&nbsp;WA
+						</span>
+					</span>
 				</li>
 			</ul>
 		</section>
@@ -223,12 +243,11 @@ import Layout from '../layouts/Layout.astro';
 		margin-bottom: 1.35rem;
 	}
 
-	.record-list + .cite-list {
+	.record-list + .record-list {
 		margin-top: 1.75rem;
 	}
 
-	.record-list,
-	.cite-list {
+	.record-list {
 		list-style: none;
 		margin: 0;
 		padding: 0;
@@ -267,20 +286,6 @@ import Layout from '../layouts/Layout.astro';
 		font-size: 0.82rem;
 		line-height: 1.5;
 		color: var(--color-ink-faint);
-	}
-
-	.cite-list li {
-		padding-block: 0.7rem;
-		padding-left: 1.4rem;
-		text-indent: -1.4rem;
-		font-size: 1rem;
-		line-height: 1.5;
-		color: var(--color-ink-soft);
-		text-wrap: pretty;
-	}
-
-	.cite-list li + li {
-		border-top: 1px solid var(--color-line);
 	}
 
 	.cite-title {
