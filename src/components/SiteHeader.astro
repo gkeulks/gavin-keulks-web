@@ -1,13 +1,21 @@
 ---
 import { sections } from '../data/nav';
 
+interface Props {
+	/** mock-up: show the wordmark on the home page too, so the header is
+	    structurally identical on every page and the nav never shifts. */
+	alwaysWordmark?: boolean;
+}
+
+const { alwaysWordmark = false } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const isHome = path === '/';
+const isHome = path === '/' || path.startsWith('/preview');
+const runningHead = isHome && !alwaysWordmark;
 ---
 
-<header class:list={['site-header', { home: isHome }]}>
+<header class:list={['site-header', { home: runningHead }]}>
 	<div class="wrap inner">
-		{!isHome && <a class="wordmark" href="/">Gavin Keulks</a>}
+		{!runningHead && <a class="wordmark" href="/">Gavin Keulks</a>}
 		<button
 			class="nav-toggle"
 			id="nav-toggle"
