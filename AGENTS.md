@@ -19,7 +19,9 @@ material and adding the sections below.
 - **Home** — name, lede, portrait; a tinted band of the three book covers; a
   numbered "Currently Working On" list (*Flight* / Irish Traumatic Spaces / The
   Martin Amis Web). Redesigned Sept 2026; the old section index is gone, since
-  the top nav already lists the sections.
+  the top nav already lists the sections. The portrait is **no longer the WOU
+  studio headshot** — it is a 2013 outdoor frame, cropped 5:7, chosen off a
+  mock-up route in Sept 2026 to lead with writer rather than professor.
 - **About** — bio, Key Appointments and Service, Select Grants and Awards, CV.
 - **Books** — the three books, newest first, with covers.
 - **Scholarship** — chapters, essays, and the Martin Amis Web, grouped by theme.
@@ -27,7 +29,13 @@ material and adding the sections below.
   the reclamation of traumatic spaces in Ireland. **The photographs are not yet
   uploaded** — the page is currently text only. His images, his rights.
 - **Creative Work** — the novel *Flight* (under agent review, with a full
-  description drawn from Gavin's own query letter) and published poems.
+  description drawn from Gavin's own query letter) and published poems, both
+  Merton poems linked to the Thomas Merton Society's PDFs. Carries **the site's
+  only inline photograph**: a `.beside` grid inside the *Flight* section, prose
+  in one column and a `<figure>` in the other, starting level with the first
+  body paragraph rather than the heading. Caption "Workshopping the manuscript",
+  no year. Its 13rem width is sized to the prose block, so **re-measure it
+  whenever the *Flight* copy changes**.
 - **Consulting** — external program review, assessment, and curricular reform.
 - **Teaching** — course list. Header reads *Teaching Portfolio*; nav says
   *Teaching*. That split is deliberate, ruled by Gavin.
@@ -120,7 +128,11 @@ walk the text nodes taking a `Range` rect per character and group by rounded
   placeholder route; every section is now `live: true`, so it generates nothing.
   Left in place for any future placeholder.
 - `src/data/nav.ts` — section list with a `live` flag per entry.
-- `src/layouts/Layout.astro` — the single layout.
+- `src/layouts/Layout.astro` — the single layout. Takes a `noindex` prop for
+  mock-up routes. It builds `<main>`'s attributes by spread, because **Astro
+  renders a `data-*` boolean as the string `"true"`/`"false"`** — so
+  `data-pagefind-body={false}` is still a body tag and Pagefind indexes the
+  page. Baseline to check against: **9 pages, 1170 words**.
 - `src/components/` — `SiteHeader`, `SiteFooter`, `SectionPlaceholder`.
 - `src/styles/global.css` — tokens and base typography.
 - `public/_headers` — HSTS, CSP, nosniff, X-Frame-Options, Referrer-Policy,
