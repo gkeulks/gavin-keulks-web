@@ -26,7 +26,8 @@ material and adding the sections below.
 - **Fieldwork** — Gavin's own site-based photographs, for a book he is writing on
   the reclamation of traumatic spaces in Ireland. **The photographs are not yet
   uploaded** — the page is currently text only. His images, his rights.
-- **Creative Work** — the novel *Flight* (under agent review) and published poems.
+- **Creative Work** — the novel *Flight* (under agent review, with a full
+  description drawn from Gavin's own query letter) and published poems.
 - **Consulting** — external program review, assessment, and curricular reform.
 - **Teaching** — course list. Header reads *Teaching Portfolio*; nav says
   *Teaching*. That split is deliberate, ruled by Gavin.
@@ -46,10 +47,12 @@ Positioning: understate the professorship, lead with writer/scholar.
   `#faf8f4` on ink `#1a1a17` (light); cream `#ece7dc` on warm near-black `#15140f`
   (dark). The intent was that colour come from the Fieldwork photographs; those
   are not uploaded yet, which is why the site read as bare.
-- **Accent — Home only.** Claret `#7a1f38` (light) / `#d98fa3` (dark), sampled
-  from the *Father and Son* cover; 9.5:1 and 7.4:1, both AAA. Used on links,
-  eyebrows, and the numbered indices. The other seven pages remain monochrome.
-  Do not add accent colour elsewhere without asking.
+- **Accent — site-wide.** Claret `#7a1f38` (light) / `#d98fa3` (dark), sampled
+  from the *Father and Son* cover; 9.5:1 and 7.4:1, both AAA. It *is*
+  `--color-accent`, which is used for exactly one thing: the global link colour.
+  So it marks **prose links only** — nav, wordmark, book titles, `.book-links`,
+  `.cv-line` and the footer all set their own quieter colours and must keep
+  them. Underlines take a 45% mix of the accent.
 - **Layout:** one book-like column. `--content-width: 50rem`,
   `--page-width: 53rem`; `--page-width-wide: 78rem` reserved for the Fieldwork
   gallery. Header, nav and content share one left edge; the footer and the
@@ -127,7 +130,10 @@ walk the text nodes taking a `Range` rect per character and group by rounded
   what makes the custom 404 reachable; Workers' default never serves it.
 - `_edits.md` (gitignored) — Gavin's editorial scratch file. He types under
   per-page headings and says "go".
-- `_incoming/` (gitignored) — source material he supplies.
+- `_incoming/` (gitignored) — source material he supplies. Contains his CV, a
+  photo batch, and two 2007 *Flight* documents. **`Synopsis V.doc` is a
+  spoiler-complete plot summary — never publish from it**, and both novel
+  documents carry a home address and phone that must not reach any page.
 
 `CLAUDE.md` is a symlink to this file. Edit **`AGENTS.md`**; both are tracked.
 
