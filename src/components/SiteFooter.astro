@@ -1,14 +1,8 @@
 ---
-interface Props {
-	/** mock-up variant: wider column gaps, centred colophon, columns stay flush left */
-	centered?: boolean;
-}
-
-const { centered = false } = Astro.props;
 const year = new Date().getFullYear();
 ---
 
-<footer class:list={['site-footer', { centered }]}>
+<footer class="site-footer">
 	<div class="wrap">
 		<div class="cols">
 			<div class="col">
@@ -76,24 +70,15 @@ const year = new Date().getFullYear();
 		color: var(--color-ink-soft);
 	}
 
+	/* The trio of columns centres on the page, but each column's own text stays
+	   flush left, so the address keeps its left edge. The colophon centres with
+	   it, on the same axis as the pages' centred CV lines. */
 	.cols {
 		display: grid;
 		grid-template-columns: repeat(3, max-content);
-		justify-content: start;
-		column-gap: clamp(2.5rem, 7vw, 5rem);
-		row-gap: 2.25rem;
-	}
-
-	/* --- mock-up (home page only, pending Gavin's ruling): the trio of columns
-	   centres on the page, but each column's own text stays flush left, so the
-	   address keeps its left edge. Colophon centres with it. --- */
-	.centered .cols {
 		justify-content: center;
 		column-gap: clamp(3.5rem, 10vw, 8rem);
-	}
-
-	.centered .colophon {
-		text-align: center;
+		row-gap: 2.25rem;
 	}
 
 	.col p {
@@ -116,6 +101,7 @@ const year = new Date().getFullYear();
 
 	.colophon {
 		margin: 2.25rem 0 0;
+		text-align: center;
 		color: var(--color-ink-faint);
 		white-space: normal;
 	}

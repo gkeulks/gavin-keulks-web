@@ -8,15 +8,12 @@ interface Props {
 	description?: string;
 	/** omit the site-name suffix on the home page */
 	bareTitle?: boolean;
-	/** mock-up: centred footer columns */
-	centeredFooter?: boolean;
 }
 
 const {
 	title,
 	description = 'Gavin Keulks — writer and scholar. Three books on the postwar English and Irish novel, a first novel in progress, and photographs toward a book on Irish traumatic spaces.',
 	bareTitle = false,
-	centeredFooter = false,
 } = Astro.props;
 
 const fullTitle = bareTitle ? title : `${title} · Gavin Keulks`;
@@ -40,6 +37,6 @@ const fullTitle = bareTitle ? title : `${title} · Gavin Keulks`;
 		<main id="main" data-pagefind-body>
 			<slot />
 		</main>
-		<SiteFooter centered={centeredFooter} />
+		<SiteFooter />
 	</body>
 </html>
