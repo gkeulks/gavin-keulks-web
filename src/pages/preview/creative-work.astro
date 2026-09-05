@@ -158,6 +158,101 @@ import inset from '../../assets/images/preview/c-inset.jpg';
 	</div>
 
 	<hr class="mock-rule" />
+
+	<div class="wrap">
+		<p class="mock-label">4 &mdash; inset in the <em>Flight</em> section</p>
+		<p class="mock-note">
+			The same inset as 3, moved to where the prose actually is. <em>Flight</em>{' '}
+			has three paragraphs for the picture to sit against; the poems are a list,
+			which gives a float nothing to wrap around.
+		</p>
+
+		<header class="page-head">
+			<h2 class="as-h1">Creative Work</h2>
+			<p class="page-intro">A novel and published poems.</p>
+		</header>
+
+		<section class="work">
+			<div class="measure">
+				<Image
+					class="inset-image"
+					src={inset}
+					alt=""
+					widths={[176, 264, 352]}
+					sizes="(max-width: 46rem) 34vw, 11rem"
+				/>
+				<h2><em>Flight</em></h2>
+				<p class="work-meta">A novel &middot; 80,000 words &middot; Under agent&nbsp;review</p>
+				<p>
+					<em>Flight</em> is a work of literary fiction about risk and resistance,
+					light and dark energies&nbsp;&mdash; and the barriers people create to
+					preserve their comfortable, ziplocked lives.
+				</p>
+				<p>
+					Structured in six sections that correspond to spiritual dates and
+					martyrs, the novel dramatizes two months in the life of a woman who
+					works in an exotic bird store. Her best friend is a circus
+					contortionist. She has three love interests: a bashful policeman, an
+					egomaniacal astrophysicist, and a distant fianc&eacute;. At the center
+					of her story is Maddie, a yellow-collared macaw.
+				</p>
+				<p>
+					It is perhaps the most meaningful project I have completed.
+				</p>
+			</div>
+		</section>
+	</div>
+
+	<hr class="mock-rule" />
+
+	<div class="wrap">
+		<p class="mock-label">5 &mdash; a column beside <em>Flight</em>, not a float</p>
+		<p class="mock-note">
+			Same idea, built as a grid instead. The prose keeps one measure the whole
+			way down, so there is no step where the text clears the picture &mdash;
+			the cost is that this section&rsquo;s measure is narrower than the rest of
+			the page&rsquo;s.
+		</p>
+
+		<header class="page-head">
+			<h2 class="as-h1">Creative Work</h2>
+			<p class="page-intro">A novel and published poems.</p>
+		</header>
+
+		<section class="work">
+			<div class="beside">
+				<div class="beside-text">
+					<h2><em>Flight</em></h2>
+					<p class="work-meta">A novel &middot; 80,000 words &middot; Under agent&nbsp;review</p>
+					<p>
+						<em>Flight</em> is a work of literary fiction about risk and
+						resistance, light and dark energies&nbsp;&mdash; and the barriers
+						people create to preserve their comfortable, ziplocked lives.
+					</p>
+					<p>
+						Structured in six sections that correspond to spiritual dates and
+						martyrs, the novel dramatizes two months in the life of a woman who
+						works in an exotic bird store. Her best friend is a circus
+						contortionist. She has three love interests: a bashful policeman, an
+						egomaniacal astrophysicist, and a distant fianc&eacute;. At the
+						center of her story is Maddie, a yellow-collared macaw.
+					</p>
+					<p>
+						It is perhaps the most meaningful project I have completed.
+					</p>
+				</div>
+				<Image
+					class="beside-image"
+					src={inset}
+					alt=""
+					widths={[176, 264, 352]}
+					sizes="(max-width: 46rem) 34vw, 11rem"
+				/>
+			</div>
+		</section>
+	</div>
+
+	<hr class="mock-rule" />
 </Layout>
 
 <style>
@@ -342,7 +437,34 @@ import inset from '../../assets/images/preview/c-inset.jpg';
 		border-radius: 2px;
 	}
 
+	/* 5 — a column beside Flight */
+	.beside {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 2rem;
+		align-items: start;
+	}
+
+	.beside-text p {
+		max-width: none;
+	}
+
+	.beside-image {
+		width: 11rem;
+		height: auto;
+		border-radius: 2px;
+	}
+
 	@media (max-width: 46rem) {
+		.beside {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.beside-image {
+			width: 9rem;
+		}
+
 		.page-head.split {
 			grid-template-columns: 1fr;
 			gap: 1.5rem;
