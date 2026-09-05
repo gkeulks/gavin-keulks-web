@@ -1,6 +1,6 @@
 ---
 interface Props {
-	/** mock-up variant: centre the columns and widen the gaps */
+	/** mock-up variant: wider column gaps, centred colophon, columns stay flush left */
 	centered?: boolean;
 }
 
@@ -84,11 +84,10 @@ const year = new Date().getFullYear();
 		row-gap: 2.25rem;
 	}
 
-	/* --- centred mock-up (home page only, pending Gavin's ruling) --- */
+	/* --- mock-up (home page only, pending Gavin's ruling): the columns keep
+	   the site's left edge, the gaps open up, and only the colophon centres. --- */
 	.centered .cols {
-		justify-content: center;
 		column-gap: clamp(3.5rem, 10vw, 8rem);
-		text-align: center;
 	}
 
 	.centered .colophon {
