@@ -1,8 +1,14 @@
 ---
+interface Props {
+	/** mock-up variant: centre the columns and widen the gaps */
+	centered?: boolean;
+}
+
+const { centered = false } = Astro.props;
 const year = new Date().getFullYear();
 ---
 
-<footer class="site-footer">
+<footer class:list={['site-footer', { centered }]}>
 	<div class="wrap">
 		<div class="cols">
 			<div class="col">
@@ -76,6 +82,17 @@ const year = new Date().getFullYear();
 		justify-content: start;
 		column-gap: clamp(2.5rem, 7vw, 5rem);
 		row-gap: 2.25rem;
+	}
+
+	/* --- centred mock-up (home page only, pending Gavin's ruling) --- */
+	.centered .cols {
+		justify-content: center;
+		column-gap: clamp(3.5rem, 10vw, 8rem);
+		text-align: center;
+	}
+
+	.centered .colophon {
+		text-align: center;
 	}
 
 	.col p {
