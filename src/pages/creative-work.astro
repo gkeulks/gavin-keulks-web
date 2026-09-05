@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+import workshopping from '../assets/images/workshopping.jpg';
 ---
 
 <Layout
@@ -13,24 +15,38 @@ import Layout from '../layouts/Layout.astro';
 		</header>
 
 		<section class="work">
-			<h2><em>Flight</em></h2>
-			<p class="work-meta">A novel &middot; 80,000 words &middot; Under agent&nbsp;review</p>
-			<p>
-				<em>Flight</em> is a work of literary fiction about risk and resistance,
-				light and dark energies&nbsp;&mdash; and the barriers people create to
-				preserve their comfortable, ziplocked lives.
-			</p>
-			<p>
-				Structured in six sections that correspond to spiritual dates and martyrs,
-				the novel dramatizes two months in the life of a woman who works in an
-				exotic bird store. Her best friend is a circus contortionist. She has
-				three love interests: a bashful policeman, an egomaniacal astrophysicist,
-				and a distant fianc&eacute;. At the center of her story is Maddie, a
-				yellow-collared macaw.
-			</p>
-			<p>
-				It is perhaps the most meaningful project I have completed.
-			</p>
+			<div class="beside">
+				<div class="beside-text">
+					<h2><em>Flight</em></h2>
+					<p class="work-meta">A novel &middot; 80,000 words &middot; Under agent&nbsp;review</p>
+					<p>
+						<em>Flight</em> is a work of literary fiction about risk and
+						resistance, light and dark energies&nbsp;&mdash; and the barriers
+						people create to preserve their comfortable, ziplocked lives.
+					</p>
+					<p>
+						Structured in six sections that correspond to spiritual dates and
+						martyrs, the novel dramatizes two months in the life of a woman who
+						works in an exotic bird store. Her best friend is a circus
+						contortionist. She has three love interests: a bashful policeman, an
+						egomaniacal astrophysicist, and a distant fianc&eacute;. At the
+						center of her story is Maddie, a yellow-collared macaw.
+					</p>
+					<p>
+						It is perhaps the most meaningful project I have completed.
+					</p>
+				</div>
+				<figure class="beside-figure">
+					<Image
+						class="beside-image"
+						src={workshopping}
+						alt="Gavin Keulks reading aloud from a manuscript to a seated room"
+						widths={[176, 264, 352]}
+						sizes="(max-width: 46rem) 34vw, 12rem"
+					/>
+					<figcaption>Workshopping the manuscript</figcaption>
+				</figure>
+			</div>
 		</section>
 
 		<section class="work">
@@ -110,6 +126,39 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--color-ink-faint);
 	}
 
+	.beside {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 2rem;
+		align-items: start;
+	}
+
+	.beside-text p {
+		max-width: none;
+	}
+
+	/* The figure sets the width so the picture and its caption share one
+	   right edge, on the page's 1024 rule. */
+	.beside-figure {
+		margin: 0;
+		width: 12rem;
+	}
+
+	.beside-image {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 2px;
+	}
+
+	.beside-figure figcaption {
+		margin-top: 0.6rem;
+		font-family: var(--font-sans);
+		font-size: 0.78rem;
+		letter-spacing: 0.02em;
+		color: var(--color-ink-faint);
+	}
+
 	.work p {
 		margin: 0 0 1rem;
 		max-width: 42rem;
@@ -142,5 +191,12 @@ import Layout from '../layouts/Layout.astro';
 
 	.cite-title {
 		color: var(--color-ink);
+	}
+
+	@media (max-width: 46rem) {
+		.beside {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
 	}
 </style>
