@@ -8,18 +8,12 @@ interface Props {
 	description?: string;
 	/** omit the site-name suffix on the home page */
 	bareTitle?: boolean;
-	/** mock-up: wordmark on every page, nav never shifts */
-	alwaysWordmark?: boolean;
-	/** keep design mock-ups out of search results */
-	noindex?: boolean;
 }
 
 const {
 	title,
 	description = 'Gavin Keulks — writer and scholar. Three books on the postwar English and Irish novel, a first novel in progress, and photographs toward a book on Irish traumatic spaces.',
 	bareTitle = false,
-	alwaysWordmark = false,
-	noindex = false,
 } = Astro.props;
 
 const fullTitle = bareTitle ? title : `${title} · Gavin Keulks`;
@@ -32,7 +26,6 @@ const fullTitle = bareTitle ? title : `${title} · Gavin Keulks`;
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{fullTitle}</title>
 		<meta name="description" content={description} />
-		{noindex && <meta name="robots" content="noindex, nofollow" />}
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<meta property="og:title" content={fullTitle} />
 		<meta property="og:description" content={description} />
@@ -40,7 +33,7 @@ const fullTitle = bareTitle ? title : `${title} · Gavin Keulks`;
 	</head>
 	<body>
 		<a class="skip-link" href="#main">Skip to content</a>
-		<SiteHeader alwaysWordmark={alwaysWordmark} />
+		<SiteHeader />
 		<main id="main" data-pagefind-body>
 			<slot />
 		</main>

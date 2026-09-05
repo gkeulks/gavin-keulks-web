@@ -1,21 +1,13 @@
 ---
 import { sections } from '../data/nav';
 
-interface Props {
-	/** mock-up: show the wordmark on the home page too, so the header is
-	    structurally identical on every page and the nav never shifts. */
-	alwaysWordmark?: boolean;
-}
-
-const { alwaysWordmark = false } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const isHome = path === '/' || path.startsWith('/preview');
-const runningHead = isHome && !alwaysWordmark;
+const isHome = path === '/';
 ---
 
-<header class:list={['site-header', { home: runningHead }]}>
+<header class="site-header">
 	<div class="wrap inner">
-		{!runningHead && <a class="wordmark" href="/">Gavin Keulks</a>}
+		<a class="wordmark" href="/">Gavin Keulks</a>
 		<button
 			class="nav-toggle"
 			id="nav-toggle"
@@ -71,10 +63,6 @@ const runningHead = isHome && !alwaysWordmark;
 		padding-block: 1.6rem 1.25rem;
 	}
 
-	.site-header.home .inner {
-		padding-block: 1.4rem 1.1rem;
-	}
-
 	.wordmark {
 		grid-column: 1;
 		grid-row: 1;
@@ -94,12 +82,6 @@ const runningHead = isHome && !alwaysWordmark;
 		flex-wrap: wrap;
 		justify-content: flex-end;
 		gap: 0.35rem 0.9rem;
-	}
-
-	.site-header.home .primary-nav {
-		grid-column: 1 / -1;
-		justify-self: start;
-		justify-content: flex-start;
 	}
 
 	.primary-nav a {
@@ -143,11 +125,6 @@ const runningHead = isHome && !alwaysWordmark;
 		cursor: pointer;
 	}
 
-	.site-header.home .nav-toggle {
-		grid-column: 1;
-		justify-self: start;
-	}
-
 	.nav-toggle-bars,
 	.nav-toggle-bars::before,
 	.nav-toggle-bars::after {
@@ -177,10 +154,13 @@ const runningHead = isHome && !alwaysWordmark;
 			display: inline-flex;
 		}
 
-		.primary-nav,
-		.site-header.home .primary-nav {
+		.primary-nav {
 			grid-column: 1 / -1;
 			grid-row: 2;
+			/* the desktop rule pins the nav to the right; the open mobile menu
+			   must span the full width so its items start on the page's left
+			   edge, level with the wordmark */
+			justify-self: stretch;
 			display: none;
 			flex-direction: column;
 			justify-content: flex-start;
