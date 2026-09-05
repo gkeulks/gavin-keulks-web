@@ -1,0 +1,189 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import current from '../../assets/images/portrait.jpg';
+import once from '../../assets/images/preview/once.jpg';
+import gathering from '../../assets/images/preview/gathering.jpg';
+import bbq from '../../assets/images/preview/bbq.jpg';
+import dsc from '../../assets/images/preview/dsc.jpg';
+
+const candidates = [
+	{
+		image: current,
+		widths: [256, 384, 512],
+		label: 'A &mdash; current',
+		note: 'WOU studio headshot. 1500&times;2100. The control.',
+	},
+	{
+		image: once,
+		widths: [256, 342],
+		label: 'B &mdash; once.jpg',
+		note: 'Phone snapshot, 640&times;480 &mdash; the crop is 342&times;480, so this is the only one that cannot serve a sharp image on a retina screen. Judge the softness here, not the register.',
+	},
+	{
+		image: gathering,
+		widths: [256, 384, 512],
+		label: 'C &mdash; at&nbsp;gathering.JPG',
+		note: 'Reading aloud, 2013. 2400&times;1590, cropped from the left of the frame.',
+	},
+	{
+		image: bbq,
+		widths: [256, 384, 512],
+		label: 'D &mdash; BBQ&nbsp;2013&nbsp;(10).jpg',
+		note: 'Outdoors, mid-sentence, notepad on the table. 5610&times;3469 &mdash; the sharpest source in the batch by a wide margin.',
+	},
+	{
+		image: dsc,
+		widths: [256, 384, 512],
+		label: 'E &mdash; DSC_0014-1.JPG',
+		note: 'Same occasion as C, different frame. Harder light, busier room.',
+	},
+];
+---
+
+<Layout
+	title="Portrait candidates"
+	noindex
+	description="Mock-up route: the home hero with each portrait candidate in place."
+>
+	<div class="wrap">
+		<header class="mock-head">
+			<p class="mock-kicker">Mock-up &mdash; not linked from the site</p>
+			<h1>Portrait candidates</h1>
+			<p class="mock-intro">
+				The real home hero, repeated once per candidate, at the size it actually
+				renders. Everything else on the page is identical each time, so the only
+				variable is the photograph.
+			</p>
+		</header>
+	</div>
+
+	{
+		candidates.map((c) => (
+			<>
+				<div class="wrap">
+					<p class="mock-label" set:html={c.label} />
+					<p class="mock-note" set:html={c.note} />
+					<section class="hero">
+						<div class="hero-text">
+							<h2>Gavin Keulks</h2>
+							<p class="lede">
+								Professor of literature and film at Western Oregon
+								University,&nbsp;specializing in twentieth-century English and
+								Irish fiction of the postwar period. Editor of{' '}
+								<em>The Cambridge Companion to Martin&nbsp;Amis</em>, newly
+								released, and administrator of the Martin&nbsp;Amis Web. I also
+								accept external program review contracts for honors programs and
+								English departments.
+							</p>
+						</div>
+						<Image
+							class="portrait"
+							src={c.image}
+							alt=""
+							widths={c.widths}
+							sizes="(max-width: 46rem) 45vw, 14rem"
+						/>
+					</section>
+				</div>
+				<hr class="mock-rule" />
+			</>
+		))
+	}
+</Layout>
+
+<style>
+	.mock-head {
+		padding-block: clamp(3rem, 8vw, 4.5rem) 0;
+	}
+
+	.mock-head h1 {
+		margin: 0 0 1rem;
+		font-size: clamp(2rem, 4vw, 2.6rem);
+	}
+
+	.mock-kicker {
+		margin: 0 0 1.25rem;
+		font-family: var(--font-sans);
+		font-size: 0.68rem;
+		font-weight: 600;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		color: var(--color-accent);
+	}
+
+	.mock-intro {
+		margin: 0;
+		max-width: 34rem;
+		font-size: 1.05rem;
+		line-height: 1.6;
+		color: var(--color-ink-soft);
+	}
+
+	.mock-label {
+		margin: 2.5rem 0 0.35rem;
+		font-family: var(--font-sans);
+		font-size: 0.78rem;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+
+	.mock-note {
+		margin: 0;
+		max-width: 34rem;
+		font-family: var(--font-sans);
+		font-size: 0.84rem;
+		line-height: 1.55;
+		color: var(--color-ink-soft);
+	}
+
+	.mock-rule {
+		border: 0;
+		border-top: 1px solid var(--color-line);
+		margin: 0;
+	}
+
+	/* Lifted verbatim from the home page so the hero measures the same. */
+	.hero {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: start;
+		gap: 3rem;
+		padding-block: clamp(1.5rem, 4vw, 2.25rem) clamp(2.5rem, 6vw, 4rem);
+	}
+
+	.hero h2 {
+		margin: 0 0 1.1rem;
+		font-size: clamp(2.6rem, 6.5vw, 4.1rem);
+		line-height: 1.02;
+		letter-spacing: -0.02em;
+		font-weight: 600;
+	}
+
+	.lede {
+		margin: 0;
+		max-width: 34rem;
+		font-size: 1.12rem;
+		line-height: 1.62;
+		color: var(--color-ink-soft);
+	}
+
+	.portrait {
+		width: 14rem;
+		height: auto;
+		border-radius: 2px;
+	}
+
+	@media (max-width: 46rem) {
+		.hero {
+			grid-template-columns: 1fr;
+			gap: 1.75rem;
+		}
+
+		.portrait {
+			width: 11rem;
+			order: -1;
+		}
+	}
+</style>
