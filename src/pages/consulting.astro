@@ -15,20 +15,20 @@ import Layout from '../layouts/Layout.astro';
 		<section class="lede">
 			<p>
 				Assessment and program review have become a more frequent part of my
-				workload in post-pandemic years. I welcome such invitations, and created
+				workload in post-pandemic years. I welcome such invitations and created
 				the sections below to spotlight key qualifications and experiences for
 				interested parties. Site visits are preferred, although I have worked
 				equally effectively in virtual arrangements.
 			</p>
-		</section>
-
-		<section class="area">
-			<h2>Program Review and Assessment</h2>
 			<p>
 				I completed formal training as a program reviewer through the National
 				Collegiate Honors Council&rsquo;s &ldquo;Institute for Strategic Planning,
 				Assessment, and Program Review Knowledge&rdquo; (iSPARK) in 2023.
 			</p>
+		</section>
+
+		<section class="area">
+			<h2>Program Review and Assessment</h2>
 			<p>
 				I have been employed in that capacity for honors programs in
 				West&nbsp;Virginia, Montana, and Colorado &mdash; most recently the John
@@ -212,8 +212,12 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.lede p {
-		margin: 0;
+		margin: 0 0 1.15rem;
 		max-width: 42rem;
+	}
+
+	.lede p:last-of-type {
+		margin-bottom: 0;
 	}
 
 	.area {
