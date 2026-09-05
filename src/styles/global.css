@@ -20,7 +20,9 @@
 	--color-line: #e5e1d7;
 	--color-line-strong: #cdc7b9;
 	/* monochrome: the "accent" is the ink itself */
-	--color-accent: #1a1a17;
+	/* Claret, sampled from the Father and Son cover. 9.5:1 on the paper and
+	   10.0:1 on the raised paper; --color-accent is used only for link colour. */
+	--color-accent: #7a1f38;
 
 	--font-display: 'Spectral', Georgia, 'Times New Roman', serif;
 	--font-body: 'Spectral', Georgia, 'Times New Roman', serif;
@@ -47,7 +49,7 @@
 	--color-ink-faint: #837d70;
 	--color-line: #322f27;
 	--color-line-strong: #47433a;
-	--color-accent: #ece7dc;
+	--color-accent: #d98fa3;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -59,7 +61,7 @@
 		--color-ink-faint: #837d70;
 		--color-line: #322f27;
 		--color-line-strong: #47433a;
-		--color-accent: #ece7dc;
+		--color-accent: #d98fa3;
 	}
 }
 
@@ -116,7 +118,7 @@ a {
 	color: var(--color-accent);
 	text-decoration: underline;
 	text-decoration-thickness: 1px;
-	text-decoration-color: var(--color-line-strong);
+	text-decoration-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
 	text-underline-offset: 0.16em;
 	transition: text-decoration-color 0.15s ease;
 }

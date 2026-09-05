@@ -94,7 +94,10 @@ const year = new Date().getFullYear();
 		margin-bottom: 0.7rem !important;
 	}
 
-	.col a {
+	/* :global because the two email links are built at runtime by the script
+	   above, so they carry no scoped data-astro-cid attribute and a plain
+	   `.col a` rule silently misses them. */
+	.col :global(a) {
 		color: var(--color-ink-soft);
 	}
 
