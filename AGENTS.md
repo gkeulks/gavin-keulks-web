@@ -16,7 +16,10 @@ All eight sections are built and live; there are no placeholders left. The site
 replaced the WordPress page at `wp.wou.education/keulksg/`, preserving its
 material and adding the sections below.
 
-- **Home** — portrait, lede, and a single-column index of the sections.
+- **Home** — name, lede, portrait; a tinted band of the three book covers; a
+  numbered "Currently Working On" list (*Flight* / Irish Traumatic Spaces / The
+  Martin Amis Web). Redesigned Sept 2026; the old section index is gone, since
+  the top nav already lists the sections.
 - **About** — bio, Key Appointments and Service, Select Grants and Awards, CV.
 - **Books** — the three books, newest first, with covers.
 - **Scholarship** — chapters, essays, and the Martin Amis Web, grouped by theme.
@@ -41,10 +44,16 @@ Positioning: understate the professorship, lead with writer/scholar.
   (`@fontsource-variable/inter`) for nav, small UI labels, eyebrows.
 - **Colour:** true monochrome — `--color-accent` *is* the ink. Cool-bone
   `#faf8f4` on ink `#1a1a17` (light); cream `#ece7dc` on warm near-black `#15140f`
-  (dark). Colour is meant to come from the photographs, not the chrome.
+  (dark). The intent was that colour come from the Fieldwork photographs; those
+  are not uploaded yet, which is why the site read as bare.
+- **Accent — Home only.** Claret `#7a1f38` (light) / `#d98fa3` (dark), sampled
+  from the *Father and Son* cover; 9.5:1 and 7.4:1, both AAA. Used on links,
+  eyebrows, and the numbered indices. The other seven pages remain monochrome.
+  Do not add accent colour elsewhere without asking.
 - **Layout:** one book-like column. `--content-width: 50rem`,
   `--page-width: 53rem`; `--page-width-wide: 78rem` reserved for the Fieldwork
-  gallery. Header, nav, content and footer share one left edge.
+  gallery. Header, nav and content share one left edge; the footer and the
+  `.cv-line` deliberately centre.
 - **Theming:** three tiers in `src/styles/global.css` — `:root` light,
   `prefers-color-scheme: dark`, and `[data-theme]` overrides. Never give a colour
   its only definition inside a media query.
@@ -52,6 +61,9 @@ Positioning: understate the professorship, lead with writer/scholar.
   column *trio* centres on the page, but each column's own text stays flush left
   so the address keeps its left edge. Colophon centres on the same axis as the
   pages' centred CV lines. Columns stack full-width below 34rem.
+- **Header:** wordmark left, nav right — identical on every page including
+  Home, so the nav never shifts position. Hamburger below 48rem; the open menu
+  spans the full width, its items level with the wordmark.
 - **Content-page pattern:** `Layout` + `.wrap` + `header.page-head` (h1 +
   `.page-intro`), and where a page carries one, a centred `.cv-line` at the foot.
 
