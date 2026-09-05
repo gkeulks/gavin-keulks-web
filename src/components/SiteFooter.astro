@@ -84,9 +84,11 @@ const year = new Date().getFullYear();
 		row-gap: 2.25rem;
 	}
 
-	/* --- mock-up (home page only, pending Gavin's ruling): the columns keep
-	   the site's left edge, the gaps open up, and only the colophon centres. --- */
+	/* --- mock-up (home page only, pending Gavin's ruling): the trio of columns
+	   centres on the page, but each column's own text stays flush left, so the
+	   address keeps its left edge. Colophon centres with it. --- */
 	.centered .cols {
+		justify-content: center;
 		column-gap: clamp(3.5rem, 10vw, 8rem);
 	}
 
