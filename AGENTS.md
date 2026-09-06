@@ -27,7 +27,10 @@ material and adding the sections below.
 - **Scholarship** — chapters, essays, and the Martin Amis Web, grouped by theme.
 - **Fieldwork** — Gavin's own site-based photographs, for a book he is writing on
   the reclamation of traumatic spaces in Ireland. **The photographs are not yet
-  uploaded** — the page is currently text only. His images, his rights.
+  uploaded** — the page is currently text only. His images, his rights. A
+  **slide-deck viewer** for his ACIS conference presentations is built and live
+  on `/preview/deck/`, awaiting his curation before it lands here; see the
+  project memory.
 - **Creative Work** — the novel *Flight* (under agent review, with a full
   description drawn from Gavin's own query letter) and published poems, both
   Merton poems linked to the Thomas Merton Society's PDFs. Carries **the site's
@@ -135,7 +138,14 @@ walk the text nodes taking a `Range` rect per character and group by rounded
   page. Tripwire: **the page count must stay 9.** (The word count moves with every
   content edit, so it is only a rough companion &mdash; don't treat it as a fixed
   baseline; that number went stale within a day of being written down.)
-- `src/components/` — `SiteHeader`, `SiteFooter`, `SectionPlaceholder`.
+- `src/components/` — `SiteHeader`, `SiteFooter`, `SectionPlaceholder`, and
+  **`SlideDeck`** (conference-presentation viewer: tinted band, one stage,
+  prev/counter/next, native `<dialog>` lightbox, optional PDF link; props
+  `slides`, `title`, `meta`, `pdf`, `wide`). `title`/`meta` must be **plain
+  text** — they are the accessible name, and entities in a prop are escaped.
+- `src/assets/images/decks/<deck>/` — slide images, `slide-01.jpg` upward.
+  Source them at **2560×1440**: the stage is 768 CSS px and the lightbox 1203,
+  so a retina screen wants 1536 and 2406 device pixels.
 - `src/styles/global.css` — tokens and base typography.
 - `public/_headers` — HSTS, CSP, nosniff, X-Frame-Options, Referrer-Policy,
   Permissions-Policy, COOP, immutable `/_astro/*`.
