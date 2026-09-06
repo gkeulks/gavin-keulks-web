@@ -4,15 +4,17 @@ import { Image } from 'astro:assets';
 interface Props {
 	/** Slide images in order, imported by the page. */
 	slides: ImageMetadata[];
-	/** Names the deck for screen readers and labels the download. */
+	/** Plain text -- it is the accessible name, so no entities here. */
 	title: string;
+	/** Occasion or venue, shown after the title. Plain text too. */
+	meta?: string;
 	/** Optional link to the original PDF. */
 	pdf?: string;
 	/** Run the stage at --page-width-wide instead of the reading column. */
 	wide?: boolean;
 }
 
-const { slides, title, pdf, wide = false } = Astro.props;
+const { slides, title, meta, pdf, wide = false } = Astro.props;
 
 /* One id per deck so several can sit on a page without colliding. */
 const id = `deck-${Math.random().toString(36).slice(2, 8)}`;
@@ -21,7 +23,9 @@ const id = `deck-${Math.random().toString(36).slice(2, 8)}`;
 <section class={`deck${wide ? ' deck-wide' : ''}`} data-deck aria-roledescription="slide deck" aria-label={title}>
 	<div class={wide ? 'wrap-wide' : 'wrap'}>
 		<div class="deck-bar">
-			<p class="deck-title">{title}</p>
+			<p class="deck-title">
+				{title}{meta && <Fragment> &middot; {meta}</Fragment>} &middot; {slides.length} slides
+			</p>
 			{
 				pdf && (
 					<a class="deck-pdf" href={pdf} target="_blank" rel="noopener noreferrer">

@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import SlideDeck from '../../components/SlideDeck.astro';
 
 const modules = import.meta.glob<{ default: ImageMetadata }>(
-	'../../assets/images/decks/demo/*.jpg',
+	'../../assets/images/decks/acis-2026/*.jpg',
 	{ eager: true }
 );
 const slides = Object.keys(modules)
@@ -21,11 +21,12 @@ const slides = Object.keys(modules)
 			<p class="mock-kicker">Mock-up &mdash; not linked from the site</p>
 			<h1>A viewer for the presentations</h1>
 			<p class="mock-intro">
-				Sixteen placeholder slides, so the interaction and the register can be
-				judged before you export anything. Arrows and the counter beneath, click
-				the slide to enlarge, arrow keys work once the deck has focus, and the
-				original PDF stays one click away. The two versions differ only in
-				width.
+				The real ACIS deck &mdash; 45 slides, in order. Arrows and the counter
+				beneath, click the slide to enlarge, arrow keys work once the deck has
+				focus. The two versions differ only in width; A is the one I&rsquo;d
+				take, for the reasons in chat. <strong>The slides are soft because the
+				export is 720&times;405</strong> &mdash; that is the file, not the
+				viewer.
 			</p>
 		</header>
 
@@ -36,7 +37,7 @@ const slides = Object.keys(modules)
 		</p>
 	</div>
 
-	<SlideDeck slides={slides} title="Placeholder deck &middot; 16 slides" pdf="/documents/gavin-keulks-cv.pdf" />
+	<SlideDeck slides={slides} title="Home (Dis)Rule" meta="ACIS 2026" pdf="/documents/gavin-keulks-cv.pdf" />
 
 	<div class="wrap">
 		<p class="mock-label">B &mdash; the wide stage</p>
@@ -49,7 +50,8 @@ const slides = Object.keys(modules)
 
 	<SlideDeck
 		slides={slides}
-		title="Placeholder deck &middot; 16 slides"
+		title="Home (Dis)Rule"
+		meta="ACIS 2026"
 		pdf="/documents/gavin-keulks-cv.pdf"
 		wide
 	/>
@@ -57,7 +59,7 @@ const slides = Object.keys(modules)
 	<div class="wrap">
 		<p class="mock-foot">
 			The &ldquo;View as PDF&rdquo; link points at the CV here purely so it
-			resolves &mdash; it would point at the deck.
+			resolves &mdash; it would point at the deck itself.
 		</p>
 	</div>
 </Layout>
