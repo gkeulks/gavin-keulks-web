@@ -10,15 +10,27 @@ import speaking from '../assets/images/speaking.jpg';
 >
 	<div class="wrap">
 		<header class="page-head">
-			<h1>About</h1>
-			<p class="page-intro">
-				Brief biography, with full C.V.&nbsp;available.
-			</p>
+			<div class="head-grid">
+				<div>
+					<h1>About</h1>
+					<p class="page-intro">
+						Brief biography with full C.V.&nbsp;available. Sustained engagement
+						with writing, education, and leadership.
+					</p>
+				</div>
+				<figure class="head-figure">
+					<Image
+						class="head-image"
+						src={speaking}
+						alt="Gavin Keulks at a lectern, reading from a folder into a conference microphone"
+						widths={[224, 336, 448]}
+						sizes="13rem"
+					/>
+				</figure>
+			</div>
 		</header>
 
 		<section class="bio">
-			<div class="beside">
-				<div class="beside-text">
 			<p>
 				I have served on the faculty of the English department at Western Oregon
 				University since fall 1999. Alongside literature I teach classes in film studies, plus
@@ -78,21 +90,10 @@ import speaking from '../assets/images/speaking.jpg';
 				address Magdalene Laundries, Mother and Baby Homes, Ghost Estates, and
 				Famine Walls/<wbr />Roads/<wbr />Graveyards.
 			</p>
-				</div>
-				<figure class="beside-figure">
-					<Image
-						class="beside-image"
-						src={speaking}
-						alt="Gavin Keulks at a lectern, reading from a folder into a conference microphone"
-						widths={[224, 336, 448]}
-						sizes="13rem"
-					/>
-				</figure>
-			</div>
 		</section>
 
 		<section class="record">
-			<h2>Key Appointments and Service</h2>
+			<h2>Appointments and Leadership</h2>
 			<ul class="record-list">
 				<li class="record-row">
 					<span class="record-year">2009&ndash;present</span>
@@ -233,23 +234,24 @@ import speaking from '../assets/images/speaking.jpg';
 	.bio {
 		padding-block: clamp(2.5rem, 6vw, 3.75rem);
 		border-top: 1px solid var(--color-line);
+		max-width: 42rem;
 	}
 
-	.beside {
+	/* The figure shares the header row, so the rule below it stays whole and
+	   full-width and the bio keeps its own 42rem measure. */
+	.head-grid {
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) auto;
 		gap: 2rem;
 		align-items: start;
 	}
 
-	/* The figure sets the width so the picture and its caption share one
-	   right edge, on the page's 1024 rule. */
-	.beside-figure {
+	.head-figure {
 		margin: 0;
 		width: 13rem;
 	}
 
-	.beside-image {
+	.head-image {
 		display: block;
 		width: 100%;
 		height: auto;
@@ -333,15 +335,9 @@ import speaking from '../assets/images/speaking.jpg';
 	}
 
 	@media (max-width: 46rem) {
-		.beside {
+		.head-grid {
 			grid-template-columns: 1fr;
 			gap: 1.5rem;
-		}
-
-		/* Stacked, the figure would otherwise fall below eight paragraphs
-		   of biography. Lead with it, as Home does with the portrait. */
-		.beside-figure {
-			order: -1;
 		}
 	}
 

@@ -20,9 +20,16 @@ material and adding the sections below.
   numbered "Currently Working On" list (*Flight* / Irish Traumatic Spaces / The
   Martin Amis Web). Redesigned Sept 2026; the old section index is gone, since
   the top nav already lists the sections. The portrait is **no longer the WOU
-  studio headshot** — it is a 2013 outdoor frame, cropped 5:7, chosen off a
-  mock-up route in Sept 2026 to lead with writer rather than professor.
-- **About** — bio, Key Appointments and Service, Select Grants and Awards, CV.
+  studio headshot** — it is a 2013 frame of Gavin reading aloud from a
+  manuscript, cropped 5:7, to lead with writer rather than professor. It and the
+  Creative Work photograph were **swapped in Sept 2026**: the reading frame is
+  the public image, so it took the hero; the working frame went to *Flight*.
+- **About** — bio, Appointments and Leadership, Select Grants and Awards, CV.
+  Carries a photograph **in the page header**, right of the h1 and byline and
+  landing on the 1024 rule. That placement was chosen over floating it in the
+  prose (mock-up, Sept 2026) because the header row leaves the rule below it
+  whole and full-width, and lets the bio keep its own 42rem measure — a float
+  costs either the measure or the alignment.
 - **Books** — the three books, newest first, with covers.
 - **Scholarship** — chapters, essays, and the Martin Amis Web, grouped by theme.
 - **Fieldwork** — Gavin's own site-based photographs, for a book he is writing on
@@ -34,12 +41,15 @@ material and adding the sections below.
 - **Creative Work** — the novel *Flight* (under agent review, with a full
   description drawn from Gavin's own query letter) and published poems, both
   Merton poems linked to the Thomas Merton Society's PDFs. Carries **the site's
-  only inline photograph**: a `.beside` grid inside the *Flight* section, prose
-  in one column and a `<figure>` in the other, starting level with the first
-  body paragraph rather than the heading. Caption "Workshopping the manuscript",
-  no year. Its 13rem width is sized to the prose block, so **re-measure it
-  whenever the *Flight* copy changes**.
+  only photograph set inside prose**: a `.beside` grid in the *Flight* section,
+  prose in one column and a `<figure>` in the other, starting level with the
+  first body paragraph rather than the heading. Caption "Workshopping", no year
+  — the frame shows a notepad on a table, so it must not claim more than that.
+  Its 13rem width is sized to the prose block, so **re-measure it whenever the
+  *Flight* copy changes**.
 - **Consulting** — external program review, assessment, and curricular reform.
+  Deliberately carries **no `.cv-line`**: it pointed at both About and the vita,
+  so the page ended on signposting rather than a thought.
 - **Teaching** — course list. Header reads *Teaching Portfolio*; nav says
   *Teaching*. That split is deliberate, ruled by Gavin.
 
@@ -80,6 +90,15 @@ Positioning: understate the professorship, lead with writer/scholar.
   spans the full width, its items level with the wordmark.
 - **Content-page pattern:** `Layout` + `.wrap` + `header.page-head` (h1 +
   `.page-intro`), and where a page carries one, a centred `.cv-line` at the foot.
+  About, Scholarship and Teaching carry the `.cv-line`; Consulting does not.
+- **Figures:** every image is a rectangle with a 2px radius, right edge on the
+  1024 rule. An **oval was tried and rejected** (Sept 2026): an ellipse crops a
+  photograph's own background into the frame, so it reads as a light shape on
+  bone and a *pale* one on near-black — it inverts between themes where a
+  rectangle sits correctly in both.
+- **`sizes` must match the CSS width, not a guess.** The Creative Work figure
+  declared `40vw` below 46rem while its CSS width is `13rem` at every width, so
+  phones were served a 336w file for a 416-device-pixel slot.
 
 ## Development
 
