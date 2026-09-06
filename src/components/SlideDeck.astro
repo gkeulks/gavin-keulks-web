@@ -1,0 +1,276 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+	/** Slide images in order, imported by the page. */
+	slides: ImageMetadata[];
+	/** Names the deck for screen readers and labels the download. */
+	title: string;
+	/** Optional link to the original PDF. */
+	pdf?: string;
+	/** Run the stage at --page-width-wide instead of the reading column. */
+	wide?: boolean;
+}
+
+const { slides, title, pdf, wide = false } = Astro.props;
+
+/* One id per deck so several can sit on a page without colliding. */
+const id = `deck-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<section class={`deck${wide ? ' deck-wide' : ''}`} data-deck aria-roledescription="slide deck" aria-label={title}>
+	<div class={wide ? 'wrap-wide' : 'wrap'}>
+		<div class="deck-bar">
+			<p class="deck-title">{title}</p>
+			{
+				pdf && (
+					<a class="deck-pdf" href={pdf} target="_blank" rel="noopener noreferrer">
+						View as PDF
+					</a>
+				)
+			}
+		</div>
+
+		<button class="deck-stage" type="button" data-enlarge aria-label="Enlarge this slide">
+			{
+				slides.map((s, i) => (
+					<Image
+						class="deck-slide"
+						src={s}
+						alt=""
+						hidden={i !== 0}
+						widths={[640, 960, 1280, 1600]}
+						sizes={wide ? '(max-width: 53rem) 92vw, 74rem' : '(max-width: 53rem) 92vw, 50rem'}
+						loading={i === 0 ? 'eager' : 'lazy'}
+					/>
+				))
+			}
+			<span class="deck-enlarge" aria-hidden="true">Click to enlarge</span>
+		</button>
+
+		<div class="deck-controls">
+			<button class="deck-nav" type="button" data-prev aria-label="Previous slide">&lsaquo;</button>
+			<p class="deck-count" aria-live="polite">
+				<span data-current>1</span> <span class="deck-sep">|</span> {slides.length}
+			</p>
+			<button class="deck-nav" type="button" data-next aria-label="Next slide">&rsaquo;</button>
+		</div>
+	</div>
+
+	<dialog class="deck-modal" data-modal aria-label={`${title} — enlarged`}>
+		<button class="deck-close" type="button" data-close aria-label="Close">&times;</button>
+		{
+			slides.map((s, i) => (
+				<Image
+					class="deck-big"
+					src={s}
+					alt=""
+					hidden={i !== 0}
+					widths={[960, 1440, 1920]}
+					sizes="94vw"
+					loading="lazy"
+				/>
+			))
+		}
+		<p class="deck-count deck-count-modal">
+			<span data-current>1</span> <span class="deck-sep">|</span> {slides.length}
+		</p>
+	</dialog>
+</section>
+
+<script is:inline define:vars={{ id }}>
+	(function () {
+		const decks = document.querySelectorAll('[data-deck]:not([data-ready])');
+		decks.forEach((deck) => {
+			deck.setAttribute('data-ready', '');
+			const stage = deck.querySelectorAll('.deck-slide');
+			const big = deck.querySelectorAll('.deck-big');
+			const counters = deck.querySelectorAll('[data-current]');
+			const modal = deck.querySelector('[data-modal]');
+			const total = stage.length;
+			let at = 0;
+
+			function show(n) {
+				at = (n + total) % total;
+				stage.forEach((el, i) => (el.hidden = i !== at));
+				big.forEach((el, i) => (el.hidden = i !== at));
+				counters.forEach((el) => (el.textContent = String(at + 1)));
+			}
+
+			deck.querySelector('[data-prev]').addEventListener('click', () => show(at - 1));
+			deck.querySelector('[data-next]').addEventListener('click', () => show(at + 1));
+
+			const enlarge = deck.querySelector('[data-enlarge]');
+			if (modal && typeof modal.showModal === 'function') {
+				enlarge.addEventListener('click', () => modal.showModal());
+				deck.querySelector('[data-close]').addEventListener('click', () => modal.close());
+				/* Click the backdrop to dismiss. */
+				modal.addEventListener('click', (e) => {
+					if (e.target === modal) modal.close();
+				});
+			} else {
+				enlarge.disabled = true;
+			}
+
+			deck.addEventListener('keydown', (e) => {
+				if (e.key === 'ArrowLeft') {
+					show(at - 1);
+					e.preventDefault();
+				} else if (e.key === 'ArrowRight') {
+					show(at + 1);
+					e.preventDefault();
+				}
+			});
+		});
+	})();
+</script>
+
+<style>
+	.deck {
+		background: var(--color-paper-raised);
+		border-block: 1px solid var(--color-line);
+		padding-block: clamp(1.75rem, 4vw, 2.75rem);
+	}
+
+	.deck-bar {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.deck-title,
+	.deck-pdf,
+	.deck-count {
+		font-family: var(--font-sans);
+		font-size: 0.78rem;
+		letter-spacing: 0.02em;
+		margin: 0;
+	}
+
+	.deck-title {
+		color: var(--color-ink-faint);
+	}
+
+	.deck-pdf {
+		color: var(--color-ink-soft);
+		white-space: nowrap;
+	}
+
+	/* The stage is a button so the whole slide is one keyboard target. */
+	.deck-stage {
+		position: relative;
+		display: block;
+		width: 100%;
+		padding: 0;
+		border: 1px solid var(--color-line);
+		border-radius: 2px;
+		background: var(--color-paper);
+		cursor: zoom-in;
+		overflow: hidden;
+	}
+
+	.deck-slide {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	/* display:block above beats the UA sheet's [hidden] rule, so the inactive
+	   slides have to be hidden explicitly or all sixteen stack up. */
+	.deck-slide[hidden],
+	.deck-big[hidden] {
+		display: none;
+	}
+
+	.deck-enlarge {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		padding: 0.55rem 1.1rem;
+		border-radius: 2rem;
+		background: var(--color-ink);
+		color: var(--color-paper);
+		font-family: var(--font-sans);
+		font-size: 0.78rem;
+		letter-spacing: 0.02em;
+		opacity: 0;
+		transition: opacity 0.15s ease;
+		pointer-events: none;
+	}
+
+	.deck-stage:hover .deck-enlarge,
+	.deck-stage:focus-visible .deck-enlarge {
+		opacity: 1;
+	}
+
+	.deck-controls {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		margin-top: 1rem;
+	}
+
+	.deck-nav {
+		border: 0;
+		background: transparent;
+		color: var(--color-ink-soft);
+		font-size: 1.6rem;
+		line-height: 1;
+		padding: 0.25rem 0.6rem;
+		cursor: pointer;
+	}
+
+	.deck-nav:hover {
+		color: var(--color-ink);
+	}
+
+	.deck-count {
+		color: var(--color-ink-faint);
+		min-width: 4.5rem;
+		text-align: center;
+	}
+
+	.deck-sep {
+		opacity: 0.5;
+	}
+
+	.deck-modal {
+		width: min(94vw, 96rem);
+		max-width: none;
+		border: 0;
+		padding: 0;
+		background: var(--color-paper);
+		color: var(--color-ink);
+	}
+
+	.deck-modal::backdrop {
+		background: rgb(0 0 0 / 0.75);
+	}
+
+	.deck-big {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	.deck-close {
+		position: absolute;
+		top: 0.5rem;
+		right: 0.75rem;
+		border: 0;
+		background: transparent;
+		color: var(--color-ink-soft);
+		font-size: 1.8rem;
+		line-height: 1;
+		cursor: pointer;
+	}
+
+	.deck-count-modal {
+		padding: 0.6rem 0 0.8rem;
+		text-align: center;
+	}
+</style>
