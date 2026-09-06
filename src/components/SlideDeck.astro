@@ -70,7 +70,7 @@ const id = `deck-${Math.random().toString(36).slice(2, 8)}`;
 					src={s}
 					alt=""
 					hidden={i !== 0}
-					widths={[960, 1440, 1920]}
+					widths={[960, 1440, 1920, 2560]}
 					sizes="94vw"
 					loading="lazy"
 				/>
@@ -94,19 +94,39 @@ const id = `deck-${Math.random().toString(36).slice(2, 8)}`;
 			const total = stage.length;
 			let at = 0;
 
+			/* A hidden image is never "in viewport", so loading="lazy" means it is
+			   never fetched -- the enlarged view would open to an empty frame.
+			   Flipping loading to eager on a not-yet-loaded image starts the
+			   fetch, so warm what the reader is about to want. */
+			function warm(img) {
+				if (img && img.loading === 'lazy') img.loading = 'eager';
+			}
+
 			function show(n) {
 				at = (n + total) % total;
 				stage.forEach((el, i) => (el.hidden = i !== at));
 				big.forEach((el, i) => (el.hidden = i !== at));
 				counters.forEach((el) => (el.textContent = String(at + 1)));
+				/* Neighbours, so paging is instant. The 2560px enlargements are far
+				   heavier, and wait for a sign the reader wants one. */
+				warm(stage[(at + 1) % total]);
+				warm(stage[(at - 1 + total) % total]);
 			}
 
+			show(0);
 			deck.querySelector('[data-prev]').addEventListener('click', () => show(at - 1));
 			deck.querySelector('[data-next]').addEventListener('click', () => show(at + 1));
 
 			const enlarge = deck.querySelector('[data-enlarge]');
+			/* Hovering or tabbing to the stage is intent enough to fetch the big one. */
+			['pointerenter', 'focus'].forEach((evt) =>
+				enlarge.addEventListener(evt, () => warm(big[at]))
+			);
 			if (modal && typeof modal.showModal === 'function') {
-				enlarge.addEventListener('click', () => modal.showModal());
+				enlarge.addEventListener('click', () => {
+					warm(big[at]);
+					modal.showModal();
+				});
 				deck.querySelector('[data-close]').addEventListener('click', () => modal.close());
 				/* Click the backdrop to dismiss. */
 				modal.addEventListener('click', (e) => {
