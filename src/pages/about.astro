@@ -14,9 +14,8 @@ import speaking from '../assets/images/speaking.jpg';
 				<div>
 					<h1>About</h1>
 					<p class="page-intro">
-						Brief biography with full C.V.&nbsp;available.<br
-						/>Sustained commitment to<br
-						/>writing, education, and leadership.
+						Brief biography with full C.V.&nbsp;available. Sustained,
+						multi-decade commitment to writing, education, and leadership.
 					</p>
 				</div>
 				<figure class="head-figure">
@@ -24,8 +23,8 @@ import speaking from '../assets/images/speaking.jpg';
 						class="head-image"
 						src={speaking}
 						alt="Gavin Keulks at a lectern, reading from a folder into a conference microphone"
-						widths={[224, 336, 448]}
-						sizes="13rem"
+						widths={[240, 360, 480]}
+						sizes="15rem"
 					/>
 				</figure>
 			</div>
@@ -229,7 +228,10 @@ import speaking from '../assets/images/speaking.jpg';
 		color: var(--color-ink-soft);
 		margin: 0;
 		max-width: 42rem;
-		text-wrap: balance;
+		/* Not balanced: this byline shares its row with the figure, and
+		   balancing held every line ~100px short of the column, which read as
+		   the photograph sitting too far right. */
+		text-wrap: pretty;
 	}
 
 	.bio {
@@ -249,7 +251,7 @@ import speaking from '../assets/images/speaking.jpg';
 
 	.head-figure {
 		margin: 0;
-		width: 13rem;
+		width: 15rem;
 	}
 
 	.head-image {

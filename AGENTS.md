@@ -96,6 +96,10 @@ Positioning: understate the professorship, lead with writer/scholar.
   photograph's own background into the frame, so it reads as a light shape on
   bone and a *pale* one on near-black — it inverts between themes where a
   rectangle sits correctly in both.
+- **`text-wrap: balance` holds lines short of the column** — it evens the rag
+  instead of filling, so About's byline stopped ~100px early and read as the
+  photograph sitting too far right. Where a byline shares its row with a figure,
+  use `pretty`. Measure the longest rendered line, not the box.
 - **`sizes` must match the CSS width, not a guess.** The Creative Work figure
   declared `40vw` below 46rem while its CSS width is `13rem` at every width, so
   phones were served a 336w file for a 416-device-pixel slot.
