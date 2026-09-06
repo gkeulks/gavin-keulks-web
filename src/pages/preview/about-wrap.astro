@@ -1,0 +1,194 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import speaking from '../../assets/images/speaking.jpg';
+---
+
+<Layout title="About — wrap variants" description="Mock-up route." noindex>
+	<div class="wrap">
+		<header class="page-head">
+			<h1>Wrap variants</h1>
+			<p class="page-intro">
+				B floats the figure in the full 768 column; C floats it inside the
+				672 prose measure. A (live) is the grid, for reference.
+			</p>
+		</header>
+
+		<section class="bio variant-b">
+			<h2 class="tag">B &mdash; float, full column: 528 beside, 768 below</h2>
+			<figure class="beside-figure">
+				<Image class="beside-image" src={speaking} alt="" widths={[224, 336, 448]} sizes="13rem" />
+			</figure>
+				<p>
+					I have served on the faculty of the English department at Western Oregon
+					University since fall 1999. Alongside literature I teach classes in film studies, plus
+					broader literary history and critical theory. Web design, digital
+					archiving, and the digital humanities are closely related interests. I also
+					directed our university Honors&nbsp;Program from 2008 until its closure
+					in 2026.
+				</p>
+				<p>
+					Western Oregon University is a public liberal arts college with an
+					undergraduate enrollment of approximately 3,000 students. Founded in 1856
+					by pioneers, it is the oldest public university in the state and one of the
+					oldest on the West&nbsp;Coast.
+				</p>
+				<p>
+					I specialize in twentieth-century English and Irish literature, especially
+					fiction of the post-World War II period. My scholarly projects are
+					oriented to both general and specialized audiences.
+				</p>
+				<p>
+					Major projects include a book,{' '}
+					<em>
+						Father and Son: Kingsley Amis, Martin&nbsp;Amis, and the British Novel
+						Since 1950
+					</em>{' '}
+					(University of Wisconsin, 2003 and 2005), as well as two edited
+					collections:{' '}
+					<em>Martin Amis: Postmodernism and Beyond</em> (Palgrave Macmillan, 2006)
+					and <em>The Cambridge&nbsp;Companion to Martin&nbsp;Amis</em> (Cambridge
+					University Press, 2026). All three are described on the{' '}
+					<a href="/books/">Books</a> page.
+				</p>
+				<p>
+					<em>The Cambridge&nbsp;Companion to Martin&nbsp;Amis</em> features the work
+					of fourteen scholars from five different countries and is the definitive
+					survey of Amis&rsquo;s fifty-year career. The book was spotlighted at a
+					full-day{' '}
+					<a href="https://martinamisweb.com/after-amis/" target="_blank" rel="noopener noreferrer"
+						>book launch and podcast event</a
+					>{' '}in London, with panels featuring seven of
+					my fourteen contributors.
+				</p>
+				<p>
+					Since 2006 I have also overseen and administered{' '}
+					<a href="https://martinamisweb.com/" target="_blank" rel="noopener noreferrer">the Martin&nbsp;Amis Web</a>, the
+					authoritative digital archive for that author. The British Library
+					designated it a site of scholarly significance in 2012 and archives it
+					every six months as part of their ongoing UK Web Archive Project.
+				</p>
+				<p>
+					A novel, <em>Flight</em>, has been perhaps my most meaningful endeavor. The
+					manuscript is complete at 80,000 words and currently under agent review.
+				</p>
+				<p>
+					My final book project will be a scholarly monograph on spatial trauma and
+					the reclamation of traumatic spaces in Ireland. Specific chapters will
+					address Magdalene Laundries, Mother and Baby Homes, Ghost Estates, and
+					Famine Walls/<wbr />Roads/<wbr />Graveyards.
+				</p>
+		</section>
+
+		<section class="bio variant-c">
+			<h2 class="tag">C &mdash; float inside the 672 measure: 432 beside, 672 below</h2>
+			<figure class="beside-figure">
+				<Image class="beside-image" src={speaking} alt="" widths={[224, 336, 448]} sizes="13rem" />
+			</figure>
+				<p>
+					I have served on the faculty of the English department at Western Oregon
+					University since fall 1999. Alongside literature I teach classes in film studies, plus
+					broader literary history and critical theory. Web design, digital
+					archiving, and the digital humanities are closely related interests. I also
+					directed our university Honors&nbsp;Program from 2008 until its closure
+					in 2026.
+				</p>
+				<p>
+					Western Oregon University is a public liberal arts college with an
+					undergraduate enrollment of approximately 3,000 students. Founded in 1856
+					by pioneers, it is the oldest public university in the state and one of the
+					oldest on the West&nbsp;Coast.
+				</p>
+				<p>
+					I specialize in twentieth-century English and Irish literature, especially
+					fiction of the post-World War II period. My scholarly projects are
+					oriented to both general and specialized audiences.
+				</p>
+				<p>
+					Major projects include a book,{' '}
+					<em>
+						Father and Son: Kingsley Amis, Martin&nbsp;Amis, and the British Novel
+						Since 1950
+					</em>{' '}
+					(University of Wisconsin, 2003 and 2005), as well as two edited
+					collections:{' '}
+					<em>Martin Amis: Postmodernism and Beyond</em> (Palgrave Macmillan, 2006)
+					and <em>The Cambridge&nbsp;Companion to Martin&nbsp;Amis</em> (Cambridge
+					University Press, 2026). All three are described on the{' '}
+					<a href="/books/">Books</a> page.
+				</p>
+				<p>
+					<em>The Cambridge&nbsp;Companion to Martin&nbsp;Amis</em> features the work
+					of fourteen scholars from five different countries and is the definitive
+					survey of Amis&rsquo;s fifty-year career. The book was spotlighted at a
+					full-day{' '}
+					<a href="https://martinamisweb.com/after-amis/" target="_blank" rel="noopener noreferrer"
+						>book launch and podcast event</a
+					>{' '}in London, with panels featuring seven of
+					my fourteen contributors.
+				</p>
+				<p>
+					Since 2006 I have also overseen and administered{' '}
+					<a href="https://martinamisweb.com/" target="_blank" rel="noopener noreferrer">the Martin&nbsp;Amis Web</a>, the
+					authoritative digital archive for that author. The British Library
+					designated it a site of scholarly significance in 2012 and archives it
+					every six months as part of their ongoing UK Web Archive Project.
+				</p>
+				<p>
+					A novel, <em>Flight</em>, has been perhaps my most meaningful endeavor. The
+					manuscript is complete at 80,000 words and currently under agent review.
+				</p>
+				<p>
+					My final book project will be a scholarly monograph on spatial trauma and
+					the reclamation of traumatic spaces in Ireland. Specific chapters will
+					address Magdalene Laundries, Mother and Baby Homes, Ghost Estates, and
+					Famine Walls/<wbr />Roads/<wbr />Graveyards.
+				</p>
+		</section>
+	</div>
+</Layout>
+
+<style>
+	.page-head {
+		padding-block: clamp(3.5rem, 9vw, 6.5rem) clamp(1.75rem, 4vw, 3rem);
+	}
+
+	.tag {
+		font-family: var(--font-sans);
+		font-size: 0.8rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--color-ink-faint);
+		margin: 0 0 1.5rem;
+	}
+
+	.bio {
+		padding-block: clamp(2.5rem, 6vw, 3.75rem);
+		border-top: 1px solid var(--color-line);
+	}
+
+	.variant-c {
+		max-width: 42rem;
+	}
+
+	.beside-figure {
+		float: right;
+		margin: 0 0 1rem 2rem;
+		width: 13rem;
+	}
+
+	.beside-image {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 2px;
+	}
+
+	.bio p {
+		margin: 0 0 1.15rem;
+	}
+
+	.bio p:last-child {
+		margin-bottom: 0;
+	}
+</style>
