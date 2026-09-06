@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+import speaking from '../assets/images/speaking.jpg';
 ---
 
 <Layout
@@ -15,6 +17,8 @@ import Layout from '../layouts/Layout.astro';
 		</header>
 
 		<section class="bio">
+			<div class="beside">
+				<div class="beside-text">
 			<p>
 				I have served on the faculty of the English department at Western Oregon
 				University since fall 1999. Alongside literature I teach classes in film studies, plus
@@ -72,8 +76,20 @@ import Layout from '../layouts/Layout.astro';
 				My final book project will be a scholarly monograph on spatial trauma and
 				the reclamation of traumatic spaces in Ireland. Specific chapters will
 				address Magdalene Laundries, Mother and Baby Homes, Ghost Estates, and
-				Famine Walls/Roads/Graveyards.
+				Famine Walls/<wbr />Roads/<wbr />Graveyards.
 			</p>
+				</div>
+				<figure class="beside-figure">
+					<Image
+						class="beside-image"
+						src={speaking}
+						alt="Gavin Keulks at a lectern, reading from a folder into a conference microphone"
+						widths={[224, 336, 448]}
+						sizes="13rem"
+					/>
+					<figcaption>Delivering a conference paper</figcaption>
+				</figure>
+			</div>
 		</section>
 
 		<section class="record">
@@ -218,7 +234,35 @@ import Layout from '../layouts/Layout.astro';
 	.bio {
 		padding-block: clamp(2.5rem, 6vw, 3.75rem);
 		border-top: 1px solid var(--color-line);
-		max-width: 42rem;
+	}
+
+	.beside {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 2rem;
+		align-items: start;
+	}
+
+	/* The figure sets the width so the picture and its caption share one
+	   right edge, on the page's 1024 rule. */
+	.beside-figure {
+		margin: 0;
+		width: 13rem;
+	}
+
+	.beside-image {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 2px;
+	}
+
+	.beside-figure figcaption {
+		margin-top: 0.6rem;
+		font-family: var(--font-sans);
+		font-size: 0.78rem;
+		letter-spacing: 0.02em;
+		color: var(--color-ink-faint);
 	}
 
 	.bio p {
@@ -295,6 +339,19 @@ import Layout from '../layouts/Layout.astro';
 		font-size: 0.82rem;
 		line-height: 1.5;
 		color: var(--color-ink-faint);
+	}
+
+	@media (max-width: 46rem) {
+		.beside {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		/* Stacked, the figure would otherwise fall below eight paragraphs
+		   of biography. Lead with it, as Home does with the portrait. */
+		.beside-figure {
+			order: -1;
+		}
 	}
 
 	@media (max-width: 34rem) {
