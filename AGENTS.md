@@ -29,7 +29,9 @@ material and adding the sections below.
   landing on the 1024 rule. That placement was chosen over floating it in the
   prose (mock-up, Sept 2026) because the header row leaves the rule below it
   whole and full-width, and lets the bio keep its own 42rem measure — a float
-  costs either the measure or the alignment.
+  costs either the measure or the alignment. The figure is **15rem and cropped
+  4:5**, not 5:7 like Home's: the ratio is what let it widen without opening up
+  vertical space beside it. Its byline uses `text-wrap: pretty`, not `balance`.
 - **Books** — the three books, newest first, with covers.
 - **Scholarship** — chapters, essays, and the Martin Amis Web, grouped by theme.
 - **Fieldwork** — Gavin's own site-based photographs, for a book he is writing on
