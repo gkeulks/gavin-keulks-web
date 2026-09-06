@@ -132,7 +132,9 @@ walk the text nodes taking a `Range` rect per character and group by rounded
   mock-up routes. It builds `<main>`'s attributes by spread, because **Astro
   renders a `data-*` boolean as the string `"true"`/`"false"`** — so
   `data-pagefind-body={false}` is still a body tag and Pagefind indexes the
-  page. Baseline to check against: **9 pages, 1174 words**.
+  page. Tripwire: **the page count must stay 9.** (The word count moves with every
+  content edit, so it is only a rough companion &mdash; don't treat it as a fixed
+  baseline; that number went stale within a day of being written down.)
 - `src/components/` — `SiteHeader`, `SiteFooter`, `SectionPlaceholder`.
 - `src/styles/global.css` — tokens and base typography.
 - `public/_headers` — HSTS, CSP, nosniff, X-Frame-Options, Referrer-Policy,
