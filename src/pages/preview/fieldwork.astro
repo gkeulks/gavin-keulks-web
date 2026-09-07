@@ -1,20 +1,44 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SlideDeck from '../../components/SlideDeck.astro';
 
-const modules = import.meta.glob<{ default: ImageMetadata }>(
+const laundriesMods = import.meta.glob<{ default: ImageMetadata }>(
+	'../../assets/images/fieldwork/laundries/*.jpg',
+	{ eager: true }
+);
+const laundries = Object.keys(laundriesMods).sort().map((p) => laundriesMods[p].default);
+
+const estatesMods = import.meta.glob<{ default: ImageMetadata }>(
+	'../../assets/images/fieldwork/estates/*.jpg',
+	{ eager: true }
+);
+const estates = Object.keys(estatesMods).sort().map((p) => estatesMods[p].default);
+
+const contestedMods = import.meta.glob<{ default: ImageMetadata }>(
+	'../../assets/images/fieldwork/contested/*.jpg',
+	{ eager: true }
+);
+const contested = Object.keys(contestedMods).sort().map((p) => contestedMods[p].default);
+
+const deckMods = import.meta.glob<{ default: ImageMetadata }>(
 	'../../assets/images/decks/acis-2026/*.jpg',
 	{ eager: true }
 );
-const slides = Object.keys(modules)
-	.sort()
-	.map((k) => modules[k].default);
+const slides = Object.keys(deckMods).sort().map((k) => deckMods[k].default);
+
+/* One large variant per photograph, for the lightbox. */
+const big = async (list: ImageMetadata[]) =>
+	Promise.all(list.map((s) => getImage({ src: s, width: 2000, format: 'webp' })));
+const fullLaundries = await big(laundries);
+const fullEstates = await big(estates);
+const fullContested = await big(contested);
 ---
 
 <Layout
 	title="Fieldwork — frames"
 	noindex
-	description="Mock-up route: Fieldwork with four photographs per strand and the deck at the foot."
+	description="Mock-up route: Fieldwork with six photographs per strand and the deck at the foot."
 >
 	<div class="wrap">
 		<header class="page-head">
@@ -24,10 +48,9 @@ const slides = Object.keys(modules)
 				Toward a book on the reclamation of traumatic spaces in Ireland.
 			</p>
 			<p class="mock-note">
-				One rule: words keep the reading column, pictures take the wide band. So
-				each strand runs its heading and papers at 256&ndash;1024, then its four
-				photographs at 56&ndash;1224 &mdash; and the deck at the foot goes wide by
-				the same rule. Grey frames are where your pictures go.
+				Six photographs a strand, 3&times;2 in the wide band, 4:3 so nothing is
+				cropped. Click any photograph to enlarge. Captions are deliberately
+				absent for now.
 			</p>
 		</header>
 
@@ -68,24 +91,74 @@ const slides = Object.keys(modules)
 	</div>
 
 	<div class="wrap-wide gallery-wrap">
-		<div class="gallery">
-			<figure class="shot">
-				<div class="shot-frame"><span>Photograph 1</span></div>
-				<figcaption>Place, year</figcaption>
-			</figure>
-			<figure class="shot">
-				<div class="shot-frame"><span>Photograph 2</span></div>
-				<figcaption>Place, year</figcaption>
-			</figure>
-			<figure class="shot">
-				<div class="shot-frame"><span>Photograph 3</span></div>
-				<figcaption>Place, year</figcaption>
-			</figure>
-			<figure class="shot">
-				<div class="shot-frame"><span>Photograph 4</span></div>
-				<figcaption>Place, year</figcaption>
-			</figure>
-		</div>
+		<ul class="gallery">
+			<li>
+				<button class="shot" type="button" data-full={fullLaundries[0].src}>
+					<Image
+						class="shot-img"
+						src={laundries[0]}
+						alt="A roofless stone building, a white cross fixed to the gable"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+			<li>
+				<button class="shot" type="button" data-full={fullLaundries[1].src}>
+					<Image
+						class="shot-img"
+						src={laundries[1]}
+						alt="A long derelict institutional block, windows boarded, across a wet yard"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+			<li>
+				<button class="shot" type="button" data-full={fullLaundries[2].src}>
+					<Image
+						class="shot-img"
+						src={laundries[2]}
+						alt="A gothic red-brick range, ivy grown over its lower storey"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+			<li>
+				<button class="shot" type="button" data-full={fullLaundries[3].src}>
+					<Image
+						class="shot-img"
+						src={laundries[3]}
+						alt="A black iron gate, a memorial plaque and flowers set into the wall beside it"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+			<li>
+				<button class="shot" type="button" data-full={fullLaundries[4].src}>
+					<Image
+						class="shot-img"
+						src={laundries[4]}
+						alt="Iron railings hung the length of a street with children's shoes and ribbons"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+			<li>
+				<button class="shot" type="button" data-full={fullLaundries[5].src}>
+					<Image
+						class="shot-img"
+						src={laundries[5]}
+						alt="A white teddy bear, flowers and small shoes tied to iron railings"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+		</ul>
 	</div>
 
 	<div class="wrap">
@@ -124,24 +197,74 @@ const slides = Object.keys(modules)
 	</div>
 
 	<div class="wrap-wide gallery-wrap">
-		<div class="gallery">
-			<figure class="shot">
-				<div class="shot-frame"><span>Photograph 1</span></div>
-				<figcaption>Place, year</figcaption>
-			</figure>
-			<figure class="shot">
-				<div class="shot-frame"><span>Photograph 2</span></div>
-				<figcaption>Place, year</figcaption>
-			</figure>
-			<figure class="shot">
-				<div class="shot-frame"><span>Photograph 3</span></div>
-				<figcaption>Place, year</figcaption>
-			</figure>
-			<figure class="shot">
-				<div class="shot-frame"><span>Photograph 4</span></div>
-				<figcaption>Place, year</figcaption>
-			</figure>
-		</div>
+		<ul class="gallery">
+			<li>
+				<button class="shot" type="button" data-full={fullEstates[0].src}>
+					<Image
+						class="shot-img"
+						src={estates[0]}
+						alt="A stone enclosure with a white cross and a memorial plaque to the Famine dead"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+			<li>
+				<button class="shot" type="button" data-full={fullEstates[1].src}>
+					<Image
+						class="shot-img"
+						src={estates[1]}
+						alt="Snow lying over an empty burial field, a small cross at its edge"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+			<li>
+				<button class="shot" type="button" data-full={fullEstates[2].src}>
+					<Image
+						class="shot-img"
+						src={estates[2]}
+						alt="The grille of a wrecked Rolls-Royce standing in long grass"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+			<li>
+				<button class="shot" type="button" data-full={fullEstates[3].src}>
+					<Image
+						class="shot-img"
+						src={estates[3]}
+						alt="An unfinished estate road, wire fencing and scattered debris"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+			<li>
+				<button class="shot" type="button" data-full={fullEstates[4].src}>
+					<Image
+						class="shot-img"
+						src={estates[4]}
+						alt="An estate street of finished houses, a concrete pipe left in the foreground"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+			<li>
+				<button class="shot" type="button" data-full={fullEstates[5].src}>
+					<Image
+						class="shot-img"
+						src={estates[5]}
+						alt="A terrace of new houses with every opening boarded in orange"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+		</ul>
 	</div>
 
 	<div class="wrap">
@@ -187,24 +310,74 @@ const slides = Object.keys(modules)
 	</div>
 
 	<div class="wrap-wide gallery-wrap">
-		<div class="gallery">
-			<figure class="shot">
-				<div class="shot-frame"><span>Photograph 1</span></div>
-				<figcaption>Place, year</figcaption>
-			</figure>
-			<figure class="shot">
-				<div class="shot-frame"><span>Photograph 2</span></div>
-				<figcaption>Place, year</figcaption>
-			</figure>
-			<figure class="shot">
-				<div class="shot-frame"><span>Photograph 3</span></div>
-				<figcaption>Place, year</figcaption>
-			</figure>
-			<figure class="shot">
-				<div class="shot-frame"><span>Photograph 4</span></div>
-				<figcaption>Place, year</figcaption>
-			</figure>
-		</div>
+		<ul class="gallery">
+			<li>
+				<button class="shot" type="button" data-full={fullContested[0].src}>
+					<Image
+						class="shot-img"
+						src={contested[0]}
+						alt="A photorealist mural of a night city filling a gable wall"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+			<li>
+				<button class="shot" type="button" data-full={fullContested[1].src}>
+					<Image
+						class="shot-img"
+						src={contested[1]}
+						alt="A painted shopfront reading Goodbye above a street"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+			<li>
+				<button class="shot" type="button" data-full={fullContested[2].src}>
+					<Image
+						class="shot-img"
+						src={contested[2]}
+						alt="A street wall covered end to end in layered graffiti"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+			<li>
+				<button class="shot" type="button" data-full={fullContested[3].src}>
+					<Image
+						class="shot-img"
+						src={contested[3]}
+						alt="A peace wall painted with the words Smash the wall, separation"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+			<li>
+				<button class="shot" type="button" data-full={fullContested[4].src}>
+					<Image
+						class="shot-img"
+						src={contested[4]}
+						alt="A peace wall running beside a wet road, murals along its length"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+			<li>
+				<button class="shot" type="button" data-full={fullContested[5].src}>
+					<Image
+						class="shot-img"
+						src={contested[5]}
+						alt="Rusted steel peace gates standing open across a road"
+						widths={[373, 560, 746]}
+						sizes="(max-width: 46rem) 90vw, 373px"
+					/>
+				</button>
+			</li>
+		</ul>
 	</div>
 
 	<SlideDeck
@@ -213,7 +386,30 @@ const slides = Object.keys(modules)
 		meta="American Conference for Irish Studies, 2026"
 		wide
 	/>
+
+	<dialog class="shot-modal" data-shot-modal aria-label="Photograph, enlarged">
+		<button class="shot-close" type="button" data-shot-close aria-label="Close">&times;</button>
+		<img data-shot-img alt="" />
+	</dialog>
 </Layout>
+
+<script>
+	const modal = document.querySelector('[data-shot-modal]') as HTMLDialogElement | null;
+	const img = document.querySelector('[data-shot-img]') as HTMLImageElement | null;
+	document.querySelectorAll<HTMLButtonElement>('.shot').forEach((btn) => {
+		btn.addEventListener('click', () => {
+			if (!modal || !img) return;
+			img.src = btn.dataset.full ?? '';
+			const inner = btn.querySelector('img');
+			img.alt = inner?.alt ?? '';
+			modal.showModal();
+		});
+	});
+	document.querySelector('[data-shot-close]')?.addEventListener('click', () => modal?.close());
+	modal?.addEventListener('click', (e) => {
+		if (e.target === modal) modal.close();
+	});
+</script>
 
 <style>
 	.page-head {
@@ -273,32 +469,65 @@ const slides = Object.keys(modules)
 
 	.gallery {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 		gap: 1.5rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
 	}
 
 	.shot {
-		margin: 0;
-	}
-
-	.shot-frame {
-		aspect-ratio: 3 / 2;
-		background: var(--color-paper-raised, rgba(0, 0, 0, 0.04));
-		border: 1px solid var(--color-line);
+		display: block;
+		width: 100%;
+		padding: 0;
+		border: 0;
+		background: none;
+		cursor: zoom-in;
 		border-radius: 2px;
-		display: grid;
-		place-items: center;
-		font-family: var(--font-sans);
-		font-size: 0.8rem;
-		color: var(--color-ink-faint);
 	}
 
-	.shot figcaption {
-		margin-top: 0.6rem;
-		font-family: var(--font-sans);
-		font-size: 0.78rem;
-		letter-spacing: 0.02em;
-		color: var(--color-ink-faint);
+	.shot-img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 2px;
+	}
+
+	.shot:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 3px;
+	}
+
+	.shot-modal {
+		border: 0;
+		padding: 0;
+		max-width: 94vw;
+		max-height: 94vh;
+		background: transparent;
+	}
+
+	.shot-modal::backdrop {
+		background: rgb(0 0 0 / 0.82);
+	}
+
+	.shot-modal img {
+		display: block;
+		max-width: 94vw;
+		max-height: 94vh;
+		width: auto;
+		height: auto;
+	}
+
+	.shot-close {
+		position: fixed;
+		top: 1rem;
+		right: 1.25rem;
+		border: 0;
+		background: none;
+		color: #fff;
+		font-size: 2rem;
+		line-height: 1;
+		cursor: pointer;
 	}
 
 	.cite-list {
