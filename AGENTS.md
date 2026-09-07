@@ -36,17 +36,21 @@ material and adding the sections below.
 - **Scholarship** — chapters, essays, and the Martin Amis Web, grouped by theme.
 - **Fieldwork** — Gavin's own site-based photographs, for a book he is writing on
   the reclamation of traumatic spaces in Ireland. **The photographs are not yet
-  uploaded** — the page is currently text only. His images, his rights. A
-  **slide-deck viewer** for his ACIS conference presentations is built and live
-  on `/preview/deck/`, awaiting his curation before it lands here; see the
-  project memory.
+  uploaded** — the page is currently text only. His images, his rights. **The
+  layout is settled and built** as a mock-up at `/preview/fieldwork/`: each
+  strand runs its heading and conference papers in the reading column, then
+  **four photographs, 2×2, in the wide band**, with the full ACIS deck at the
+  foot, also wide. The page follows one rule — **words keep the reading column,
+  pictures take the wide band**. Fold it in and delete the route once he
+  supplies the pictures; see the project memory for why four and not six.
 - **Creative Work** — the novel *Flight* (under agent review, with a full
   description drawn from Gavin's own query letter) and published poems, both
   Merton poems linked to the Thomas Merton Society's PDFs. Carries **the site's
   only photograph set inside prose**: a `.beside` grid in the *Flight* section,
   prose in one column and a `<figure>` in the other, starting level with the
-  first body paragraph rather than the heading. Caption "Workshopping", no year
-  — the frame shows a notepad on a table, so it must not claim more than that.
+  first body paragraph rather than the heading. Caption "Workshopping the mss.",
+  centred under the picture, no year — the frame shows a notepad on a table, so
+  it must not claim more than that.
   Its 13rem width is sized to the prose block, so **re-measure it whenever the
   *Flight* copy changes**.
 - **Consulting** — external program review, assessment, and curricular reform.
@@ -87,8 +91,12 @@ Positioning: understate the professorship, lead with writer/scholar.
   column *trio* centres on the page, but each column's own text stays flush left
   so the address keeps its left edge. Colophon centres on the same axis as the
   pages' centred CV lines. Columns stack full-width below 34rem.
-- **Header:** wordmark left, nav right — identical on every page including
-  Home, so the nav never shifts position. Hamburger below 48rem; the open menu
+- **Header:** wordmark left, nav right — **now literally identical on every
+  page: seven links, no "Home" item.** It used to render a "Home" link on the
+  Home page only, where it pointed at the page you were already on and was
+  absent everywhere it would have been useful; the wordmark carries that job.
+  Removing it moved nothing, because the nav is right-aligned — the extra item
+  had been extending it leftward, not shifting the others. Hamburger below 48rem; the open menu
   spans the full width, its items level with the wordmark.
 - **Content-page pattern:** `Layout` + `.wrap` + `header.page-head` (h1 +
   `.page-intro`), and where a page carries one, a centred `.cv-line` at the foot.
@@ -102,6 +110,10 @@ Positioning: understate the professorship, lead with writer/scholar.
   instead of filling, so About's byline stopped ~100px early and read as the
   photograph sitting too far right. Where a byline shares its row with a figure,
   use `pretty`. Measure the longest rendered line, not the box.
+- **A breakout wrapper must be a *sibling* of the column blocks.** `.wrap-wide`
+  nested inside `.wrap` inherits the parent cap and renders *narrower* than the
+  column it meant to exceed (688px against 768px). `SlideDeck` gets this right
+  by sitting outside the page's `.wrap`.
 - **`sizes` must match the CSS width, not a guess.** The Creative Work figure
   declared `40vw` below 46rem while its CSS width is `13rem` at every width, so
   phones were served a 336w file for a 416-device-pixel slot.
@@ -130,6 +142,8 @@ check `dist/` before "fixing" it.
   together across line breaks.
 - **External links open in a new tab:** `target="_blank"` plus
   `rel="noopener noreferrer"`. Internal links and `mailto:` stay in-tab.
+- ***Flight* is roman in headings, italic inside sentences** (his rule). So
+  `<h2>Flight</h2>` on Home and Creative Work, but `<em>Flight</em>` in prose.
 - **No email addresses in the served markup.** The footer assembles them at
   runtime from pieces; keep it that way.
 - **Astro eats whitespace at inline-tag boundaries.** A line break sitting
