@@ -1,0 +1,348 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SlideDeck from '../../components/SlideDeck.astro';
+
+const modules = import.meta.glob<{ default: ImageMetadata }>(
+	'../../assets/images/decks/acis-2026/*.jpg',
+	{ eager: true }
+);
+const slides = Object.keys(modules)
+	.sort()
+	.map((k) => modules[k].default);
+---
+
+<Layout
+	title="Fieldwork — frames"
+	noindex
+	description="Mock-up route: Fieldwork with four photographs per strand and the deck at the foot."
+>
+	<div class="wrap">
+		<header class="page-head">
+			<p class="mock-kicker">Mock-up &mdash; not linked from the site</p>
+			<h1>Fieldwork</h1>
+			<p class="page-intro">
+				Toward a book on the reclamation of traumatic spaces in Ireland.
+			</p>
+			<p class="mock-note">
+				Four photographs per strand, 2&times;2 in the wide band at 572px each,
+				with the full presentation at the foot. The grey frames are where your
+				pictures go; captions read &ldquo;Place, year&rdquo; as a stand-in.
+			</p>
+		</header>
+
+		<section class="project">
+			<p>
+				Site-based photographs, my own, of places rather than people: Magdalene
+				laundries and mother and baby homes, the ghost estates left by the collapse
+				of the Celtic&nbsp;Tiger, and the contested walls of Belfast.
+			</p>
+		</section>
+	</div>
+
+	<div class="wrap">
+		<section class="strand">
+			<h2>Magdalene Laundries and Mother and Baby Homes</h2>
+		</section>
+	</div>
+
+	<div class="wrap-wide gallery-wrap">
+			<div class="gallery">
+					<figure class="shot">
+						<div class="shot-frame"><span>Photograph 1</span></div>
+						<figcaption>Place, year</figcaption>
+					</figure>
+					<figure class="shot">
+						<div class="shot-frame"><span>Photograph 2</span></div>
+						<figcaption>Place, year</figcaption>
+					</figure>
+					<figure class="shot">
+						<div class="shot-frame"><span>Photograph 3</span></div>
+						<figcaption>Place, year</figcaption>
+					</figure>
+					<figure class="shot">
+						<div class="shot-frame"><span>Photograph 4</span></div>
+						<figcaption>Place, year</figcaption>
+					</figure>
+		</div>
+	</div>
+
+	<div class="wrap">
+		<section class="strand strand-cites">
+			<ul class="cite-list">
+				<li>
+					<span class="cite-title"
+						>&ldquo;Home (Dis)Rule: Magdalene Laundries, Mother and Baby Homes, and
+						Ghost Estates.&rdquo;</span
+					>{' '}
+					American Conference for Irish Studies. Denver,&nbsp;CO, 2026.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;Ireland&rsquo;s Last Magdalene Laundry.&rdquo;</span
+					>{' '}
+					Northeast Modern Language Association. Boston,&nbsp;MA, 2024.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;Excavating History: Justice for Irish Magdalenes.&rdquo;</span
+					>{' '}
+					Northeast Modern Language Association. Niagara,&nbsp;NY, 2023.
+				</li>
+			</ul>
+		</section>
+
+		<section class="strand">
+			<h2>Ghost Estates and Topographical Scars</h2>
+		</section>
+	</div>
+
+	<div class="wrap-wide gallery-wrap">
+			<div class="gallery">
+					<figure class="shot">
+						<div class="shot-frame"><span>Photograph 1</span></div>
+						<figcaption>Place, year</figcaption>
+					</figure>
+					<figure class="shot">
+						<div class="shot-frame"><span>Photograph 2</span></div>
+						<figcaption>Place, year</figcaption>
+					</figure>
+					<figure class="shot">
+						<div class="shot-frame"><span>Photograph 3</span></div>
+						<figcaption>Place, year</figcaption>
+					</figure>
+					<figure class="shot">
+						<div class="shot-frame"><span>Photograph 4</span></div>
+						<figcaption>Place, year</figcaption>
+					</figure>
+		</div>
+	</div>
+
+	<div class="wrap">
+		<section class="strand strand-cites">
+			<ul class="cite-list">
+				<li>
+					<span class="cite-title"
+						>&ldquo;Irish Spatial Texts and Topographical Scars.&rdquo;</span
+					>{' '}
+					Northeast Modern Language Association. Philadelphia,&nbsp;PA, 2025.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;Thwarted Alchemy: Irish Ghost Estates and Post-Celtic-Tiger
+						Literature.&rdquo;</span
+					>{' '}
+					Humanities and Education Research Association. Chicago,&nbsp;IL, 2018.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;Topographical Scars: Economic Collapse, Mass Emigration, and
+						Irish Tourism.&rdquo;</span
+					>{' '}
+					Popular and American Culture Association. New&nbsp;Orleans,&nbsp;LA, 2015.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;Trauma Memorials and Historical Geography: Ghost Estates as
+						Modern-day Famine Walls.&rdquo;</span
+					>{' '}
+					Transatlantic Connections&nbsp;II. Donegal, Ireland, 2015.
+				</li>
+			</ul>
+		</section>
+
+		<section class="strand">
+			<h2>Belfast, Dublin, and Contested Space</h2>
+		</section>
+	</div>
+
+	<div class="wrap-wide gallery-wrap">
+			<div class="gallery">
+					<figure class="shot">
+						<div class="shot-frame"><span>Photograph 1</span></div>
+						<figcaption>Place, year</figcaption>
+					</figure>
+					<figure class="shot">
+						<div class="shot-frame"><span>Photograph 2</span></div>
+						<figcaption>Place, year</figcaption>
+					</figure>
+					<figure class="shot">
+						<div class="shot-frame"><span>Photograph 3</span></div>
+						<figcaption>Place, year</figcaption>
+					</figure>
+					<figure class="shot">
+						<div class="shot-frame"><span>Photograph 4</span></div>
+						<figcaption>Place, year</figcaption>
+					</figure>
+		</div>
+	</div>
+
+	<div class="wrap">
+		<section class="strand strand-cites">
+			<ul class="cite-list">
+				<li>
+					<span class="cite-title"
+						>&ldquo;Politics and the Humanities in Belfast Street Art.&rdquo;</span
+					>{' '}
+					Humanities and Education Research Association. Chicago,&nbsp;IL, 2020.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;An Art-walk in Belfast: Stepping beyond Politics.&rdquo;</span
+					>{' '}
+					American Conference for Irish Studies. Boston,&nbsp;MA, 2019.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;Slouching towards Belfast to be Born: Apolitical Street-art in
+						Belfast.&rdquo;</span
+					>{' '}
+					Popular and American Culture Association. Washington,&nbsp;DC, 2019.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;Between the Lanes: Politics and the Humanities in Irish
+						Street-art.&rdquo;</span
+					>{' '}
+					Humanities and Education Research Association. San&nbsp;Diego,&nbsp;CA,
+					2017.
+				</li>
+				<li>
+					<span class="cite-title"
+						>&ldquo;&lsquo;What Rough Beast&rsquo;: Integrated and Conflicted Spaces
+						in Dublin.&rdquo;</span
+					>{' '}
+					American Conference on Irish Studies. Dublin, Ireland, 2014.
+				</li>
+			</ul>
+		</section>
+	</div>
+
+	<SlideDeck
+		slides={slides}
+		title="Home (Dis)Rule: Magdalene Laundries, Mother and Baby Homes, and Ghost Estates"
+		meta="American Conference for Irish Studies, 2026"
+	/>
+</Layout>
+
+<style>
+	.page-head {
+		padding-block: clamp(3.5rem, 9vw, 6.5rem) clamp(1.75rem, 4vw, 3rem);
+	}
+
+	.mock-kicker,
+	.mock-note {
+		font-family: var(--font-sans);
+		font-size: 0.78rem;
+		letter-spacing: 0.04em;
+		color: var(--color-ink-faint);
+	}
+
+	.mock-kicker {
+		text-transform: uppercase;
+		margin: 0 0 1rem;
+	}
+
+	.mock-note {
+		max-width: 34rem;
+		margin: 1.25rem 0 0;
+		line-height: 1.5;
+	}
+
+	.page-intro {
+		font-size: clamp(1.1rem, 1rem + 0.6vw, 1.3rem);
+		line-height: 1.5;
+		color: var(--color-ink-soft);
+		margin: 0;
+		max-width: 42rem;
+	}
+
+	.project {
+		padding-block: clamp(2.5rem, 6vw, 3.75rem);
+		border-top: 1px solid var(--color-line);
+		max-width: 42rem;
+	}
+
+	.project p {
+		margin: 0;
+	}
+
+	.strand {
+		padding-block: clamp(2.25rem, 5vw, 3.25rem) 0;
+		border-top: 1px solid var(--color-line);
+	}
+
+	.strand h2 {
+		margin: 0;
+	}
+
+	.strand-cites {
+		border-top: 0;
+		padding-block: 0 clamp(2.25rem, 5vw, 3.25rem);
+	}
+
+	/* The gallery is the one thing that takes --page-width-wide. */
+	.gallery-wrap {
+		padding-block: clamp(1.5rem, 3vw, 2.25rem);
+	}
+
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
+	}
+
+	.shot {
+		margin: 0;
+	}
+
+	.shot-frame {
+		aspect-ratio: 3 / 2;
+		background: var(--color-paper-raised, rgba(0, 0, 0, 0.04));
+		border: 1px solid var(--color-line);
+		border-radius: 2px;
+		display: grid;
+		place-items: center;
+		font-family: var(--font-sans);
+		font-size: 0.8rem;
+		color: var(--color-ink-faint);
+	}
+
+	.shot figcaption {
+		margin-top: 0.6rem;
+		font-family: var(--font-sans);
+		font-size: 0.78rem;
+		letter-spacing: 0.02em;
+		color: var(--color-ink-faint);
+	}
+
+	.cite-list {
+		max-width: 42rem;
+		margin: 1.5rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.cite-list li {
+		padding-block: 0.7rem;
+		padding-left: 1.4rem;
+		text-indent: -1.4rem;
+		color: var(--color-ink-soft);
+		font-size: 1rem;
+		line-height: 1.5;
+		text-wrap: pretty;
+	}
+
+	.cite-list li + li {
+		border-top: 1px solid var(--color-line);
+	}
+
+	.cite-title {
+		color: var(--color-ink);
+	}
+
+	@media (max-width: 46rem) {
+		.gallery {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
