@@ -20,13 +20,13 @@ const fullEstates = await big(estates);
 const fullContested = await big(contested);
 ---
 
-<Layout title="Fieldwork — frames" noindex description="Mock-up route.">
+<Layout title="Fieldwork — wide papers" noindex description="Mock-up route.">
 	<div class="wrap">
 		<header class="page-head">
 			<p class="mock-kicker">Mock-up &mdash; not linked from the site</p>
 			<h1>Fieldwork</h1>
 			<p class="page-intro">Toward a book on the reclamation of traumatic spaces in Ireland.</p>
-			<p class="mock-note">Papers keep the reading column; only pictures take the wide band.</p>
+			<p class="mock-note">Papers and headings run the full wide band, three columns, on the same edges as the photographs. The page description keeps its measure.</p>
 		</header>
 
 		<section class="project">
@@ -47,10 +47,10 @@ const fullContested = await big(contested);
 		</section>
 	</div>
 
-	<div class="wrap">
+	<div class="wrap-wide">
 		<section class="strand">
 			<h2>Magdalene Laundries and Mother and Baby Homes</h2>
-			<ul class="cite-list">
+			<ul class="cite-list cite-wide">
 				<li>
 					<span class="cite-title"
 						>&ldquo;Home (Dis)Rule: Magdalene Laundries, Mother and Baby Homes, and
@@ -114,10 +114,10 @@ const fullContested = await big(contested);
 			</li>
 		</ul>
 	</div>
-	<div class="wrap">
+	<div class="wrap-wide">
 		<section class="strand">
 			<h2>Ghost Estates, Famine Memorials, and Topographical Scars</h2>
-			<ul class="cite-list">
+			<ul class="cite-list cite-wide">
 				<li>
 					<span class="cite-title"
 						>&ldquo;Irish Spatial Texts and Topographical Scars.&rdquo;</span
@@ -189,10 +189,10 @@ const fullContested = await big(contested);
 			</li>
 		</ul>
 	</div>
-	<div class="wrap">
+	<div class="wrap-wide">
 		<section class="strand">
 			<h2>Belfast, Dublin, and Contested Space</h2>
-			<ul class="cite-list">
+			<ul class="cite-list cite-wide">
 				<li>
 					<span class="cite-title"
 						>&ldquo;Politics and the Humanities in Belfast Street Art.&rdquo;</span
@@ -319,6 +319,22 @@ const fullContested = await big(contested);
 	.cite-list li { padding-block: 0.7rem; padding-left: 1.4rem; text-indent: -1.4rem; color: var(--color-ink-soft); font-size: 1rem; line-height: 1.5; text-wrap: pretty; }
 	.cite-list li + li { border-top: 1px solid var(--color-line); }
 	.cite-title { color: var(--color-ink); }
+
+	.cite-wide {
+		max-width: none;
+		columns: 3;
+		column-gap: 1.5rem;
+	}
+
+	.cite-wide li {
+		break-inside: avoid;
+		border-top: 0;
+		padding-block: 0 1.1rem;
+	}
+
+	.cite-wide li + li {
+		border-top: 0;
+	}
 
 	@media (max-width: 46rem) {
 		.gallery { grid-template-columns: 1fr; }
