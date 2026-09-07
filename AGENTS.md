@@ -35,14 +35,16 @@ material and adding the sections below.
 - **Books** — the three books, newest first, with covers.
 - **Scholarship** — chapters, essays, and the Martin Amis Web, grouped by theme.
 - **Fieldwork** — Gavin's own site-based photographs, for a book he is writing on
-  the reclamation of traumatic spaces in Ireland. **The photographs are not yet
-  uploaded** — the page is currently text only. His images, his rights. **The
-  layout is settled and built** as a mock-up at `/preview/fieldwork/`: each
-  strand runs its heading and conference papers in the reading column, then
-  **four photographs, 2×2, in the wide band**, with the full ACIS deck at the
-  foot, also wide. The page follows one rule — **words keep the reading column,
-  pictures take the wide band**. Fold it in and delete the route once he
-  supplies the pictures; see the project memory for why four and not six.
+  spatial trauma in Ireland and Northern Ireland. **Live with his photographs
+  since Sept 2026.** His images, his rights. Each strand runs its heading and
+  conference papers **across the wide band in three columns**, then **six
+  photographs, 3×2**, on the same edges — 56→1224, at 373px each and 4:3, the
+  ratio every supplied photograph shares, so nothing is cropped. The full ACIS
+  deck closes the page, also wide. **Photographs are uncaptioned by decision**,
+  not by omission: alt text describes only what is visible, with no place names.
+  Click any photograph for a lightbox at 94vw — that is what lets the grid stay
+  at 373px. The page's rule: **continuous prose keeps the 42rem measure; short
+  records and pictures take the wide band.**
 - **Creative Work** — the novel *Flight* (under agent review, with a full
   description drawn from Gavin's own query letter) and published poems, both
   Merton poems linked to the Thomas Merton Society's PDFs. Carries **the site's
