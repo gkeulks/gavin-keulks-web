@@ -2,7 +2,6 @@
 import { sections } from '../data/nav';
 
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const isHome = path === '/';
 ---
 
 <header class="site-header">
@@ -18,7 +17,6 @@ const isHome = path === '/';
 			<span>Menu</span>
 		</button>
 		<nav class="primary-nav" id="primary-nav" aria-label="Primary">
-			{isHome && <a href="/" class="active">Home</a>}
 			{
 				sections.map((link) => (
 					<a
