@@ -83,8 +83,9 @@ Positioning: understate the professorship, lead with writer/scholar.
   `.cv-line` and the footer all set their own quieter colours and must keep
   them. Underlines take a 45% mix of the accent.
 - **Layout:** one book-like column. `--content-width: 50rem`,
-  `--page-width: 53rem`; `--page-width-wide: 78rem` reserved for the Fieldwork
-  gallery. Header, nav and content share one left edge; the footer and the
+  `--page-width: 53rem`; `--page-width-wide: 78rem`, **used by Fieldwork** for
+  its galleries, its three-column paper lists and its deck (56→1224 at 1280).
+  Nothing else on the site breaks wide. Header, nav and content share one left edge; the footer and the
   `.cv-line` deliberately centre.
 - **Theming:** three tiers in `src/styles/global.css` — `:root` light,
   `prefers-color-scheme: dark`, and `[data-theme]` overrides. Never give a colour
@@ -184,6 +185,9 @@ walk the text nodes taking a `Range` rect per character and group by rounded
   prev/counter/next, native `<dialog>` lightbox, optional PDF link; props
   `slides`, `title`, `meta`, `pdf`, `wide`). `title`/`meta` must be **plain
   text** — they are the accessible name, and entities in a prop are escaped.
+- `src/assets/images/fieldwork/<strand>/` — gallery photographs, `01.jpg` to
+  `06.jpg`, imported at 2400px on the long edge. Strands are `laundries`,
+  `estates`, `contested`.
 - `src/assets/images/decks/<deck>/` — slide images, `slide-01.jpg` upward.
   Source them at **2560×1440**: the stage is 768 CSS px and the lightbox 1203,
   so a retina screen wants 1536 and 2406 device pixels.
