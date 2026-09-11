@@ -6,6 +6,28 @@ import cambridgeCover from '../assets/images/books/cambridge-companion.jpg';
 import postmodernismCover from '../assets/images/books/postmodernism-and-beyond.png';
 import fatherAndSonCover from '../assets/images/books/father-and-son.png';
 
+const person = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: 'Gavin Keulks',
+	url: 'https://gavinkeulks.com/',
+	image: 'https://gavinkeulks.com/og/gavin-keulks.jpg',
+	jobTitle: 'Professor of English',
+	description:
+		'Writer and scholar of twentieth-century English and Irish fiction; editor of The Cambridge Companion to Martin Amis; administrator of the Martin Amis Web.',
+	worksFor: {
+		'@type': 'CollegeOrUniversity',
+		name: 'Western Oregon University',
+		url: 'https://wou.edu/',
+	},
+	sameAs: [
+		'https://www.linkedin.com/in/gavinkeulks/',
+		'https://x.com/GavinKeulks',
+		'https://linktr.ee/gkeulks',
+		'https://martinamisweb.com/',
+	],
+};
+
 const books = [
 	{
 		cover: cambridgeCover,
@@ -28,6 +50,7 @@ const books = [
 <Layout
 	title="Gavin Keulks"
 	bareTitle
+	jsonLd={person}
 	description="Gavin Keulks — writer and scholar. Three books on the postwar English and Irish novel, a first novel under agent review, and a monograph in progress on Irish traumatic spaces."
 >
 	<div class="wrap">

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gavinkeulks.com/sitemap-index.xml
