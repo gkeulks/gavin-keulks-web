@@ -147,6 +147,10 @@ check `dist/` before "fixing" it.
   `rel="noopener noreferrer"`. Internal links and `mailto:` stay in-tab.
 - ***Flight* is roman in headings, italic inside sentences** (his rule). So
   `<h2>Flight</h2>` on Home and Creative Work, but `<em>Flight</em>` in prose.
+- **Entities in a *prop* are escaped, not rendered.** `&mdash;` in a
+  `description=` attribute reached Google as the literal text `&mdash;`; the
+  same happened earlier with `&middot;` in the deck's title. Prose in `.astro`
+  markup takes entities; **anything passed as a prop takes the character.**
 - **No email addresses in the served markup.** The footer assembles them at
   runtime from pieces; keep it that way.
 - **Astro eats whitespace at inline-tag boundaries.** A line break sitting
@@ -172,7 +176,10 @@ walk the text nodes taking a `Range` rect per character and group by rounded
 - `src/pages/` — one file per section, plus `404.astro`. `[slug].astro` is the
   placeholder route; every section is now `live: true`, so it generates nothing.
   Left in place for any future placeholder.
-- `src/data/nav.ts` — section list with a `live` flag per entry.
+- `src/data/nav.ts` — section list with a `live` flag per entry. Its `blurb`
+  strings show only on the 404's section index, may carry `<em>` (the 404
+  renders them with `set:html`), and **must be kept in step with the pages** —
+  three had drifted by Sept 2026.
 - `src/layouts/Layout.astro` — the single layout. Takes a `noindex` prop for
   mock-up routes. It builds `<main>`'s attributes by spread, because **Astro
   renders a `data-*` boolean as the string `"true"`/`"false"`** — so
@@ -192,6 +199,17 @@ walk the text nodes taking a `Range` rect per character and group by rounded
   Source them at **2560×1440**: the stage is 768 CSS px and the lightbox 1203,
   so a retina screen wants 1536 and 2406 device pixels.
 - `src/styles/global.css` — tokens and base typography.
+- **Search and sharing (added 11 Sept 2026).** `@astrojs/sitemap` writes
+  `sitemap-index.xml` at build; `public/robots.txt` points at it. `Layout`
+  emits a canonical link, `og:url`, `og:image` and a Twitter card on every
+  page, and takes an optional `jsonLd` prop — Home passes a schema.org
+  `Person` whose `sameAs` links (LinkedIn, X, Linktree, the Martin Amis Web)
+  are what let a search engine treat them as one identity. **Every fact in it
+  came from the site; change it there first.** The card image is
+  `public/og/gavin-keulks.jpg`, 1200×630, cropped like the Home hero so the
+  students in the source frame fall outside it. The domain is verified in
+  Google Search Console (DNS record on Cloudflare — do not remove it) and the
+  sitemap is submitted.
 - `public/_headers` — HSTS, CSP, nosniff, X-Frame-Options, Referrer-Policy,
   Permissions-Policy, COOP, immutable `/_astro/*`.
 - `public/_redirects` — `/spatial-trauma/` → `/fieldwork/`, `/contact/` → `/`.
