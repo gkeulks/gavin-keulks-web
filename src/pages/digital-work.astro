@@ -107,13 +107,13 @@ import maw2026 from '../assets/images/digital/maw-2026.jpg';
 			<p>
 				Besides the Martin Amis Web, I have designed and administered three
 				iterations of my personal webpage, plus three institutional sites: the WOU
-				Honors Program (2008&ndash;&#8288;2026), Faculty Senate (2010&ndash;&#8288;2012), and
+				Honors&nbsp;Program (2008&ndash;&#8288;2026), Faculty Senate (2010&ndash;&#8288;2012), and
 				English Department (2007&ndash;&#8288;2009) webpages.
 			</p>
 			<p>
 				I started programming in 1982, on an Apple&nbsp;IIe, in BASIC. I once
-				asked a mentor whether I should major in computer science in college; his
-				reply was, &ldquo;No, stick with social science or the humanities &mdash;
+				asked a&nbsp;mentor whether I should major in computer science in college; his
+				reply&nbsp;was, &ldquo;No, stick with social science or the humanities &mdash;
 				there&rsquo;s no jobs in computers.&rdquo; Choose your mentors wisely.
 			</p>
 		</section>
@@ -147,9 +147,14 @@ import maw2026 from '../assets/images/digital/maw-2026.jpg';
 		margin: 0 0 1.35rem;
 	}
 
+	/* Plain wrapping, not the site-wide `pretty`. These paragraphs are four
+	   or five lines, and `pretty` re-sets short paragraphs whole, pulling
+	   words down early: "Honors / Program", "a / mentor", "reply / was",
+	   with lines ending 70-90px short of the measure. */
 	.archive p {
 		margin: 0 0 1.15rem;
 		max-width: 42rem;
+		text-wrap: wrap;
 	}
 
 	.archive p:last-child {
