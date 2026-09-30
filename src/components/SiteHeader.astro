@@ -8,13 +8,17 @@ interface Props {
 
 const { previewDigitalWork = false } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+/* Mock-up of option B: the work first, then the person and the service as a
+   quieter group after a divider. Every other page renders the flat list. */
+const bySlug = (slug: string) => sections.find((s) => s.slug === slug)!;
+const digitalWork = { slug: 'preview/digital-work', title: 'Digital Work' };
 const links = previewDigitalWork
-	? sections.flatMap((s) =>
-			s.slug === 'scholarship'
-				? [s, { slug: 'preview/digital-work', title: 'Digital Work' }]
-				: [s],
-		)
+	? [bySlug('books'), bySlug('scholarship'), digitalWork, bySlug('fieldwork'), bySlug('creative-work')]
 	: sections;
+const quietLinks = previewDigitalWork
+	? [bySlug('about'), bySlug('teaching'), bySlug('consulting')]
+	: [];
 ---
 
 <header class="site-header">
@@ -35,6 +39,17 @@ const links = previewDigitalWork
 					<a
 						href={`/${link.slug}/`}
 						class={path === `/${link.slug}` ? 'active' : ''}
+					>
+						{link.title}
+					</a>
+				))
+			}
+			{quietLinks.length > 0 && <span class="nav-sep" aria-hidden="true" />}
+			{
+				quietLinks.map((link) => (
+					<a
+						href={`/${link.slug}/`}
+						class={path === `/${link.slug}` ? 'quiet active' : 'quiet'}
 					>
 						{link.title}
 					</a>
@@ -116,6 +131,30 @@ const links = previewDigitalWork
 		border-bottom-color: var(--color-ink);
 	}
 
+	/* option B mock-up: the work group reads a step darker than the quiet one */
+	.primary-nav:has(.nav-sep) a:not(.quiet) {
+		color: var(--color-ink-soft);
+	}
+
+	.primary-nav a.quiet {
+		color: var(--color-ink-faint);
+		font-weight: 400;
+	}
+
+	.primary-nav a.quiet:hover,
+	.primary-nav:has(.nav-sep) a:hover,
+	.primary-nav:has(.nav-sep) a.active {
+		color: var(--color-ink);
+	}
+
+	.nav-sep {
+		align-self: center;
+		width: 1px;
+		height: 0.8rem;
+		background: var(--color-line-strong);
+		margin-inline: 0.15rem;
+	}
+
 	.nav-toggle {
 		display: none;
 		grid-column: 2;
@@ -192,6 +231,18 @@ const links = previewDigitalWork
 
 		.primary-nav a.active {
 			border-bottom-color: var(--color-ink);
+		}
+
+		/* in the open menu the divider becomes a gap before the quiet group */
+		.nav-sep {
+			width: 100%;
+			height: 1.25rem;
+			margin: 0;
+			background: none;
+		}
+
+		.nav-sep + a {
+			border-top: 1px solid var(--color-line);
 		}
 	}
 </style>
