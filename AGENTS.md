@@ -141,6 +141,17 @@ Positioning: understate the professorship, lead with writer/scholar.
   instead of filling, so About's byline stopped ~100px early and read as the
   photograph sitting too far right. Where a byline shares its row with a figure,
   use `pretty`. Measure the longest rendered line, not the box.
+- **`text-wrap: pretty` (global on `p`) re-sets a short paragraph whole.** Chrome
+  applies it to a paragraph's last four lines, so a paragraph of four or five
+  lines is rewrapped from the top: words come down early and lines stop 70–130px
+  short. Long paragraphs (About) are barely touched. Digital Work's prose
+  therefore uses plain `wrap`. Safari's `pretty` works on the whole paragraph
+  and Firefox breaks differently again, so **a fix tuned to one browser's breaks
+  is not a fix.** In order of robustness: reword (Gavin cut "newly released"
+  from the Home lede and it set cleanly under both rules); bind a pair with
+  `&nbsp;`; change the wrap rule. A forced `<br>` holds at every width and was
+  rejected. Test any binding at 375 too — binding "Martin Amis Web" opened a
+  short line on phones and was reverted.
 - **A breakout wrapper must be a *sibling* of the column blocks.** `.wrap-wide`
   nested inside `.wrap` inherits the parent cap and renders *narrower* than the
   column it meant to exceed (688px against 768px). `SlideDeck` gets this right
