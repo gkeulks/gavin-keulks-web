@@ -31,28 +31,17 @@ import maw2026 from '../../assets/images/digital/maw-2026.jpg';
 				modernized it in 2026.
 			</p>
 
-			<div class="then-now">
-				<figure class="site-shot shot-2009">
+			<figure class="site-shot">
+				<a href="https://martinamisweb.com/" target="_blank" rel="noopener noreferrer">
 					<Image
-						src={maw2009}
-						alt="The Martin Amis Web home page in 2009: a brown table layout with the site's title in a dark banner, an author portrait and a book-cover slideshow, and three rows of section links above a short introduction"
-						widths={[400, 700, 1024, 1400]}
-						sizes="(max-width: 34rem) 90vw, (max-width: 53rem) 42vw, 22rem"
+						src={maw2026}
+						alt="The Martin Amis Web home page in 2026: a dark header with the site's title and navigation, above an introduction and a black-and-white portrait of Martin Amis"
+						widths={[480, 768, 1152, 1536]}
+						sizes="(max-width: 53rem) 90vw, 48rem"
 					/>
-					<figcaption>The 2006 design, as archived in 2009</figcaption>
-				</figure>
-				<figure class="site-shot shot-2026">
-					<a href="https://martinamisweb.com/" target="_blank" rel="noopener noreferrer">
-						<Image
-							src={maw2026}
-							alt="The Martin Amis Web home page in 2026: a dark header with the site's title and navigation, above an introduction and a black-and-white portrait of Martin Amis"
-							widths={[480, 768, 1152, 1536]}
-							sizes="(max-width: 34rem) 90vw, (max-width: 53rem) 50vw, 26rem"
-						/>
-					</a>
-					<figcaption>The 2026 overhaul</figcaption>
-				</figure>
-			</div>
+				</a>
+				<figcaption>The 2026 overhaul</figcaption>
+			</figure>
 
 			<p>
 				Administering a digital archive for a famous figure has been not only a
@@ -103,14 +92,29 @@ import maw2026 from '../../assets/images/digital/maw-2026.jpg';
 					</span>
 				</li>
 			</ul>
+
+			<figure class="site-shot site-shot-last">
+				<Image
+					src={maw2009}
+					alt="The Martin Amis Web home page in 2009: a brown table layout with the site's title in a dark banner, an author portrait and a book-cover slideshow, and three rows of section links above a short introduction"
+					widths={[480, 768, 1152, 1536]}
+					sizes="(max-width: 53rem) 90vw, 48rem"
+				/>
+				<figcaption>The 2006 design, as archived in 2009</figcaption>
+			</figure>
 		</section>
 
 		<section class="archive">
 			<h2>Other Sites</h2>
 			<p>
-				I designed and maintained three other sites in the same period: the WOU
+				Besides the Martin Amis Web, I have designed and administered three
+				iterations of my personal webpage, plus three institutional sites: the WOU
 				Honors Program (2008&ndash;2026), Faculty Senate (2010&ndash;2012), and
-				English Department (2007&ndash;2009) webpages.
+				English Department (2007&ndash;2009) webpages. I started programming in
+				1982, on an Apple 2e, in Basic. I once asked a mentor whether I should
+				major in computer science in college; his reply, &ldquo;no, stick with
+				social science or the humanities &mdash; there&rsquo;s no jobs in
+				computers.&rdquo; Choose your mentors wisely.
 			</p>
 		</section>
 	</div>
@@ -152,34 +156,13 @@ import maw2026 from '../../assets/images/digital/maw-2026.jpg';
 		margin-bottom: 0;
 	}
 
-	/* then and now, spanning the column edge to edge (256 to 1024 at 1280).
-	   Each figure grows in proportion to its aspect ratio, so the two
-	   screenshots come out the same height without cropping either. */
-	.then-now {
-		display: flex;
-		gap: 1rem;
-		margin: 2rem 0 2.25rem;
-		align-items: flex-start;
-	}
-
+	/* screenshots span the column, right edge on the 1024 rule */
 	.site-shot {
-		margin: 0;
-		min-width: 0;
+		margin: 2rem 0 2.25rem;
 	}
 
-	.shot-2009 {
-		flex: 1.3333 1 0;
-	}
-
-	.shot-2026 {
-		flex: 1.6 1 0;
-	}
-
-	@media (max-width: 34rem) {
-		.then-now {
-			flex-direction: column;
-			gap: 1.75rem;
-		}
+	.site-shot-last {
+		margin-bottom: 0;
 	}
 
 	.site-shot a {
