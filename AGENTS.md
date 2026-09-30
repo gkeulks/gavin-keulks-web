@@ -12,13 +12,15 @@ in about 1–2 minutes. There is no staging. Commit accordingly.
 
 ## Status
 
-All eight sections are built and live; there are no placeholders left. The site
+All nine sections are built and live; there are no placeholders left. The site
 replaced the WordPress page at `wp.wou.education/keulksg/`, preserving its
 material and adding the sections below.
 
 - **Home** — name, lede, portrait; a tinted band of the three book covers; a
   numbered "Currently Working On" list (*Flight* / Irish Traumatic Spaces / The
-  Martin Amis Web). Redesigned Sept 2026; the old section index is gone, since
+  Martin Amis Web, whose link now goes to Digital Work like the other two go to
+  their pages — Gavin ruled the three stay, for the parallel with the three
+  books). Redesigned Sept 2026; the old section index is gone, since
   the top nav already lists the sections. The portrait is **no longer the WOU
   studio headshot** — it is a 2013 frame of Gavin reading aloud from a
   manuscript, cropped 5:7, to lead with writer rather than professor. It and the
@@ -33,7 +35,24 @@ material and adding the sections below.
   4:5**, not 5:7 like Home's: the ratio is what let it widen without opening up
   vertical space beside it. Its byline uses `text-wrap: pretty`, not `balance`.
 - **Books** — the three books, newest first, with covers.
-- **Scholarship** — chapters, essays, and the Martin Amis Web, grouped by theme.
+- **Scholarship** — chapters and essays, grouped by theme. The Martin Amis Web
+  section moved out to Digital Work (29 Sept 2026). **Gavin considered deleting
+  the page for a CV link on Books, and merging Books into it; both ruled no** —
+  the essays are not in the books, a PDF indexes badly, and *Flight* will need
+  a Books page to join.
+- **Digital Work** — added 29 Sept 2026: the Martin Amis Web (prose, papers)
+  and Other Sites. Byline is Gavin's: "Web design, digital humanities, and
+  archival work." Two **full-column screenshots** (768px, 1px border): the live
+  2026 home page after the first paragraph, linked to the site; and **the 2006
+  design as archived in 2009**, closing the section below the papers. The 2009
+  one is a reconstruction: the Wayback capture renders its two Flash slideshows
+  as empty boxes, so the page, stylesheet, both SWFs and their image lists were
+  pulled from the archive and the Flash replayed in **Ruffle**, then captured.
+  Nine of 24 covers were never archived and were left out of the rotation. A
+  side-by-side pair was tried and rejected — Gavin wanted each at full size.
+  **Both screenshots include a third-party portrait of Amis** (flagged to him).
+  Date ranges carry a word joiner (`&ndash;&#8288;`) — "(2007–" was breaking
+  from "2009)". No `.cv-line`.
 - **Fieldwork** — Gavin's own site-based photographs, for a book he is writing on
   spatial trauma in Ireland and Northern Ireland. **Live with his photographs
   since Sept 2026.** His images, his rights. Each strand runs its heading and
@@ -94,16 +113,25 @@ Positioning: understate the professorship, lead with writer/scholar.
   column *trio* centres on the page, but each column's own text stays flush left
   so the address keeps its left edge. Colophon centres on the same axis as the
   pages' centred CV lines. Columns stack full-width below 34rem.
-- **Header:** wordmark left, nav right — **now literally identical on every
-  page: seven links, no "Home" item.** It used to render a "Home" link on the
+- **Header:** wordmark left, nav right — **identical on every page: eight
+  links in two groups, no "Home" item.** The work first (Books, Scholarship,
+  Digital Work, Fieldwork, Creative Work) in `--color-ink-soft`; a hairline
+  divider; then About, Teaching, Consulting — flagged `quiet` in `nav.ts` — in
+  `--color-ink-faint` at weight 400. Chosen 29 Sept 2026 from four formats
+  (flat / grouped / seven with Consulting in the footer / two rows); dropdowns
+  argued against. **"Classes" for "Teaching" was proposed and declined** — it
+  saves 8px and breaks the *Teaching Portfolio* pairing. The `quiet` entries
+  must stay last in `sections`, since the divider renders between the groups.
+  The same order drives the 404's section index. It used to render a "Home" link on the
   Home page only, where it pointed at the page you were already on and was
   absent everywhere it would have been useful; the wordmark carries that job.
   Removing it moved nothing, because the nav is right-aligned — the extra item
-  had been extending it leftward, not shifting the others. Hamburger below 48rem; the open menu
+  had been extending it leftward, not shifting the others. **Hamburger below 52rem** (was 48): eight items and the divider need ~825px of window to stay on one line; at 48rem they broke onto two lines between 769 and 825. In the open menu the divider becomes a gap, and the menu
   spans the full width, its items level with the wordmark.
 - **Content-page pattern:** `Layout` + `.wrap` + `header.page-head` (h1 +
   `.page-intro`), and where a page carries one, a centred `.cv-line` at the foot.
-  About, Scholarship and Teaching carry the `.cv-line`; Consulting does not.
+  About, Scholarship and Teaching carry the `.cv-line`; Consulting and Digital
+  Work do not.
 - **Figures:** every image is a rectangle with a 2px radius, right edge on the
   1024 rule. An **oval was tried and rejected** (Sept 2026): an ellipse crops a
   photograph's own background into the frame, so it reads as a light shape on
@@ -184,7 +212,7 @@ walk the text nodes taking a `Range` rect per character and group by rounded
   mock-up routes. It builds `<main>`'s attributes by spread, because **Astro
   renders a `data-*` boolean as the string `"true"`/`"false"`** — so
   `data-pagefind-body={false}` is still a body tag and Pagefind indexes the
-  page. Tripwire: **the page count must stay 9.** (The word count moves with every
+  page. Tripwire: **the page count must stay 10** (9 until Digital Work, 29 Sept 2026). (The word count moves with every
   content edit, so it is only a rough companion &mdash; don't treat it as a fixed
   baseline; that number went stale within a day of being written down.)
 - `src/components/` — `SiteHeader`, `SiteFooter`, `SectionPlaceholder`, and
@@ -200,7 +228,7 @@ walk the text nodes taking a `Range` rect per character and group by rounded
   so a retina screen wants 1536 and 2406 device pixels.
 - `src/styles/global.css` — tokens and base typography.
 - **Search and sharing (added 11 Sept 2026).** `@astrojs/sitemap` writes
-  `sitemap-index.xml` at build; `public/robots.txt` points at it. `Layout`
+  `sitemap-index.xml` at build (filtered to drop any `/preview/` mock-up route); `public/robots.txt` points at it. `Layout`
   emits a canonical link, `og:url`, `og:image` and a Twitter card on every
   page, and takes an optional `jsonLd` prop — Home passes a schema.org
   `Person` whose `sameAs` links (LinkedIn, X, Linktree, the Martin Amis Web)

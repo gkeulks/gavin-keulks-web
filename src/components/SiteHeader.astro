@@ -1,24 +1,9 @@
 ---
 import { sections } from '../data/nav';
 
-interface Props {
-	/** mock-up only: show the proposed Digital Work item after Scholarship */
-	previewDigitalWork?: boolean;
-}
-
-const { previewDigitalWork = false } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-
-/* Mock-up of option B: the work first, then the person and the service as a
-   quieter group after a divider. Every other page renders the flat list. */
-const bySlug = (slug: string) => sections.find((s) => s.slug === slug)!;
-const digitalWork = { slug: 'preview/digital-work', title: 'Digital Work' };
-const links = previewDigitalWork
-	? [bySlug('books'), bySlug('scholarship'), digitalWork, bySlug('fieldwork'), bySlug('creative-work')]
-	: sections;
-const quietLinks = previewDigitalWork
-	? [bySlug('about'), bySlug('teaching'), bySlug('consulting')]
-	: [];
+const links = sections.filter((s) => !s.quiet);
+const quietLinks = sections.filter((s) => s.quiet);
 ---
 
 <header class="site-header">
@@ -44,7 +29,7 @@ const quietLinks = previewDigitalWork
 					</a>
 				))
 			}
-			{quietLinks.length > 0 && <span class="nav-sep" aria-hidden="true" />}
+			<span class="nav-sep" aria-hidden="true" />
 			{
 				quietLinks.map((link) => (
 					<a
@@ -115,7 +100,7 @@ const quietLinks = previewDigitalWork
 		font-size: 0.75rem;
 		font-weight: 500;
 		letter-spacing: 0.02em;
-		color: var(--color-ink-faint);
+		color: var(--color-ink-soft);
 		text-decoration: none;
 		white-space: nowrap;
 		padding-bottom: 0.15rem;
@@ -131,19 +116,14 @@ const quietLinks = previewDigitalWork
 		border-bottom-color: var(--color-ink);
 	}
 
-	/* option B mock-up: the work group reads a step darker than the quiet one */
-	.primary-nav:has(.nav-sep) a:not(.quiet) {
-		color: var(--color-ink-soft);
-	}
-
+	/* the person and the service, after the divider: a step quieter */
 	.primary-nav a.quiet {
 		color: var(--color-ink-faint);
 		font-weight: 400;
 	}
 
 	.primary-nav a.quiet:hover,
-	.primary-nav:has(.nav-sep) a:hover,
-	.primary-nav:has(.nav-sep) a.active {
+	.primary-nav a.quiet.active {
 		color: var(--color-ink);
 	}
 
@@ -199,7 +179,9 @@ const quietLinks = previewDigitalWork
 		top: 4px;
 	}
 
-	@media (max-width: 48rem) {
+	/* 52rem, not 48: eight items and a divider need about 825px of window
+	   to stay on one line beside the wordmark */
+	@media (max-width: 52rem) {
 		.nav-toggle {
 			display: inline-flex;
 		}

@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout
 	title="Scholarship"
-	description="Gavin Keulks — chapters and essays on the Amises, postmodernism and contemporary fiction, visual culture, and Aldous Huxley, plus the Martin Amis Web."
+	description="Gavin Keulks — chapters and essays on the Amises, postmodernism and contemporary fiction, visual culture, and Aldous Huxley."
 >
 	<div class="wrap">
 		<header class="page-head">
@@ -104,73 +104,6 @@ import Layout from '../layouts/Layout.astro';
 			</ul>
 		</section>
 
-		<section class="archive">
-			<h2>The Martin Amis Web</h2>
-			<p>
-				I have overseen and administered{' '}
-				<a href="https://martinamisweb.com/" target="_blank" rel="noopener noreferrer">the Martin&nbsp;Amis Web</a> since
-				2006 &mdash; the authoritative digital archive for the author. The British
-				Library designated it a site of scholarly significance in 2012 and
-				archives it every six months as part of their ongoing UK Web Archive
-				project. I rebuilt the site in 2006 and completely overhauled and
-				modernized it in 2026.
-			</p>
-			<p>
-				I designed and maintained three other sites in the same period: the WOU
-				Honors Program (2008&ndash;2026), Faculty Senate (2010&ndash;2012), and
-				English Department (2007&ndash;2009) webpages.
-			</p>
-			<p>
-				Administering a digital archive for a famous figure has been not only a
-				responsibility but also a subject of my research, spanning numerous
-				conference papers and presentations.
-			</p>
-			<ul class="record-list">
-				<li class="record-row">
-					<span class="record-year">2017</span>
-					<span class="record-item">
-						<span class="cite-title">&ldquo;Authorship in the Age of Digital Archiving.&rdquo;</span>
-						<span class="record-note">Technology, Knowledge, and Society International Conference &middot; Toronto,&nbsp;Canada</span>
-					</span>
-				</li>
-				<li class="record-row">
-					<span class="record-year">2012</span>
-					<span class="record-item">
-						<span class="cite-title">&ldquo;Shadowy Margins and Sinkholes: Authorship, Online Archives, and IP&nbsp;Law.&rdquo;</span>
-						<span class="record-note">Popular and American Culture Association &middot; Boston,&nbsp;MA</span>
-					</span>
-				</li>
-				<li class="record-row">
-					<span class="record-year">2011</span>
-					<span class="record-item">
-						<span class="cite-title">&ldquo;The Rhetoric of Road-Rage: Authorial Websites and Legal Hit-and-Runs.&rdquo;</span>
-						<span class="record-note">Popular and American Culture Association &middot; San&nbsp;Antonio,&nbsp;TX</span>
-					</span>
-				</li>
-				<li class="record-row">
-					<span class="record-year">2008</span>
-					<span class="record-item">
-						<span class="cite-title">&ldquo;Intellectual Properties: Growth Boundaries in Digital Scholarship and Copyright Law.&rdquo;</span>
-						<span class="record-note">Southwest/Texas Popular Culture Association &middot; Albuquerque,&nbsp;NM</span>
-					</span>
-				</li>
-				<li class="record-row">
-					<span class="record-year">2007</span>
-					<span class="record-item">
-						<span class="cite-title">&ldquo;Digital Humanizing: Administering Author/Scholar Relationships.&rdquo;</span>
-						<span class="record-note">Society for Digital Humanities &middot; Saskatoon,&nbsp;Canada</span>
-					</span>
-				</li>
-				<li class="record-row">
-					<span class="record-year">2007</span>
-					<span class="record-item">
-						<span class="cite-title">&ldquo;Administering Author Websites: Evolving Challenges in Scholarship, Copyright, and Discussion.&rdquo;</span>
-						<span class="record-note">Popular and American Culture Association &middot; Boston,&nbsp;MA</span>
-					</span>
-				</li>
-			</ul>
-		</section>
-
 		<section class="work">
 			<h2>General Reference</h2>
 			<ul class="cite-list">
@@ -231,64 +164,13 @@ import Layout from '../layouts/Layout.astro';
 		text-wrap: balance;
 	}
 
-	.archive,
 	.work {
 		padding-block: clamp(2.25rem, 5vw, 3.25rem);
 		border-top: 1px solid var(--color-line);
 	}
 
-	.archive h2,
 	.work h2 {
 		margin: 0 0 1.35rem;
-	}
-
-	.archive p {
-		margin: 0 0 1.15rem;
-		max-width: 42rem;
-	}
-
-	.archive .record-list {
-		margin-top: 1.5rem;
-	}
-
-	.record-list {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		max-width: 42rem;
-	}
-
-	.record-row {
-		display: grid;
-		grid-template-columns: 5rem 1fr;
-		gap: 0 1.5rem;
-		padding-block: 0.75rem;
-		align-items: baseline;
-	}
-
-	.record-row + .record-row {
-		border-top: 1px solid var(--color-line);
-	}
-
-	.record-year {
-		font-family: var(--font-sans);
-		font-size: 0.8rem;
-		color: var(--color-ink-faint);
-		font-variant-numeric: tabular-nums;
-	}
-
-	.record-item {
-		font-size: 1rem;
-		line-height: 1.45;
-		color: var(--color-ink-soft);
-	}
-
-	.record-note {
-		display: block;
-		margin-top: 0.2rem;
-		font-family: var(--font-sans);
-		font-size: 0.78rem;
-		color: var(--color-ink-faint);
 	}
 
 	.cite-list {
@@ -330,12 +212,5 @@ import Layout from '../layouts/Layout.astro';
 
 	.cv-line a {
 		color: var(--color-ink-soft);
-	}
-
-	@media (max-width: 34rem) {
-		.record-row {
-			grid-template-columns: 1fr;
-			gap: 0.25rem;
-		}
 	}
 </style>

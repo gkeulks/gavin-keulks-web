@@ -7,15 +7,14 @@ export interface NavSection {
 	blurb: string;
 	/** true once the section holds real content rather than a placeholder */
 	live: boolean;
+	/** the person and the service rather than the work: set after a divider
+	    in the top nav, in a quieter weight */
+	quiet?: boolean;
 }
 
+/* The work first, then the person and the service (`quiet`). The header
+   draws a divider between the two groups, so keep the quiet ones last. */
 export const sections: NavSection[] = [
-	{
-		slug: 'about',
-		title: 'About',
-		blurb: 'Biography, appointments and leadership, grants and awards, and a downloadable CV.',
-		live: true,
-	},
 	{
 		slug: 'books',
 		title: 'Books',
@@ -27,7 +26,13 @@ export const sections: NavSection[] = [
 		slug: 'scholarship',
 		title: 'Scholarship',
 		blurb:
-			'Essays, book chapters, and the Martin Amis Web — work for generalists and specialists alike.',
+			'Essays and book chapters, grouped by theme — work for generalists and specialists alike.',
+		live: true,
+	},
+	{
+		slug: 'digital-work',
+		title: 'Digital Work',
+		blurb: 'The Martin Amis Web and other sites — web design, digital humanities, and archival work.',
 		live: true,
 	},
 	{
@@ -44,11 +49,11 @@ export const sections: NavSection[] = [
 		live: true,
 	},
 	{
-		slug: 'consulting',
-		title: 'Consulting',
-		blurb:
-			'External program review, assessment, and curricular reform for honors programs and English departments.',
+		slug: 'about',
+		title: 'About',
+		blurb: 'Biography, appointments and leadership, grants and awards, and a downloadable CV.',
 		live: true,
+		quiet: true,
 	},
 	{
 		slug: 'teaching',
@@ -56,6 +61,15 @@ export const sections: NavSection[] = [
 		indexTitle: 'Teaching Portfolio',
 		blurb: 'Courses taught in literature, literary theory, and film.',
 		live: true,
+		quiet: true,
+	},
+	{
+		slug: 'consulting',
+		title: 'Consulting',
+		blurb:
+			'External program review, assessment, and curricular reform for honors programs and English departments.',
+		live: true,
+		quiet: true,
 	},
 ];
 
