@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
+import maw2009 from '../../assets/images/digital/maw-2009.jpg';
 import maw2026 from '../../assets/images/digital/maw-2026.jpg';
 ---
 
@@ -30,17 +31,28 @@ import maw2026 from '../../assets/images/digital/maw-2026.jpg';
 				modernized it in 2026.
 			</p>
 
-			<figure class="site-shot">
-				<a href="https://martinamisweb.com/" target="_blank" rel="noopener noreferrer">
+			<div class="then-now">
+				<figure class="site-shot shot-2009">
 					<Image
-						src={maw2026}
-						alt="The home page of the Martin Amis Web: a dark header with the site's title and navigation, above an introduction and a black-and-white portrait of Martin Amis"
-						widths={[480, 768, 1152, 1536]}
-						sizes="(max-width: 53rem) 90vw, 48rem"
+						src={maw2009}
+						alt="The Martin Amis Web home page in 2009: a brown table layout with the site's title in a dark banner, an author portrait and a book-cover slideshow, and three rows of section links above a short introduction"
+						widths={[400, 700, 1024, 1400]}
+						sizes="(max-width: 34rem) 90vw, (max-width: 53rem) 42vw, 22rem"
 					/>
-				</a>
-				<figcaption>martinamisweb.com, as rebuilt in 2026</figcaption>
-			</figure>
+					<figcaption>The 2006 design, as archived in 2009</figcaption>
+				</figure>
+				<figure class="site-shot shot-2026">
+					<a href="https://martinamisweb.com/" target="_blank" rel="noopener noreferrer">
+						<Image
+							src={maw2026}
+							alt="The Martin Amis Web home page in 2026: a dark header with the site's title and navigation, above an introduction and a black-and-white portrait of Martin Amis"
+							widths={[480, 768, 1152, 1536]}
+							sizes="(max-width: 34rem) 90vw, (max-width: 53rem) 50vw, 26rem"
+						/>
+					</a>
+					<figcaption>The 2026 overhaul</figcaption>
+				</figure>
+			</div>
 
 			<p>
 				Administering a digital archive for a famous figure has been not only a
@@ -140,9 +152,34 @@ import maw2026 from '../../assets/images/digital/maw-2026.jpg';
 		margin-bottom: 0;
 	}
 
-	/* the one picture on the page spans the column, right edge on the 1024 rule */
-	.site-shot {
+	/* then and now, spanning the column edge to edge (256 to 1024 at 1280).
+	   Each figure grows in proportion to its aspect ratio, so the two
+	   screenshots come out the same height without cropping either. */
+	.then-now {
+		display: flex;
+		gap: 1rem;
 		margin: 2rem 0 2.25rem;
+		align-items: flex-start;
+	}
+
+	.site-shot {
+		margin: 0;
+		min-width: 0;
+	}
+
+	.shot-2009 {
+		flex: 1.3333 1 0;
+	}
+
+	.shot-2026 {
+		flex: 1.6 1 0;
+	}
+
+	@media (max-width: 34rem) {
+		.then-now {
+			flex-direction: column;
+			gap: 1.75rem;
+		}
 	}
 
 	.site-shot a {
