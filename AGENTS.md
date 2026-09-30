@@ -41,8 +41,8 @@ material and adding the sections below.
   the essays are not in the books, a PDF indexes badly, and *Flight* will need
   a Books page to join.
 - **Digital Work** — added 29 Sept 2026: the Martin Amis Web (prose, papers)
-  and Other Sites. Byline is Gavin's: "Web design, digital humanities, and
-  archival work." Two **full-column screenshots** (768px, 1px border): the live
+  and Other Sites. Byline is Gavin's: "Web design and digital
+  humanities." (changed 30 Sept from "...and archival work"). Two **full-column screenshots** (768px, 1px border): the live
   2026 home page after the first paragraph, linked to the site; and **the 2006
   design as archived in 2009**, closing the section below the papers. The 2009
   one is a reconstruction: the Wayback capture renders its two Flash slideshows
@@ -65,8 +65,10 @@ material and adding the sections below.
   at 373px. The page's rule: **continuous prose keeps the 42rem measure; short
   records and pictures take the wide band.**
 - **Creative Work** — the novel *Flight* (under agent review, with a full
-  description drawn from Gavin's own query letter) and published poems, both
-  Merton poems linked to the Thomas Merton Society's PDFs. Carries **the site's
+  description drawn from Gavin's own query letter) published poems, both
+  Merton poems linked to the Thomas Merton Society's PDFs, and (added 30 Sept) a
+  one-entry **Creative Nonfiction** section for his Huxley-volume essay. Byline
+  stays "Fiction and poetry." Carries **the site's
   only photograph set inside prose**: a `.beside` grid in the *Flight* section,
   prose in one column and a `<figure>` in the other, starting level with the
   first body paragraph rather than the heading. Caption "Workshopping the mss.",
