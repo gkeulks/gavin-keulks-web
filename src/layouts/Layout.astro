@@ -12,6 +12,8 @@ interface Props {
 	bareTitle?: boolean;
 	/** keep a mock-up route out of search engines and out of Pagefind */
 	noindex?: boolean;
+	/** mock-up only: passed through to SiteHeader */
+	previewDigitalWork?: boolean;
 }
 
 const {
@@ -19,6 +21,7 @@ const {
 	description = 'Gavin Keulks — writer and scholar. Three books on the postwar English and Irish novel, a first novel in progress, and photographs toward a book on Irish traumatic spaces.',
 	bareTitle = false,
 	noindex = false,
+	previewDigitalWork = false,
 	jsonLd,
 } = Astro.props;
 
@@ -53,7 +56,7 @@ const ogImage = new URL('/og/gavin-keulks.jpg', Astro.site).href;
 	</head>
 	<body>
 		<a class="skip-link" href="#main">Skip to content</a>
-		<SiteHeader />
+		<SiteHeader previewDigitalWork={previewDigitalWork} />
 		<main
 			id="main"
 			{...noindex

@@ -1,7 +1,20 @@
 ---
 import { sections } from '../data/nav';
 
+interface Props {
+	/** mock-up only: show the proposed Digital Work item after Scholarship */
+	previewDigitalWork?: boolean;
+}
+
+const { previewDigitalWork = false } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const links = previewDigitalWork
+	? sections.flatMap((s) =>
+			s.slug === 'scholarship'
+				? [s, { slug: 'preview/digital-work', title: 'Digital Work' }]
+				: [s],
+		)
+	: sections;
 ---
 
 <header class="site-header">
@@ -18,7 +31,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 		</button>
 		<nav class="primary-nav" id="primary-nav" aria-label="Primary">
 			{
-				sections.map((link) => (
+				links.map((link) => (
 					<a
 						href={`/${link.slug}/`}
 						class={path === `/${link.slug}` ? 'active' : ''}
