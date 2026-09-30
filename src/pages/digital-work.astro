@@ -191,11 +191,12 @@ import maw2026 from '../assets/images/digital/maw-2026.jpg';
 		margin-top: 1.5rem;
 	}
 
+	/* short records take the full column, landing on the 1024 rule with the
+	   screenshots; continuous prose keeps the 42rem measure */
 	.record-list {
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		max-width: 42rem;
 	}
 
 	.record-row {
@@ -221,6 +222,7 @@ import maw2026 from '../assets/images/digital/maw-2026.jpg';
 		font-size: 1rem;
 		line-height: 1.45;
 		color: var(--color-ink-soft);
+		text-wrap: pretty;
 	}
 
 	.record-note {
