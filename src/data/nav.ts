@@ -32,7 +32,7 @@ export const sections: NavSection[] = [
 	{
 		slug: 'digital-work',
 		title: 'Digital Work',
-		blurb: 'The Martin Amis Web and other sites — web design, digital humanities, and archival work.',
+		blurb: 'The Martin Amis Web and other sites — web design and digital humanities.',
 		live: true,
 	},
 	{
