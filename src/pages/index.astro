@@ -7,8 +7,8 @@ import postmodernismCover from '../assets/images/books/postmodernism-and-beyond.
 import fatherAndSonCover from '../assets/images/books/father-and-son.png';
 
 const person = {
-	'@context': 'https://schema.org',
 	'@type': 'Person',
+	'@id': 'https://gavinkeulks.com/#person',
 	name: 'Gavin Keulks',
 	url: 'https://gavinkeulks.com/',
 	image: 'https://gavinkeulks.com/og/gavin-keulks.jpg',
@@ -27,6 +27,16 @@ const person = {
 		'https://martinamisweb.com/',
 	],
 };
+
+const website = {
+	'@type': 'WebSite',
+	'@id': 'https://gavinkeulks.com/#website',
+	name: 'Gavin Keulks',
+	url: 'https://gavinkeulks.com/',
+	author: { '@id': 'https://gavinkeulks.com/#person' },
+};
+
+const jsonLd = { '@context': 'https://schema.org', '@graph': [person, website] };
 
 const books = [
 	{
@@ -50,7 +60,7 @@ const books = [
 <Layout
 	title="Gavin Keulks — Writer and Scholar"
 	bareTitle
-	jsonLd={person}
+	{jsonLd}
 	description="Gavin Keulks — scholarship on postwar English fiction, a novel under consideration, and ongoing work on Irish spatial trauma."
 >
 	<div class="wrap">

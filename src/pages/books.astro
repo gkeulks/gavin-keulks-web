@@ -11,10 +11,41 @@ const postmodernismUrl =
 	'https://www.amazon.com/Martin-Amis-Postmodernism-G-Keulks/dp/0230008305/';
 const fatherAndSonUrl =
 	'https://www.amazon.com/Father-Son-Kingsley-Martin-British/dp/0299192105/';
+
+/* Structured data for search engines: only what the page itself states. */
+const keulks = { '@type': 'Person', name: 'Gavin Keulks', url: 'https://gavinkeulks.com/' };
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'Book',
+			name: 'The Cambridge Companion to Martin Amis',
+			editor: keulks,
+			publisher: { '@type': 'Organization', name: 'Cambridge University Press' },
+			datePublished: '2026',
+		},
+		{
+			'@type': 'Book',
+			name: 'Martin Amis: Postmodernism and Beyond',
+			editor: keulks,
+			publisher: { '@type': 'Organization', name: 'Palgrave Macmillan' },
+			datePublished: '2006',
+		},
+		{
+			'@type': 'Book',
+			name: 'Father and Son: Kingsley Amis, Martin Amis, and the British Novel Since 1950',
+			alternateName: 'Father and Son',
+			author: keulks,
+			publisher: { '@type': 'Organization', name: 'University of Wisconsin Press' },
+			datePublished: '2003',
+		},
+	],
+};
 ---
 
 <Layout
 	title="Books on Kingsley and Martin Amis"
+	{jsonLd}
 	description="Gavin Keulks — three books, 2003–2026, on Kingsley and Martin Amis and the postwar English and Irish novel."
 >
 	<div class="wrap">
