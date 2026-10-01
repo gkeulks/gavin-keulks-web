@@ -244,13 +244,23 @@ walk the text nodes taking a `Range` rect per character and group by rounded
   `sitemap-index.xml` at build (filtered to drop any `/preview/` mock-up route); `public/robots.txt` points at it. `Layout`
   emits a canonical link, `og:url`, `og:image` and a Twitter card on every
   page, and takes an optional `jsonLd` prop — Home passes a schema.org
-  `Person` whose `sameAs` links (LinkedIn, X, Linktree, the Martin Amis Web)
-  are what let a search engine treat them as one identity. **Every fact in it
-  came from the site; change it there first.** The card image is
+  `@graph` of a `Person` (its `sameAs` links — LinkedIn, X, Linktree, the
+  Martin Amis Web — are what let a search engine treat them as one identity)
+  and a `WebSite`; Books passes three `Book` entries (Gavin inline as editor or
+  author, no ISBNs — each page is read alone, so no cross-page `@id`).
+  **Every fact in it came from the site; change it there first.** Titles are
+  descriptive, set 30 Sept 2026 (&ldquo;Books on Kingsley and Martin Amis ·
+  Gavin Keulks&rdquo;): `Layout` appends the suffix, and Home and About use
+  `bareTitle` to carry their own. Keep titles under ~60 characters and
+  descriptions under ~155; both are props, so they take the character, never an
+  entity. The card image is
   `public/og/gavin-keulks.jpg`, 1200×630, cropped like the Home hero so the
   students in the source frame fall outside it. The domain is verified in
   Google Search Console (DNS record on Cloudflare — do not remove it) and the
-  sitemap is submitted.
+  sitemap is submitted. The old WordPress site
+  (`wp.wou.education/keulksg/`) 301s each of its four pages to the matching page
+  here, via the Page Links To box in its editor; its `people.wou.edu` pages
+  await WOU IT.
 - `public/_headers` — HSTS, CSP, nosniff, X-Frame-Options, Referrer-Policy,
   Permissions-Policy, COOP, immutable `/_astro/*`.
 - `public/_redirects` — `/spatial-trauma/` → `/fieldwork/`, `/contact/` → `/`.
