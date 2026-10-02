@@ -45,7 +45,7 @@ const id = `deck-${Math.random().toString(36).slice(2, 8)}`;
 						hidden={i !== 0}
 						widths={[640, 960, 1280, 1600]}
 						sizes={wide ? '(max-width: 53rem) 92vw, 74rem' : '(max-width: 53rem) 92vw, 50rem'}
-						loading={i === 0 ? 'eager' : 'lazy'}
+						loading="lazy"
 					/>
 				))
 			}
@@ -102,18 +102,37 @@ const id = `deck-${Math.random().toString(36).slice(2, 8)}`;
 				if (img && img.loading === 'lazy') img.loading = 'eager';
 			}
 
-			function show(n) {
+			function show(n, prefetch = true) {
 				at = (n + total) % total;
 				stage.forEach((el, i) => (el.hidden = i !== at));
 				big.forEach((el, i) => (el.hidden = i !== at));
 				counters.forEach((el) => (el.textContent = String(at + 1)));
 				/* Neighbours, so paging is instant. The 2560px enlargements are far
 				   heavier, and wait for a sign the reader wants one. */
-				warm(stage[(at + 1) % total]);
-				warm(stage[(at - 1 + total) % total]);
+				if (prefetch) {
+					warm(stage[(at + 1) % total]);
+					warm(stage[(at - 1 + total) % total]);
+				}
 			}
 
-			show(0);
+			/* The deck closes a long page, so nothing is fetched for it until it is
+			   near the screen: the first slide loads lazily, and its neighbours are
+			   warmed once the deck is about to be seen. */
+			show(0, false);
+			if ('IntersectionObserver' in window) {
+				const seen = new IntersectionObserver(
+					(entries) => {
+						if (entries.some((e) => e.isIntersecting)) {
+							show(at);
+							seen.disconnect();
+						}
+					},
+					{ rootMargin: '300px' }
+				);
+				seen.observe(deck);
+			} else {
+				show(at);
+			}
 			deck.querySelector('[data-prev]').addEventListener('click', () => show(at - 1));
 			deck.querySelector('[data-next]').addEventListener('click', () => show(at + 1));
 
