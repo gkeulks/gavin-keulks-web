@@ -16,7 +16,7 @@
 	--color-paper-raised: #fffefb;
 	--color-ink: #1a1a17;
 	--color-ink-soft: #55514a;
-	--color-ink-faint: #8d887e;
+	--color-ink-faint: #74706a;
 	--color-line: #e5e1d7;
 	--color-line-strong: #cdc7b9;
 	/* monochrome: the "accent" is the ink itself */
@@ -46,7 +46,7 @@
 	--color-paper-raised: #1e1c16;
 	--color-ink: #ece7dc;
 	--color-ink-soft: #b7b1a3;
-	--color-ink-faint: #837d70;
+	--color-ink-faint: #8c8678;
 	--color-line: #322f27;
 	--color-line-strong: #47433a;
 	--color-accent: #d98fa3;
@@ -58,7 +58,7 @@
 		--color-paper-raised: #1e1c16;
 		--color-ink: #ece7dc;
 		--color-ink-soft: #b7b1a3;
-		--color-ink-faint: #837d70;
+		--color-ink-faint: #8c8678;
 		--color-line: #322f27;
 		--color-line-strong: #47433a;
 		--color-accent: #d98fa3;
