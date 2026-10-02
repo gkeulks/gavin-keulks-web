@@ -103,6 +103,14 @@ Positioning: understate the professorship, lead with writer/scholar.
   So it marks **prose links only** — nav, wordmark, book titles, `.book-links`,
   `.cv-line` and the footer all set their own quieter colours and must keep
   them. Underlines take a 45% mix of the accent.
+- **Contrast — the faint tier is AA, measured Oct 2026.** `--color-ink-faint`
+  (quiet nav, record-list years, publisher lines, captions, `.cv-line`, footer
+  labels) was 3.32:1 in light and 4.16:1 on the dark tinted band. Now **light
+  `#74706a` (4.64:1)** and **dark `#8c8678` (4.70:1)**, so every text element on
+  all nine pages clears 4.5:1 in both themes. Gavin approved it from a
+  before/after widget. **Do not lighten `--color-ink-faint` again**, and check any
+  new text colour against `--color-paper-raised` (the Home band, the deck bar) as
+  well as the page.
 - **Layout:** one book-like column. `--content-width: 50rem`,
   `--page-width: 53rem`; `--page-width-wide: 78rem`, **used by Fieldwork** for
   its galleries, its three-column paper lists and its deck (56→1224 at 1280).
@@ -231,7 +239,11 @@ walk the text nodes taking a `Range` rect per character and group by rounded
 - `src/components/` — `SiteHeader`, `SiteFooter`, `SectionPlaceholder`, and
   **`SlideDeck`** (conference-presentation viewer: tinted band, one stage,
   prev/counter/next, native `<dialog>` lightbox, optional PDF link; props
-  `slides`, `title`, `meta`, `pdf`, `wide`). `title`/`meta` must be **plain
+  `slides`, `title`, `meta`, `pdf`, `wide`). **It loads nothing until the deck is near
+  the screen:** every slide is `loading="lazy"` (the first included), and an
+  IntersectionObserver warms the neighbours at 300px. Eager loading cost ~670KB on
+  every Fieldwork visit. Fieldwork passes no `pdf` &mdash; Gavin will not offer one.
+  `title`/`meta` must be **plain
   text** — they are the accessible name, and entities in a prop are escaped.
 - `src/assets/images/fieldwork/<strand>/` — gallery photographs, `01.jpg` to
   `06.jpg`, imported at 2400px on the long edge. Strands are `laundries`,
